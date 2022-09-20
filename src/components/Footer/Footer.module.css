@@ -17,11 +17,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 }
 .text::before {
   content: "\00A9";
   margin-right: 8px;
+  font-size: 18px;
 }
 .footerText::before {
   content: "\007C";
@@ -37,4 +38,9 @@
     font-size: 12px;
     line-height: 1.25;
   }
+}
+.footer_logo {
+  margin: 0 8px;
+  width: 16px;
+  height: 16px;
 }
