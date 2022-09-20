@@ -1,8 +1,7 @@
 function Svg() {
   return (
     <>
-      <p>Hello</p>
-      {/* <svg
+      <svg
         width="63"
         height="11"
         viewBox="0 0 63 11"
@@ -26,7 +25,7 @@ function Svg() {
         <g fill="none" stroke="#000" strokeWidth="1" strokeLinecap="butt">
           <use href="#heart" />
         </g>
-      </svg> */}
+      </svg>
     </>
   );
 }

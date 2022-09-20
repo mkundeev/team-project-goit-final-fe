@@ -22,31 +22,38 @@ export default function Chart() {
   ];
 
   return (
-    <div className={s.container}>
-      <h1>Results</h1>
-      <div className={s.Chart}>
-        <PieChart
-          data={dataChart}
-          label={({ dataEntry }) => `${dataEntry.value}%  ${dataEntry.title}`}
-          labelStyle={(index) => ({
-            fill: "#000000",
-            fontSize: "8px",
-            fontFamily: "sans-serif",
-          })}
-          radius={42}
-          labelPosition={112}
-        />
+    <div className={s.Chart}>
+      {/* {values.totalAnswersCount > 0 && ( */}
+      <PieChart data={dataChart} viewBoxSize={[100, 100]} />
+      {/* )} */}
+      {/* {!values.totalAnswersCount && <span>No data</span>} */}
+
+      <div className={s.valuesBlock}>
+        {/* {values.correctPercentage > 0 && ( */}
+        <div className={s.correctBlock}>
+          <div className={s.correctInnerBlock}>
+            <Svg />
+            <div className={s.correctColor}></div>
+            <p className={s.correctPercentage}>{data.correctAnswer}%</p>
+          </div>
+
+          <p className={s.correctText}>Correct</p>
+        </div>
+        {/* )} */}
+
+        {/* {values.incorrectPercentage > 0 && ( */}
+        <div className={s.incorrectBlock}>
+          <div className={s.incorrectInnerBlock}>
+            <Svg />
+            <div className={s.incorrectColor}></div>
+            <p className={s.incorrectPercentage}>
+              {data.correctAnswer + data.rejectAnswer}%
+            </p>
+          </div>
+          <p className={s.correctText}>Incorrect</p>
+        </div>
+        {/* )} */}
       </div>
-
-      <ul>
-        <li>
-          <p>Correct answers - {data.correctAnswer}</p>
-        </li>
-
-        <li>
-          <p> Total questions - {data.rejectAnswer + data.correctAnswer}</p>
-        </li>
-      </ul>
     </div>
   );
 }

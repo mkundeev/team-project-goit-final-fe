@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import CanvasJSReact from "./canvasjs.react";
-var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import React from "react";
+import CanvasJSReact from "canvasjs-react-charts";
+// const CanvasJS = CanvasJSReact.CanvasJS;
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default function CanvasCart() {
   const options = {
