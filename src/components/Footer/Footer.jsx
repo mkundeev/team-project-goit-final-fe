@@ -6,7 +6,6 @@ import s from "./Footer.module.css";
 export default function Footer() {
   return (
     <footer className={s.footerWrap}>
-      {/* <div className={s.container}> */}
       <span className={s.text}>2021</span>
       <p>All Rights Reserved</p>
       <p> Developed with</p>
@@ -17,7 +16,6 @@ export default function Footer() {
           GoIT Students
         </Link>
       </span>
-      {/* </div> */}
     </footer>
   );
 }
