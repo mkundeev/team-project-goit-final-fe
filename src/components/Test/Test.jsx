@@ -1,19 +1,49 @@
-import React, { useState } from "react";
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import { questions } from "../TestCard/questions";
-import TestCard from "../TestCard/TestCard";
-import s from "./Test.module.css";
+import React, { useState } from 'react';
+import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
+// import { useGetTestListQuery } from '../../app/testsApi';
+import { questions } from '../TestCard/questions';
+import TestCard from '../TestCard/TestCard';
+import s from './Test.module.css';
 
 export default function Test() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [checkedValue, setCheckedValue] = useState('');
+  const [answersArr, setAnswersArr] = useState([]);
+  // const { data: testList } = useGetTestListQuery();
+  // console.log('testList', testList);
+  console.log('answersArr', answersArr);
 
   const handleChangeDecrement = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
 
   const handleChangeIncrement = () => {
+    if (!checkedValue) {
+      alert('Select one of the answers');
+      return;
+    }
     setCurrentQuestion(currentQuestion + 1);
+    if (
+      answersArr.find(el => el.id === questions[currentQuestion].questionId)
+    ) {
+      setAnswersArr(prevState =>
+        prevState.map(el =>
+          el.id === questions[currentQuestion].questionId
+            ? { id: el.id, checkedValue: checkedValue }
+            : el
+        )
+      );
+      return;
+    }
+
+    setAnswersArr(prevState => [
+      ...prevState,
+      { id: questions[currentQuestion].questionId, checkedValue },
+    ]);
+    setCheckedValue('');
   };
+
+  // useEffect(() => {}, []);
 
   return (
     <div className={s.container}>
@@ -23,7 +53,11 @@ export default function Test() {
         </div>
         <button className={s.buttonFinish}>Finish test</button>
       </div>
-      <TestCard currentQuestion={currentQuestion} />
+      <TestCard
+        currentQuestion={currentQuestion}
+        setCheckedValue={setCheckedValue}
+        checkedValue={checkedValue}
+      />
       <ul className={s.paginationBtnWrap}>
         <li>
           <button
@@ -33,7 +67,7 @@ export default function Test() {
             onClick={handleChangeDecrement}
           >
             <BsArrowLeft className={s.iconBtn} />
-            Previous question
+            <span className={s.questionsNextPrev}>Previous question</span>
           </button>
         </li>
         <li>
@@ -43,7 +77,8 @@ export default function Test() {
             disabled={currentQuestion === questions.length - 1}
             onClick={handleChangeIncrement}
           >
-            Next question <BsArrowRight className={s.iconBtn} />
+            <span className={s.questionsNextPrev}>Next question</span>{' '}
+            <BsArrowRight className={s.iconBtn} />
           </button>
         </li>
       </ul>

@@ -1,3 +1,9 @@
+@media screen and (max-width: 767px) {
+  .questionsNextPrev {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 320px) {
   .container {
     width: 280px;
@@ -74,7 +80,7 @@
   }
 
   .question::after {
-    content: "";
+    content: '';
     display: block;
     margin: 0 auto;
     margin-top: 32px;
@@ -117,6 +123,12 @@
     width: 18px;
     height: 18px;
     display: grid;
+  }
+
+  .formInput:checked {
+    opacity: 1;
+    transform: scale(1);
+    accent-color: #ef680d;
   }
 
   .formLabel:not(:last-child) {
@@ -218,6 +230,10 @@
     letter-spacing: 0.02em;
   }
 
+  .paginationBtnWrap {
+    width: 704px;
+  }
+
   .paginationButton {
     width: 210px;
   }
@@ -252,5 +268,9 @@
 
   .formTest {
     width: 648px;
+  }
+
+  .paginationBtnWrap {
+    width: 820px;
   }
 }
