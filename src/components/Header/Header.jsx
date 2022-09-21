@@ -1,4 +1,6 @@
 import React from 'react';
+import { store } from 'app/store';
+import { testsApi } from 'app/testsApi';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { resetUser } from 'app/reducer';
@@ -11,7 +13,10 @@ export default function Header() {
   const handleLogOut = () => {
     logOut()
       .unwrap()
-      .then(() => dispatch(resetUser()));
+      .then(() => {
+        dispatch(resetUser());
+        store.dispatch(testsApi.util.resetApiState());
+      });
   };
   let activeStyle = {
     textDecoration: 'underline',

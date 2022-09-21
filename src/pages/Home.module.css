@@ -59,6 +59,8 @@
 /* .list {} */
 
 .item {
+    position:relative;
+
     width: 280px;
     height: 212px;
     padding-top: 60px;
@@ -89,6 +91,12 @@
     letter-spacing: 0.02em;
     color: var(--white);
     text-decoration: none;
+}
+.link::before{
+    position:absolute;
+
+    content: '';
+    inset:0;
 }
 
 .spanText {
