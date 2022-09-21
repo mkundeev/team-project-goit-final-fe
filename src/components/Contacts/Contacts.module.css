@@ -1,0 +1,69 @@
+.team {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  background-color: var(--botton-background-color);
+  text-align: center;
+  letter-spacing: 0.03em;
+  @include desktop {
+    padding-top: 94px;
+    padding-bottom: 94px;
+    line-height: 1.17;
+  }
+}
+
+.section-title--team {
+  font-size: 28px;
+  margin-bottom: 30px;
+  @include desktop {
+    font-size: 36px;
+    margin-bottom: 50px;
+  }
+}
+
+.team__list {
+  margin-bottom: -30px;
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -30px;
+  }
+}
+
+.team__item {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  border: 1px solid #eeeeee;
+
+  font-size: 16px;
+  line-height: 1.19;
+  margin-bottom: 30px;
+  @include tablet {
+    width: calc(100% / 2 - 30px);
+    margin-right: 30px;
+    background-color: var(--title-background-color);
+    @include desktop {
+      width: calc(100% / 4 - 30px);
+    }
+  }
+}
+
+.team__desc {
+  padding: 30px 0;
+  background: var(--title-background-color);
+}
+
+.team__name {
+  margin-bottom: 10px;
+
+  color: var(--primary-tex-color);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+}
+
+.team__profession {
+  margin-bottom: 16px;
+}
