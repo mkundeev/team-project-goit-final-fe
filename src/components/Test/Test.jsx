@@ -14,7 +14,7 @@ export default function Test() {
   // console.log('testList', testList);
   // const dispatch = useDispatch();
   // console.log('answersArr', answersArr);
-
+  console.log('currentQuestion', questions[currentQuestion].questionId);
   const handleChangeDecrement = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
