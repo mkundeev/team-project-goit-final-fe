@@ -1,12 +1,16 @@
 import Container from 'components/Container';
-import React from 'react';
+import { useState, useEffect } from 'react';
 import s from './Home.module.css';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { useGetTestListQuery } from 'app/testsApi';
 
 export default function HomePage() {
-  const qa = 'QA technical training';
-  const testing = 'Testing theory';
+  const { data } = useGetTestListQuery();
+  const [tests, setTests] = useState('');
+  console.log(data);
+
+  useEffect(() => setTests(data), [data]);
   return (
     <section className={s.homeMain}>
       <Container>
@@ -20,29 +24,24 @@ export default function HomePage() {
           <h2 className={s.title}>Linus Torvalds</h2>
           <p className={s.textTwo}>Linux kernel creator, hacker, 1969</p>
         </div>
-        <ul className={s.list}>
-          <li className={s.item}>
-            {/* <button type="button" className={s.button }> */}
-            <Link to={`/test?${qa}`} className={s.link}>
-              <span className={s.spanText}> QA technical training</span>
-            </Link>
-            <span className={s.span}>
-              <BsArrowRight className={s.svg} />
-            </span>
-            {/* </button> */}
-          </li>
-          <li className={s.item}>
-            <Link to={`/test?${testing}`} className={s.link}>
-              <span className={s.spanText}>
-                Testing <br />
-                theory
-              </span>
-              <span className={s.span}>
-                <BsArrowRight className={s.svg} />
-              </span>
-            </Link>
-          </li>
-        </ul>
+        {tests ? (
+          <ul className={s.list}>
+            {tests.map(({ _id, topic }) => (
+              <li className={s.item} key={_id}>
+                {/* <button type="button" className={s.button }> */}
+                <Link to={`/test/${_id}`} className={s.link}>
+                  <span className={s.spanText}>{topic}</span>
+                </Link>
+                <span className={s.span}>
+                  <BsArrowRight className={s.svg} />
+                </span>
+                {/* </button> */}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <></>
+        )}
       </Container>
     </section>
   );

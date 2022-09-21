@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   email: '',
   token: null,
+  startedTests: [],
 };
 
 const userSlice = createSlice({
@@ -15,18 +16,6 @@ const userSlice = createSlice({
     resetUser(state) {
       return { ...state, ...initialState };
     },
-    // addAnswer(state, { payload }) {
-    //   // return { ...state, ...initialState };
-    //   if (state.answers.some(item => item.questionId === payload.questionId)) {
-    //     state.answers.forEach((item, index, array) => {
-    //       if (item.questionId === payload.questionId) {
-    //         array[index].answer = payload.answer;
-    //       }
-    //     });
-    //   } else {
-    //     state.answers.push(payload);
-    //   }
-    // },
   },
 });
 
