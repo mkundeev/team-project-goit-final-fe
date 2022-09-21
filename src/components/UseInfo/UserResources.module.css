@@ -1,0 +1,51 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.22;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    width: 129px;
+    margin-bottom: 12px;
+}
+
+.line {
+    width: 150px;
+    color: var(--vectorColor);
+    margin-top: 0;
+}
+
+.list {
+    margin-bottom: 32px;
+}
+
+.item {
+    display: flex;
+    width: 207px;
+}
+
+.textNumber {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-right: 6px;
+}
+
+.spanText {
+    text-decoration: underline;
+}
+
+.link {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    text-decoration: none;
+}
