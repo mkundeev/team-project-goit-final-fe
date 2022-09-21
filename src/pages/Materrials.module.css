@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+.materialsMain {
+    background-image: url("../images/userInfoMobile-1x.jpg");
+    background-repeat: no-repeat;
+    background-position: right top -3px;
+    border-top: 1px solid var(--black);
+    padding-top: 40px;
+    padding-bottom: 117px;
+    background-color: #FCFCFE;
+
+}
+
+@media (min-device-pixel-ratio: 2),
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .materialsMain {
+        background-position: right top -3px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("../images/userInfoMobile-2x.jpg");
+    }
+}
