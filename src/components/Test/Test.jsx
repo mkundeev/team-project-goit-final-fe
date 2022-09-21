@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
+// import { useDispatch } from 'react-redux';
 // import { useGetTestListQuery } from '../../app/testsApi';
 import { questions } from '../TestCard/questions';
 import TestCard from '../TestCard/TestCard';
@@ -8,10 +9,11 @@ import s from './Test.module.css';
 export default function Test() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [checkedValue, setCheckedValue] = useState('');
-  const [answersArr, setAnswersArr] = useState([]);
+  // const [answersArr, setAnswersArr] = useState([]);
   // const { data: testList } = useGetTestListQuery();
   // console.log('testList', testList);
-  console.log('answersArr', answersArr);
+  // const dispatch = useDispatch();
+  // console.log('answersArr', answersArr);
 
   const handleChangeDecrement = () => {
     setCurrentQuestion(currentQuestion - 1);
@@ -23,23 +25,23 @@ export default function Test() {
       return;
     }
     setCurrentQuestion(currentQuestion + 1);
-    if (
-      answersArr.find(el => el.id === questions[currentQuestion].questionId)
-    ) {
-      setAnswersArr(prevState =>
-        prevState.map(el =>
-          el.id === questions[currentQuestion].questionId
-            ? { id: el.id, checkedValue: checkedValue }
-            : el
-        )
-      );
-      return;
-    }
+    // if (
+    //   answersArr.find(el => el.id === questions[currentQuestion].questionId)
+    // ) {
+    //   setAnswersArr(prevState =>
+    //     prevState.map(el =>
+    //       el.id === questions[currentQuestion].questionId
+    //         ? { id: el.id, checkedValue: checkedValue }
+    //         : el
+    //     )
+    //   );
+    setCheckedValue('');
 
-    setAnswersArr(prevState => [
-      ...prevState,
-      { id: questions[currentQuestion].questionId, checkedValue },
-    ]);
+    // setAnswersArr(prevState => [
+    //   ...prevState,
+    //   { id: questions[currentQuestion].questionId, checkedValue },
+    // ]);
+    // dispatch(addAnswer(answersArr));
     setCheckedValue('');
   };
 
