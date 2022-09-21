@@ -52,9 +52,9 @@ export const testsApi = createApi({
       providesTags: ['Users'],
     }),
     getTest: builder.query({
-      query(testId) {
+      query(topic) {
         return {
-          url: `tests/random/${testId}`,
+          url: `tests/random/${topic}`,
         };
       },
       providesTags: ['Tests'],
