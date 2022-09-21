@@ -6,7 +6,7 @@ import { getToken } from 'app/selectors';
 export default function PublicRoute({ children }) {
   const token = useSelector(getToken);
 
-  return <>{!token ? children : <Navigate to="/test" replace />}</>;
+  return <>{!token ? children : <Navigate to="/home" replace />}</>;
 }
 PublicRoute.propTypes = {
   children: PropTypes.node.isRequired,
