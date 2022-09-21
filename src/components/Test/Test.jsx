@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
+
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
-// import { useDispatch } from 'react-redux';
-// import { useGetTestListQuery } from '../../app/testsApi';
 import { questions } from '../TestCard/questions';
+import { useSetAnswersMutation } from 'app/testsApi';
+
 import TestCard from '../TestCard/TestCard';
 import s from './Test.module.css';
 
-export default function Test({ topic }) {
+export default function Test({ test }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [checkedValue, setCheckedValue] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [setAnswers] = useSetAnswersMutation();
+
+  console.log('test', test);
 
   const handleChangeDecrement = () => {
     setCurrentQuestion(currentQuestion - 1);
+    setAnswers({
+      testId: test.testId,
+      currentIndex: currentQuestion,
+      questionId: test[currentQuestion].questionId,
+      answer,
+    });
   };
 
   const handleChangeIncrement = () => {
@@ -20,24 +30,7 @@ export default function Test({ topic }) {
       return;
     }
     setCurrentQuestion(currentQuestion + 1);
-    // if (
-    //   answersArr.find(el => el.id === questions[currentQuestion].questionId)
-    // ) {
-    //   setAnswersArr(prevState =>
-    //     prevState.map(el =>
-    //       el.id === questions[currentQuestion].questionId
-    //         ? { id: el.id, checkedValue: checkedValue }
-    //         : el
-    //     )
-    //   );
-    setCheckedValue('');
-
-    // setAnswersArr(prevState => [
-    //   ...prevState,
-    //   { id: questions[currentQuestion].questionId, checkedValue },
-    // ]);
-    // dispatch(addAnswer(answersArr));
-    setCheckedValue('');
+    setAnswers();
   };
 
   // useEffect(() => {}, []);
@@ -50,11 +43,7 @@ export default function Test({ topic }) {
         </div>
         <button className={s.buttonFinish}>Finish test</button>
       </div>
-      <TestCard
-        currentQuestion={currentQuestion}
-        setCheckedValue={setCheckedValue}
-        checkedValue={checkedValue}
-      />
+      <TestCard currentQuestion={currentQuestion} setAnswer={setAnswer} />
       <ul className={s.paginationBtnWrap}>
         <li>
           <button

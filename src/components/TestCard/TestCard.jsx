@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { questions } from './questions';
 import s from '../Test/Test.module.css';
 
-export default function TestCard({
-  currentQuestion,
-  setCheckedValue,
-  checkedValue,
-}) {
+export default function TestCard({ currentQuestion, setAnswer }) {
+  const [checkedValue, setCheckedValue] = useState('');
+
   const handleChangeChecked = e => {
     setCheckedValue(e.target.value);
+    setAnswer(e.target.value);
   };
 
   return (

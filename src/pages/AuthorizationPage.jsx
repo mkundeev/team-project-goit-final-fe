@@ -9,7 +9,7 @@ export default function AuthorizationPage() {
   const dispatch = useDispatch();
 
   const logInUser = () => {
-    authorizeUser({ password: '12345678', email: 'test@test.com' })
+    authorizeUser({ password: '12345678', email: 'test8@test.com' })
       .unwrap()
       .then(data => {
         dispatch(setUser(data));

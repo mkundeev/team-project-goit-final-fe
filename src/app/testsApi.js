@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const testsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://nodejs-project-goit.herokuapp.com/',
+    baseUrl: 'localhost:4000/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().currentUser.token;
       if (token) {
@@ -57,7 +57,7 @@ export const testsApi = createApi({
           url: `tests/random/${testId}`,
         };
       },
-      providesTags: ['Tests'],
+      providesTags: ['Users'],
     }),
     getTestList: builder.query({
       query() {
@@ -75,6 +75,17 @@ export const testsApi = createApi({
           body: result,
         };
       },
+      providesTags: ['Users'],
+    }),
+    setAnswers: builder.mutation({
+      query(answers) {
+        return {
+          url: `tests/answers`,
+          method: 'PATCH',
+          body: answers,
+        };
+      },
+      invalidatesTags: ['Users'],
     }),
   }),
 });
@@ -87,4 +98,5 @@ export const {
   useGetResultMutation,
   useGetTestQuery,
   useGetTestListQuery,
+  useSetAnswersMutation,
 } = testsApi;

@@ -17,7 +17,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'user',
   storage,
-  blacklist: ['email'],
+  whitelist: ['email'],
 };
 const persReducer = persistReducer(persistConfig, userSlice.reducer);
 

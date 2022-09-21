@@ -8,7 +8,6 @@ import { useGetTestListQuery } from 'app/testsApi';
 export default function HomePage() {
   const { data } = useGetTestListQuery();
   const [tests, setTests] = useState('');
-  console.log(data);
 
   useEffect(() => setTests(data), [data]);
   return (
@@ -28,14 +27,12 @@ export default function HomePage() {
           <ul className={s.list}>
             {tests.map(({ _id, topic }) => (
               <li className={s.item} key={_id}>
-                {/* <button type="button" className={s.button }> */}
                 <Link to={`/test/${_id}`} className={s.link}>
                   <span className={s.spanText}>{topic}</span>
                 </Link>
                 <span className={s.span}>
                   <BsArrowRight className={s.svg} />
                 </span>
-                {/* </button> */}
               </li>
             ))}
           </ul>
