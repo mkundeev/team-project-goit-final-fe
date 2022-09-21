@@ -177,11 +177,11 @@
   }
 
   .testNameWrap {
-    width: 210px;
+    width: 220px;
   }
 
   .testName {
-    width: 105px;
+    width: 117px;
     font-family: var(--mainFont);
     font-weight: 400;
     font-size: 22px;

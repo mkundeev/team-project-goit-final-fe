@@ -6,15 +6,10 @@ import { questions } from '../TestCard/questions';
 import TestCard from '../TestCard/TestCard';
 import s from './Test.module.css';
 
-export default function Test() {
+export default function Test({ topic }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [checkedValue, setCheckedValue] = useState('');
-  // const [answersArr, setAnswersArr] = useState([]);
-  // const { data: testList } = useGetTestListQuery();
-  // console.log('testList', testList);
-  // const dispatch = useDispatch();
-  // console.log('answersArr', answersArr);
-  console.log('currentQuestion', questions[currentQuestion].questionId);
+
   const handleChangeDecrement = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
@@ -51,7 +46,7 @@ export default function Test() {
     <div className={s.container}>
       <div className={s.wrapTop}>
         <div className={s.testNameWrap}>
-          <p className={s.testName}>[ Testing theory_ ]</p>
+          <p className={s.testName}>[ {topic}_ ]</p>
         </div>
         <button className={s.buttonFinish}>Finish test</button>
       </div>
