@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import RingLoader from 'react-spinners/RingLoader';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
+import Header from 'components/Header/Header';
 
 const AuthorizationPage = lazy(() =>
   import('pages/AuthorizationPage' /* webpackChunkName: "authorization" */)
@@ -24,6 +25,7 @@ const ContactsPage = lazy(() =>
 function App() {
   return (
     <div>
+      <Header />
       <Suspense
         fallback={
           <div className="loader">
