@@ -1,18 +1,32 @@
-import React, { useState } from "react";
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import { questions } from "../TestCard/questions";
-import TestCard from "../TestCard/TestCard";
-import s from "./Test.module.css";
+import React, { useState } from 'react';
 
-export default function Test() {
+import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
+import { questions } from '../TestCard/questions';
+import { useSetAnswersMutation } from 'app/testsApi';
+
+import TestCard from '../TestCard/TestCard';
+import s from './Test.module.css';
+
+export default function Test({ test }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answer, setAnswer] = useState('');
+  const [setAnswers] = useSetAnswersMutation();
+
+  console.log('test', test);
 
   const handleChangeDecrement = () => {
     setCurrentQuestion(currentQuestion - 1);
+    setAnswers({
+      testId: test.testId,
+      currentIndex: currentQuestion,
+      questionId: test[currentQuestion].questionId,
+      answer,
+    });
   };
 
   const handleChangeIncrement = () => {
     setCurrentQuestion(currentQuestion + 1);
+    setAnswers();
   };
 
   return (
@@ -23,7 +37,7 @@ export default function Test() {
         </div>
         <button className={s.buttonFinish}>Finish test</button>
       </div>
-      <TestCard currentQuestion={currentQuestion} />
+      <TestCard currentQuestion={currentQuestion} setAnswer={setAnswer} />
       <ul className={s.paginationBtnWrap}>
         <li>
           <button

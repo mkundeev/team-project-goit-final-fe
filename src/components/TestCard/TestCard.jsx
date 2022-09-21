@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { questions } from "./questions";
-import s from "../Test/Test.module.css";
+import { questions } from './questions';
+import s from '../Test/Test.module.css';
 
-export default function TestCard({ currentQuestion }) {
-  const [checkedValue, setCheckedValue] = useState("");
+export default function TestCard({ currentQuestion, setAnswer }) {
+  const [checkedValue, setCheckedValue] = useState('');
 
-  const handleChangeChecked = (e) => {
+  const handleChangeChecked = e => {
     setCheckedValue(e.target.value);
+    setAnswer(e.target.value);
   };
 
   return (
     <div className={s.testWrap}>
       <p className={s.questionCounter}>
-        question{" "}
+        question{' '}
         <span className={s.currentQuestion}>
           {questions[currentQuestion].questionId}
         </span>
@@ -22,7 +23,7 @@ export default function TestCard({ currentQuestion }) {
       <h3 className={s.question}>{questions[currentQuestion].question}</h3>
 
       <form className={s.formTest}>
-        {questions[currentQuestion].answers.map((el) => (
+        {questions[currentQuestion].answers.map(el => (
           <label key={el} className={s.formLabel}>
             <input
               className={s.formInput}
