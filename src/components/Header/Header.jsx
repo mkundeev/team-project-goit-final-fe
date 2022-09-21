@@ -31,16 +31,6 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="test"
-            className={({ isActive }) =>
-              isActive ? activeClassName : undefined
-            }
-          >
-            Test
-          </NavLink>
-        </li>
-        <li>
           <NavLink to="material">
             {({ isActive }) => (
               <span className={isActive ? activeClassName : undefined}>
