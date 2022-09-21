@@ -63,7 +63,7 @@ function App() {
             }
           />
           <Route
-            path="/test/:testId"
+            path="/test/:topic"
             element={
               <PrivateRoute>
                 <TestPage />

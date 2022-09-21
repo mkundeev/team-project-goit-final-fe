@@ -29,7 +29,7 @@ export default function HomePage() {
             {tests.map(({ _id, topic }) => (
               <li className={s.item} key={_id}>
                 {/* <button type="button" className={s.button }> */}
-                <Link to={`/test/${_id}`} className={s.link}>
+                <Link to={`/test/${topic}`} className={s.link}>
                   <span className={s.spanText}>{topic}</span>
                 </Link>
                 <span className={s.span}>
