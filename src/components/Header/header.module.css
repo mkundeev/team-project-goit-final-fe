@@ -46,7 +46,10 @@
 }
 
 .activeLink {
-    composes: navLink;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
     border-bottom: 1px solid #FF6B09;
 }
 
@@ -76,7 +79,10 @@
 }
 
 .user {
-    composes: navLink;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
     margin-right: 20px;
 }
 
