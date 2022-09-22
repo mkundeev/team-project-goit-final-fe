@@ -4,7 +4,7 @@ import { testsApi } from 'app/testsApi';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { resetUser } from 'app/reducer';
-import { useLogOutUserMutation } from 'app/testsApi';
+import { useLogOutUserMutation } from '../../app/testsApi';
 
 export default function Header() {
   const [logOut] = useLogOutUserMutation();
