@@ -12,7 +12,7 @@ export default function Contacts({
 }) {
   return (
     <li className={s.teamItem}>
-      <img src={image} alt="" />
+      <img src={image} alt={name} />
       <div className={s.teamDesc}>
         <h3 className={s.teamName}>{name}</h3>
         <p lang="eng" className={s.teamProfession}>
