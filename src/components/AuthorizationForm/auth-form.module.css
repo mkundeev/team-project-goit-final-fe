@@ -1,0 +1,83 @@
+.form {
+    width: 501px;
+    height: 527px;
+    box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 60px;
+    padding-bottom: 48px;
+    background-color: #fff;
+
+}
+
+.link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 159px;
+    height: 51px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.02em;
+    color: #000;
+    background-color: #fafafa;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
+    margin: 32px 0;
+}
+
+.link:hover {
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+.googleIcon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.inputBlock {
+    margin-top: 32px;
+    margin-bottom: 40px;
+}
+
+.input {
+    width: 425px;
+    height: 56px;
+    border: 1px solid #CED2D1;
+    padding: 20px 25px;
+
+}
+
+.input:not(:last-of-type) {
+    margin-bottom: 24px;
+}
+
+input:hover {
+    border-color: #FF6B09;
+}
+
+.btn {
+    width: 210px;
+    height: 60px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border: 1px solid #CED2D1;
+    cursor: pointer;
+}
+
+.btn:not(:last-of-type) {
+    margin-right: 17px;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #FF6B09;
+}
