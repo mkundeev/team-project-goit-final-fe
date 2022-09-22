@@ -39,3 +39,36 @@
     letter-spacing: 0.02em;
     color: var(--black);
 }
+
+@media screen and (min-width:768px) {
+    .title {
+        width: 336px;
+        font-size: 22px;
+        line-height: 1.36;
+        margin-bottom: 20px;
+    }
+
+    .line {
+        width: 336px;
+        margin-bottom: 24px;
+    }
+
+    .list {
+        margin-left: 82px;
+    }
+
+    .item {
+        width: 254px;
+    }
+
+    .textNumber {
+        font-size: 14px;
+        line-height: 1.57;
+    }
+
+    .text {
+        font-size: 14px;
+        line-height: 1.57;
+    }
+
+}

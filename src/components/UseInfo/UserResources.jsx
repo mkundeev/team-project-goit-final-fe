@@ -6,10 +6,10 @@ export default function UserResources({ title, array }) {
         <div className={s.line} >
             <hr />
          </div>
-            <ul>
+            <ul className={s.list}>
                 {array.map(({text,number,href}) =>
                 {
-                    return <li key={number}><a href={href} target="_blank" rel="noreferrer" className={s.link}><span className={s.textNumber}>{number}.</span><span className={s.spanText}>{text}</span></a></li>
+                    return <li key={number} className={s.item}><a href={href} target="_blank" rel="noreferrer" className={s.link}><span className={s.textNumber}>{number}.</span><span className={s.spanText}>{text}</span></a></li>
                 })}
         </ul>
     </>
