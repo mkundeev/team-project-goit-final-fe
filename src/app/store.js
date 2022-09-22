@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import { testsApi } from "./testsApi";
-import userSlice from "./reducer";
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { testsApi } from './testsApi';
+import userSlice from './reducer';
 import {
   persistStore,
   persistReducer,
@@ -11,13 +11,13 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
-  key: "user",
+  key: 'user',
   storage,
-  whitelist: ["token"],
+  whitelist: ['email'],
 };
 const persReducer = persistReducer(persistConfig, userSlice.reducer);
 
@@ -26,7 +26,7 @@ export const store = configureStore({
     [testsApi.reducerPath]: testsApi.reducer,
     [userSlice.name]: persReducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

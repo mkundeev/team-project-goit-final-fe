@@ -1,42 +1,45 @@
-import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router';
-import { useEffect, useState } from 'react';
-
-import React from 'react';
-import Container from '../components/Container/Container';
-import s from '../components/Contacts/Contacts.module.css';
-import Contacts from '../components/Contacts/Contacts';
-import userContacts from '../components/Contacts/userContacts';
-
-// import { authActions } from 'redux/auth';
+import Container from 'components/Container';
+import { useState, useEffect } from 'react';
+import s from './Home.module.css';
+import { BsArrowRight } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import { useGetTestListQuery } from 'app/testsApi';
 
 export default function HomePage() {
-  // const location = useLocation();
-  // const dispatch = useDispatch();
+  const { data } = useGetTestListQuery();
+  const [tests, setTests] = useState('');
 
-  // useEffect(() => {
-  //   dispatch(authActions.setUserLocation(location.pathname));
-  // }, []);
-
-  const [card] = useState(userContacts);
+  useEffect(() => setTests(data), [data]);
   return (
-    <Container>
-      <main className={s.mainContacts}>
-        <h2 className={s.title}>Our team</h2>
-        <ul className={s.list}>
-          {card.map(({ id, name, position, text, image, linkedin, github }) => (
-            <Contacts
-              key={id}
-              name={name}
-              position={position}
-              text={text}
-              image={image}
-              linkedin={linkedin}
-              github={github}
-            />
-          ))}
-        </ul>
-      </main>
-    </Container>
+    <section className={s.homeMain}>
+      <Container>
+        <h1 className={s.hidden}>Home</h1>
+        <div className={s.textContainer}>
+          <p className={s.text}>
+            “Regression testing. What is it? <br /> If the system compiles,
+            that's good, if it <br /> boots, that's great!”
+          </p>
+          <hr className={s.line} />
+          <h2 className={s.title}>Linus Torvalds</h2>
+          <p className={s.textTwo}>Linux kernel creator, hacker, 1969</p>
+        </div>
+        {tests ? (
+          <ul className={s.list}>
+            {tests.map(({ _id, topic }) => (
+              <li className={s.item} key={_id}>
+                <Link to={`/test/${_id}`} className={s.link}>
+                  <span className={s.spanText}>{topic}</span>
+                </Link>
+                <span className={s.span}>
+                  <BsArrowRight className={s.svg} />
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <></>
+        )}
+      </Container>
+    </section>
   );
 }

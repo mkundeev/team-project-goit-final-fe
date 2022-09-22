@@ -1,0 +1,46 @@
+.footer {
+  font-family: var(--mainFont);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+
+  color: var(--footerTextColor);
+  background-color: var(--footerBgColor);
+}
+.footerWrap {
+  margin: 10px 0 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+.text::before {
+  content: "\00A9";
+  margin-right: 8px;
+  font-size: 18px;
+}
+.footerText::before {
+  content: "\007C";
+  margin-right: 8px;
+  margin-left: 8px;
+}
+.link {
+  color: var(--footerTextColor);
+  margin-left: 5px;
+}
+@media (min-width: 768px) {
+  .footer {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+.footer_logo {
+  margin: 0 8px;
+  width: 16px;
+  height: 16px;
+}

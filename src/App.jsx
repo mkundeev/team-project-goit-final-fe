@@ -1,11 +1,15 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { getToken } from 'app/selectors';
+import { setUser } from 'app/reducer';
+import { useGetUserQuery } from 'app/testsApi';
 import RingLoader from 'react-spinners/RingLoader';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
-import Contacts from 'components/Contacts/Contacts';
+import Header from 'components/Header/Header';
 
 const AuthorizationPage = lazy(() =>
   import('pages/AuthorizationPage' /* webpackChunkName: "authorization" */)
@@ -23,8 +27,17 @@ const ContactsPage = lazy(() =>
   import('pages/ContactsPage' /* webpackChunkName: "contacts" */)
 );
 function App() {
+  const dispatch = useDispatch();
+  const token = useSelector(getToken);
+  const { data } = useGetUserQuery('', { skip: !token });
+  useEffect(() => {
+    if (data) {
+      dispatch(setUser(data));
+    }
+  }, [data, dispatch]);
   return (
     <div>
+      <Header />
       <Suspense
         fallback={
           <div className="loader">
@@ -50,7 +63,7 @@ function App() {
             }
           />
           <Route
-            path="/test"
+            path="/test/:testId"
             element={
               <PrivateRoute>
                 <TestPage />
