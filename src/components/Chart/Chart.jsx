@@ -3,6 +3,8 @@ import { PieChart } from 'react-minimal-pie-chart';
 import s from './Chart.module.css';
 import Svg from './Svg';
 import Container from 'components/Container';
+import SimonCat from './SimonCat';
+import { Link } from 'react-router-dom';
 
 export default function Chart() {
   const data = {
@@ -11,54 +13,69 @@ export default function Chart() {
   };
   const dataChart = [
     {
-      title: 'Correct',
-      value: (data.correctAnswer / 12) * 100,
+      title: 'Incorrect',
+      value: (data.rejectAnswer / 12) * 100,
       color: '#D7D7D7 ',
     },
     {
-      title: 'Incorrect',
-      value: (data.rejectAnswer / 12) * 100,
+      title: 'Correct',
+      value: (data.correctAnswer / 12) * 100,
       color: '#ff6b09',
     },
   ];
 
   return (
-    <Container>
-      <h1 className={s.title}>Results</h1>
-      <p className={s.titleText}>{'[ Testing theory_]'}</p>
-      <div className={s.Chart}>
-        {/* {values.totalAnswersCount > 0 && ( */}
-        <PieChart data={dataChart} viewBoxSize={[100, 100]} />
-        {/* )} */}
-        {/* {!values.totalAnswersCount && <span>No data</span>} */}
-
-        <div className={s.valuesBlock}>
-          {/* {values.correctPercentage > 0 && ( */}
-          <div className={s.correctBlock}>
-            <div className={s.correctInnerBlock}>
-              <Svg />
-              <div className={s.correctColor}></div>
-              <p className={s.correctPercentage}>{data.correctAnswer}%</p>
-            </div>
-
-            <p className={s.correctText}>Correct</p>
-          </div>
+    <div className={s.ChartTest}>
+      <Container>
+        <h1 className={s.title}>Results</h1>
+        <p className={s.titleText}>{'[ Testing theory_]'}</p>
+        <div className={s.Chart}>
+          {/* {values.totalAnswersCount > 0 && ( */}
+          <PieChart data={dataChart} viewBoxSize={[100, 100]} />
           {/* )} */}
+          {/* {!values.totalAnswersCount && <span>No data</span>} */}
 
-          {/* {values.incorrectPercentage > 0 && ( */}
-          <div className={s.incorrectBlock}>
-            <div className={s.incorrectInnerBlock}>
-              <Svg />
-              <div className={s.incorrectColor}></div>
-              <p className={s.incorrectPercentage}>
-                {data.correctAnswer + data.rejectAnswer}%
-              </p>
+          <div className={s.valuesBlock}>
+            {/* {values.correctPercentage > 0 && ( */}
+            <div className={s.correctBlock}>
+              <div className={s.correctInnerBlock}>
+                <Svg />
+                <div className={s.correctColor}></div>
+                <p className={s.correctPercentage}>{dataChart[1].value}%</p>
+              </div>
+
+              <p className={s.correctText}>Correct</p>
             </div>
-            <p className={s.correctText}>Incorrect</p>
+            {/* )} */}
+
+            {/* {values.incorrectPercentage > 0 && ( */}
+            <div className={s.incorrectBlock}>
+              <div className={s.incorrectInnerBlock}>
+                <Svg />
+                <div className={s.incorrectColor}></div>
+                <p className={s.incorrectPercentage}>{dataChart[0].value}%</p>
+              </div>
+              <p className={s.correctText}>Incorrect</p>
+            </div>
+            {/* )} */}
           </div>
-          {/* )} */}
         </div>
-      </div>
-    </Container>
+        <ul className={s.list}>
+          <li className={s.item}>Correct answers - {data.correctAnswer}</li>
+          <li className={s.item}>
+            Total questions - {data.correctAnswer + data.rejectAnswer}
+          </li>
+        </ul>
+        <SimonCat data={data.correctAnswer} />
+        <p className={s.materials}>
+          But you still need to learn some materials.
+        </p>
+        <div className={s.cartLink}>
+          <Link to={'/test/:testId'} className={s.link}>
+            Try again
+          </Link>
+        </div>
+      </Container>
+    </div>
   );
 }

@@ -10,6 +10,7 @@ import RingLoader from 'react-spinners/RingLoader';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import Header from 'components/Header/Header';
+import Chart from './components/Chart/Chart';
 
 const AuthorizationPage = lazy(() =>
   import(
@@ -40,7 +41,8 @@ function App() {
   }, [data, dispatch]);
   return (
     <div>
-      <Suspense
+      <Chart />
+      {/* <Suspense
         fallback={
           <div className="loader">
             <RingLoader color="#1212dc" size={250} />
@@ -91,7 +93,7 @@ function App() {
             }
           />
         </Routes>
-      </Suspense>
+      </Suspense> */}
       <ToastContainer
         autoClose={4000}
         closeButton={false}
