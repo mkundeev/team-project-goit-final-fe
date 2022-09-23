@@ -1,6 +1,6 @@
 .section {
     width: 100vw;
-    height: 726px;
+    /* height: 726px; */
     background-color: #F5F6FB;
     padding: 100px 0;
 }
@@ -12,11 +12,7 @@
 .textWrapper {
     margin-left: 104px;
     margin-top: 70px;
-   
-}
 
-.formWrapper {
-    margin-left: 112px;
 }
 
 .text {
@@ -26,9 +22,113 @@
     font-size: 18px;
     line-height: 36px;
     letter-spacing: 0.02em;
-    
 }
 
 .word {
     font-weight: 700;
+}
+
+.title {
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 41px;
+    letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 767px) {
+.section {
+    padding-top: 42px;
+    padding-bottom: 34px;;
+}
+    
+    .title {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    .text {
+        width: 280px;
+        height: 100px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+    }
+    .textWrapper {
+        width: 280px;
+        margin: 0px auto 24px auto;
+        
+    }
+    .formWrapper {
+        margin: 0px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding-top: 82px;
+        padding-bottom: 70px;
+    }
+    .authBlock {
+        width: 535px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .title {
+        font-size: 30px;
+        line-height: 37px;
+        margin-bottom: 20px;
+    }
+    .text {
+        width: 535px;
+        height: 144px;
+        font-size: 16px;
+        line-height: 36px;
+
+    }
+
+    .formWrapper {
+        margin-left: 0;
+    }
+
+    .textWrapper {
+        width: 550px;
+        margin: 0px auto 24px auto;
+        
+    }
+  
+}
+
+@media screen and (max-width: 1279px) {
+    .authBlock {
+        flex-direction: column;
+    }
+    .formWrapper {
+        margin-right: auto;
+        margin-left: auto;
+    }
+ 
+}
+@media screen and (min-width: 1280px) {
+    .authBlock {
+        margin: 0;
+    }
+    .textWrapper {
+        margin-left: 104px;
+        margin-top: 70px;
+    
+    }
+    .text {
+        width: 420px;
+        height: 187px;
+        font-family: 'Montserrat';
+        font-size: 18px;
+        line-height: 36px;
+        letter-spacing: 0.02em;
+    }
+    .formWrapper {
+        margin-left: 112px;
+    }
 }

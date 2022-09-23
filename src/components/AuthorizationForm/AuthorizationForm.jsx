@@ -12,8 +12,10 @@ import { setUser } from 'app/reducer';
 import { useDispatch } from 'react-redux';
 import { useGoogleLogin } from '@react-oauth/google';
 
+
 export default function AuthorizationForm() {
   const dispatch = useDispatch();
+  
   const [authorizeUser] = useAuthorizeUserMutation();
   const [registerUser] = useRegisterUserMutation();
   const [googleLogin] = useAuthorizeUserByGoogleMutation();
