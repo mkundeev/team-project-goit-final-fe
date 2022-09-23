@@ -12,7 +12,9 @@ import PrivateRoute from './routes/PrivateRoute';
 import Header from 'components/Header/Header';
 
 const AuthorizationPage = lazy(() =>
-  import('pages/AuthorizationPage' /* webpackChunkName: "authorization" */)
+  import(
+    './pages/AuthorizationPage/AuthorizationPage' /* webpackChunkName: "authorization" */
+  )
 );
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home" */)
@@ -37,8 +39,6 @@ function App() {
   }, [data, dispatch]);
   return (
     <div>
-      <Header />
-
       <Suspense
         fallback={
           <div className="loader">
@@ -46,6 +46,7 @@ function App() {
           </div>
         }
       >
+        <Header />
         <Routes>
           <Route
             path="/authorization"
