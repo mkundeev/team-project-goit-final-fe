@@ -2,6 +2,7 @@ import React from 'react';
 import s from './auth-form.module.css';
 import { useState } from 'react';
 import icon from '../../images/AuthForm/google-icon.svg';
+import { toast } from 'react-toastify';
 import {
   useAuthorizeUserMutation,
   useRegisterUserMutation,
@@ -36,7 +37,11 @@ export default function AuthorizationForm() {
       .then(data => {
         dispatch(setUser(data));
       })
-      .catch(err => console.log(err.message));
+      .catch(err =>
+        toast.error(err.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        })
+      );
   };
   const signUpUser = e => {
     e.preventDefault();
@@ -49,7 +54,11 @@ export default function AuthorizationForm() {
             dispatch(setUser(data));
           })
       )
-      .catch(err => console.log(err.message));
+      .catch(({ data }) => {
+        toast.error(data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      });
   };
 
   return (

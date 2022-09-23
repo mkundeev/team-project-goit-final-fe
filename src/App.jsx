@@ -39,8 +39,6 @@ function App() {
   }, [data, dispatch]);
   return (
     <div>
-      <Header />
-
       <Suspense
         fallback={
           <div className="loader">
@@ -48,6 +46,7 @@ function App() {
           </div>
         }
       >
+        <Header />
         <Routes>
           <Route
             path="/authorization"

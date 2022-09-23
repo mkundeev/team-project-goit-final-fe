@@ -1,13 +1,14 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./app/store";
-import App from "./App.jsx";
-import "./index.css";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './app/store';
+import App from './App.jsx';
+import './index.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
