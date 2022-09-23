@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { PieChart } from 'react-minimal-pie-chart';
 import s from './Chart.module.css';
 import Svg from './Svg';
@@ -78,4 +79,4 @@ export default function Chart() {
       </Container>
     </div>
   );
-}
+

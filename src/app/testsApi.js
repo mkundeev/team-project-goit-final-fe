@@ -75,7 +75,7 @@ export const testsApi = createApi({
       query(result) {
         return {
           url: `tests/result`,
-          method: 'POST',
+          method: 'PATCH',
           body: result,
         };
       },
@@ -89,7 +89,6 @@ export const testsApi = createApi({
           body: answers,
         };
       },
-      invalidatesTags: ['Users'],
     }),
     result: builder.mutation({
       query(result) {
