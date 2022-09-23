@@ -10,6 +10,7 @@ import RingLoader from 'react-spinners/RingLoader';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import Header from 'components/Header/Header';
+import Chart from './components/Chart/Chart';
 
 const AuthorizationPage = lazy(() =>
   import('pages/AuthorizationPage' /* webpackChunkName: "authorization" */)
@@ -38,7 +39,7 @@ function App() {
   return (
     <div>
       <Header />
-
+      <Chart />
       <Suspense
         fallback={
           <div className="loader">
@@ -47,14 +48,15 @@ function App() {
         }
       >
         <Routes>
-          <Route
+          {/* <Route
             path="/authorization"
             element={
               <PublicRoute>
                 <AuthorizationPage />
+             
               </PublicRoute>
             }
-          />
+          /> */}
           <Route
             path="/home"
             element={

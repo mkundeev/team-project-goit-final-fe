@@ -1,52 +1,14 @@
-.Chart > svg {
+.Chart {
   position: relative;
-  width: 250px;
-  height: 250px;
-  margin: 0 auto;
-  overflow: visible;
-}
-.Chart > svg > text {
-  width: 300px;
-  height: 300px;
-}
-.Chart > svg::before {
-  content: " ";
-  width: 10px;
-  height: 10px;
-
-  border: 1px solid red;
-  z-index: 500;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
-
-  color: var(--black);
-  background-color: var(--primeryBgColor);
-  font-family: var(--mainFont);
   text-align: center;
 }
-ul {
-  list-style: none;
-}
-@media screen and (min-width: 320px) {
-  .container {
-    width: 320px;
-  }
-}
 
-@media screen and (min-width: 768px) {
-  .container {
-    width: 768px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .container {
-    width: 1280px;
-  }
+.Chart > svg {
+  position: relative;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
+  overflow: visible;
 }
 
 .logosocial {
@@ -58,18 +20,6 @@ ul {
   fill: #e96105;
 }
 
-@keyframes reveal {
-  from {
-    stroke-dasharray: 0 100;
-    stroke-dashoffset: 0;
-  }
-
-  to {
-    stroke-dasharray: 100 0;
-    stroke-dashoffset: 100;
-  }
-}
-
 .anim {
   animation: reveal 2s normal forwards ease-in-out;
   animation-iteration-count: 1;
@@ -77,8 +27,7 @@ ul {
 
 .valuesBlock {
   position: absolute;
-  right: -60px;
-  top: 15%;
+
   font-size: 10px;
   line-height: 12px;
   font-weight: var(--medium);
@@ -91,6 +40,7 @@ ul {
   align-items: flex-start;
 }
 .correctBlock {
+  display: flex;
   margin-bottom: 14px;
 }
 .correctInnerBlock,
@@ -102,7 +52,7 @@ ul {
 }
 
 .line {
-  content: "";
+  content: '';
   display: block;
   margin: 10px auto 12px;
   position: absolute;
@@ -113,7 +63,7 @@ ul {
   background-color: #000000;
 }
 .line2 {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: -66px;
@@ -125,7 +75,7 @@ ul {
   transform: rotateZ(-30deg);
 }
 .line2::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: -5px;
@@ -152,10 +102,29 @@ ul {
   background-color: #d7d7d7;
 }
 
+.valuesBlock {
+  top: 57px;
+  right: -15px;
+  font-size: 10px;
+  line-height: 12px;
+}
+.correctBlock,
+.incorrectBlock {
+  display: block;
+  margin-bottom: 2px;
+}
+.correctText {
+  text-align: right;
+}
+
 @media screen and (min-width: 768px) {
+  .Chart > svg {
+    width: 285px;
+    height: 285px;
+  }
   .valuesBlock {
-    top: 37%;
-    right: -170px;
+    top: 110px;
+    right: 53px;
     font-size: 16px;
   }
   .correctBlock {
@@ -164,6 +133,7 @@ ul {
 
   .correctBlock,
   .incorrectBlock {
+    display: flex;
     flex-direction: row;
     align-items: center;
   }
@@ -180,19 +150,48 @@ ul {
     height: 25px;
   }
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (min-width: 1280px) {
   .valuesBlock {
-    top: 33%;
-    right: -70px;
-    font-size: 10px;
-    line-height: 12px;
+    top: 110px;
+    right: 308px;
   }
-  .correctBlock,
-  .incorrectBlock {
-    display: block;
-    margin-bottom: 2px;
-  }
-  .correctText {
-    text-align: right;
+}
+
+.title {
+  position: relative;
+  font-size: 28px;
+  margin-bottom: 8px;
+
+  text-align: center;
+}
+
+.titleText {
+  position: relative;
+  text-align: center;
+  margin-bottom: 60px;
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.titleText::after {
+  content: ' ';
+  position: absolute;
+
+  bottom: -20px;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+
+  background: var(--diagramWrongBgColor);
+  border-radius: 2px;
+}
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 36px;
+    margin-bottom: 50px;
   }
 }
