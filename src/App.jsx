@@ -12,7 +12,9 @@ import PrivateRoute from './routes/PrivateRoute';
 import Header from 'components/Header/Header';
 
 const AuthorizationPage = lazy(() =>
-  import('pages/AuthorizationPage' /* webpackChunkName: "authorization" */)
+  import(
+    './pages/AuthorizationPage/AuthorizationPage' /* webpackChunkName: "authorization" */
+  )
 );
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home" */)

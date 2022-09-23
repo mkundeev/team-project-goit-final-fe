@@ -5,7 +5,7 @@ import icon from '../../images/AuthForm/google-icon.svg';
 import {
   useAuthorizeUserMutation,
   useRegisterUserMutation,
-} from 'app/testsApi';
+} from '../../app/testsApi';
 import { setUser } from 'app/reducer';
 import { useDispatch } from 'react-redux';
 
@@ -29,19 +29,21 @@ export default function AuthorizationForm() {
     });
   };
 
-  const logInUser = () => {
-    authorizeUser({ password, form })
+  const logInUser = e => {
+    e.preventDefault();
+    authorizeUser(form)
       .unwrap()
       .then(data => {
         dispatch(setUser(data));
       })
       .catch(err => console.log(err.message));
   };
-  const signUpUser = () => {
-    registerUser({ password, form })
+  const signUpUser = e => {
+    e.preventDefault();
+    registerUser(form)
       .unwrap()
       .then(() =>
-        authorizeUser({ password, form })
+        authorizeUser(form)
           .unwrap()
           .then(data => {
             dispatch(setUser(data));
