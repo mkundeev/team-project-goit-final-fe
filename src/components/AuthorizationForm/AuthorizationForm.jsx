@@ -6,14 +6,17 @@ import { toast } from 'react-toastify';
 import {
   useAuthorizeUserMutation,
   useRegisterUserMutation,
+  useAuthorizeUserByGoogleMutation,
 } from '../../app/testsApi';
 import { setUser } from 'app/reducer';
 import { useDispatch } from 'react-redux';
+import { useGoogleLogin } from '@react-oauth/google';
 
 export default function AuthorizationForm() {
   const dispatch = useDispatch();
   const [authorizeUser] = useAuthorizeUserMutation();
   const [registerUser] = useRegisterUserMutation();
+  const [googleLogin] = useAuthorizeUserByGoogleMutation();
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -60,12 +63,28 @@ export default function AuthorizationForm() {
         });
       });
   };
+  const login = useGoogleLogin({
+    onSuccess: async ({ code }) => {
+      console.log(code);
+      googleLogin({ code })
+        .unwrap()
+        .then(data => {
+          dispatch(setUser(data));
+        })
+        .catch(data => {
+          toast.error(data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        });
+    },
+    flow: 'auth-code',
+  });
 
   return (
     <div>
       <form className={s.form}>
         <p className={s.text}>You can use your Google Account to authorize:</p>
-        <div className={s.link}>
+        <div className={s.link} onClick={login}>
           <img className={s.googleIcon} src={icon} alt="" />
           <span className={s.googleTxt}>Google</span>
         </div>
