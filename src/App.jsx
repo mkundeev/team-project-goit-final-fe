@@ -9,6 +9,7 @@ import { useGetUserQuery } from 'app/testsApi';
 import RingLoader from 'react-spinners/RingLoader';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
+import ResultRoute from 'routes/ResultRoute';
 import Header from 'components/Header/Header';
 
 const AuthorizationPage = lazy(() =>
@@ -18,6 +19,9 @@ const AuthorizationPage = lazy(() =>
 );
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home" */)
+);
+const ResultPage = lazy(() =>
+  import('pages/ResultPage' /* webpackChunkName: "result" */)
 );
 const MaterialsPage = lazy(() =>
   import('pages/MaterialsPage' /* webpackChunkName: "material" */)
@@ -71,6 +75,14 @@ function App() {
               <PrivateRoute>
                 <TestPage />
               </PrivateRoute>
+            }
+          />
+          <Route
+            path="/result"
+            element={
+              <ResultRoute>
+                <ResultPage />
+              </ResultRoute>
             }
           />
           <Route

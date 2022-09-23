@@ -4,6 +4,7 @@ const initialState = {
   email: '',
   token: null,
   startedTests: [],
+  result:''
 };
 
 const userSlice = createSlice({

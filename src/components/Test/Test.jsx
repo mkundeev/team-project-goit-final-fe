@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
-import { useSetAnswersMutation } from 'app/testsApi';
+import { useSetAnswersMutation, useGetResultMutation } from 'app/testsApi';
 
 import TestCard from '../TestCard/TestCard';
+
 import s from './Test.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getStartedTests } from 'app/selectors';
+import { setUser } from 'app/reducer';
 
 export default function Test({ testId }) {
   const tests = useSelector(getStartedTests);
   const [currentTest, setCurrentTest] = useState('');
   const [checkedValue, setCheckedValue] = useState('');
   const [setAnswers] = useSetAnswersMutation();
+  const [getResult] = useGetResultMutation();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const test = tests?.find(test => test.testId === testId);
@@ -22,7 +29,7 @@ export default function Test({ testId }) {
     }
   }, [currentTest, testId, tests]);
 
-  const handleChangeDecrement = () => {
+  const handleChangeDecrement = async () => {
     const isCheckedValue = currentTest.tests[
       currentTest.currentIndex
     ].answers.find(el => el === checkedValue);
@@ -36,26 +43,43 @@ export default function Test({ testId }) {
       });
     }
 
-    setAnswers({
+    const { data } = await setAnswers({
       testId: currentTest.testId,
       currentIndex: currentTest.currentIndex - 1,
       questionId: currentTest.tests[currentTest.currentIndex].questionId,
       answer: checkedValue,
     });
+    dispatch(setUser({ startedTests: data }));
   };
 
-  const handleChangeIncrement = () => {
+  const handleChangeIncrement = async () => {
     if (!checkedValue) {
       alert('Select one of the answers');
       return;
     }
 
-    setAnswers({
+    const { data } = await setAnswers({
       testId: currentTest.testId,
       currentIndex: currentTest.currentIndex + 1,
       questionId: currentTest.tests[currentTest.currentIndex].questionId,
       answer: checkedValue,
     });
+    dispatch(setUser({ startedTests: data }));
+  };
+
+  const finishTest = async () => {
+    if (!checkedValue) {
+      alert('Select one of the answers');
+      return;
+    }
+    const { data } = await getResult({
+      testId: currentTest.testId,
+      questionId: currentTest.tests[currentTest.currentIndex].questionId,
+      answer: checkedValue,
+    });
+    console.log(data);
+    dispatch(setUser({ result: data }));
+    navigate('/result');
   };
 
   return (
@@ -66,7 +90,19 @@ export default function Test({ testId }) {
             <div className={s.testNameWrap}>
               <p className={s.testName}>[ _ ]</p>
             </div>
-            <button className={s.buttonFinish}>Finish test</button>
+            <button
+              type="button"
+              disabled={
+                !(
+                  currentTest.currentIndex === currentTest.tests.length - 1 &&
+                  checkedValue
+                )
+              }
+              className={s.buttonFinish}
+              onClick={finishTest}
+            >
+              Finish test
+            </button>
           </div>
           <TestCard
             currentIndex={currentTest.currentIndex}

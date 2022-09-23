@@ -46,6 +46,10 @@
     color: var(--white);
     cursor: pointer;
   }
+    .buttonFinish:disabled{
+      background-color: #ccc;
+      cursor: auto;
+    }
 
   .questionCounter {
     width: 240px;
@@ -196,6 +200,7 @@
     font-weight: 500;
     font-size: 14px;
   }
+
 
   .testWrap {
     width: 704px;
