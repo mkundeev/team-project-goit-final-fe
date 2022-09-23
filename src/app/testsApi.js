@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const testsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'localhost:4000/',
+    baseUrl: 'http://localhost:4000/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().currentUser.token;
       if (token) {
@@ -65,7 +65,7 @@ export const testsApi = createApi({
           url: `tests/`,
         };
       },
-      providesTags: ['Tests'],
+      providesTags: ['Users'],
     }),
     getResult: builder.mutation({
       query(result) {
@@ -75,12 +75,12 @@ export const testsApi = createApi({
           body: result,
         };
       },
-      providesTags: ['Users'],
+      invalidatesTags: ['Users'],
     }),
     setAnswers: builder.mutation({
       query(answers) {
         return {
-          url: `tests/answers`,
+          url: `tests/answer`,
           method: 'PATCH',
           body: answers,
         };

@@ -116,6 +116,7 @@
     letter-spacing: 0.02em;
     color: var(--black);
     position: relative;
+    cursor: pointer;
   }
 
   .formInput {
@@ -154,7 +155,7 @@
     letter-spacing: 0.02em;
     cursor: pointer;
   }
-  .paginationButton:hover {
+  .paginationButton:not([disabled]):hover {
     background-color: var(--accentColor);
     color: var(--white);
   }

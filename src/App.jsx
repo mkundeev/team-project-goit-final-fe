@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
@@ -27,9 +27,11 @@ const ContactsPage = lazy(() =>
   import('pages/ContactsPage' /* webpackChunkName: "contacts" */)
 );
 function App() {
+  const [tests, setTests] = useState('');
   const dispatch = useDispatch();
   const token = useSelector(getToken);
   const { data } = useGetUserQuery('', { skip: !token });
+
   useEffect(() => {
     if (data) {
       dispatch(setUser(data));
@@ -58,7 +60,7 @@ function App() {
             path="/home"
             element={
               <PrivateRoute>
-                <HomePage />
+                <HomePage tests={tests} setTests={setTests} />
               </PrivateRoute>
             }
           />
@@ -66,7 +68,7 @@ function App() {
             path="/test/:testId"
             element={
               <PrivateRoute>
-                <TestPage />
+                <TestPage tests={tests} />
               </PrivateRoute>
             }
           />
