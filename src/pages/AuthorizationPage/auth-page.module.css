@@ -1,0 +1,34 @@
+.section {
+    width: 100vw;
+    height: 726px;
+    background-color: #F5F6FB;
+    padding: 100px 0;
+}
+
+.authBlock {
+    display: flex;
+}
+
+.textWrapper {
+    margin-left: 104px;
+    margin-top: 70px;
+   
+}
+
+.formWrapper {
+    margin-left: 112px;
+}
+
+.text {
+    width: 420px;
+    height: 187px;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
+    
+}
+
+.word {
+    font-weight: 700;
+}

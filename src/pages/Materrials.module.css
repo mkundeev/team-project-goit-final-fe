@@ -1,0 +1,64 @@
+.materialsMain {
+    background-image: url("../images/userInfoMobile-1x.jpg");
+    background-repeat: no-repeat;
+    background-position: right top -3px;
+    border-top: 1px solid var(--black);
+    padding-top: 40px;
+    padding-bottom: 117px;
+    background-color: #FCFCFE;
+
+}
+
+@media (min-device-pixel-ratio: 2),
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .materialsMain {
+        background-position: right top -3px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("../images/userInfoMobile-2x.jpg");
+    }
+}
+
+@media screen and (min-width:768px) {
+    .materialsMain {
+        background-image: url("../images/userInfoTablet-1x.jpg");
+        background-size: contain;
+        padding-top: 180px;
+        padding-bottom: 356px;
+    }
+
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .materialsMain {
+            background-position: right top -3px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("../images/userInfoTablet-2x.jpg");
+        }
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .materialsMain {
+        background-image: url("../images/userInfoDes-1x.jpg");
+        background-size: contain;
+        padding-top: 100px;
+        padding-bottom: 272px;
+    }
+
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .materialsMain {
+            background-position: right top -3px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("../images/userInfoDes-2x.jpg");
+        }
+    }
+}

@@ -12,7 +12,7 @@ export const testsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Users, Tests'],
+  tagTypes: ['Users'],
   endpoints: builder => ({
     registerUser: builder.mutation({
       query(user) {
@@ -41,7 +41,6 @@ export const testsApi = createApi({
           method: 'POST',
         };
       },
-      invalidatesTags: ['Users'],
     }),
     getUser: builder.query({
       query() {
@@ -52,12 +51,7 @@ export const testsApi = createApi({
       providesTags: ['Users'],
     }),
     getTest: builder.query({
-      query(testId) {
-        return {
-          url: `tests/random/${testId}`,
-        };
-      },
-      providesTags: ['Users'],
+      query: testId => ({ url: `tests/random/${testId}` }),
     }),
     getTestList: builder.query({
       query() {
@@ -87,6 +81,16 @@ export const testsApi = createApi({
       },
       invalidatesTags: ['Users'],
     }),
+    result: builder.mutation({
+      query(result) {
+        return {
+          url: `tests/result`,
+          method: 'PATCH',
+          body: result,
+        };
+      },
+      invalidatesTags: ['Users'],
+    }),
   }),
 });
 
@@ -96,7 +100,8 @@ export const {
   useLogOutUserMutation,
   useGetUserQuery,
   useGetResultMutation,
-  useGetTestQuery,
   useGetTestListQuery,
   useSetAnswersMutation,
+  useGetTestQuery,
+  useResultMutation,
 } = testsApi;

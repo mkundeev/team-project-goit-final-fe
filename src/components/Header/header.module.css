@@ -1,0 +1,97 @@
+.header {
+    display: flex;
+    align-items: center;
+
+    width: 100vw;
+    background: #F5F6FB;
+    border-bottom: 1px solid #e2e3e5;
+
+}
+
+.headerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navBlock {
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    margin-right: 80px;
+}
+
+.navList {
+    display: flex;
+    align-items: center;
+}
+
+.navListItem:not(:last-of-type) {
+    margin-right: 80px;
+}
+
+.navLink {
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #000;
+}
+
+.navLink:hover {
+    color: #FF6B09;
+}
+
+.activeLink {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid #FF6B09;
+}
+
+.userPanel {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+}
+
+.userIcon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    font-family: 'Montserrat SemiBold';
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+
+    color: #555555;
+    background-color: #FFF;
+    border-radius: 50%;
+    box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
+
+    margin-right: 20px;
+}
+
+.user {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    margin-right: 20px;
+}
+
+.signOutBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 68px;
+    border-left: 1px solid #e2e3e5;
+    padding-left: 20px;
+    cursor: pointer;
+}
