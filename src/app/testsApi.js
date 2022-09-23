@@ -34,6 +34,16 @@ export const testsApi = createApi({
       },
       invalidatesTags: ['Users'],
     }),
+    authorizeUserByGoogle: builder.mutation({
+      query(code) {
+        return {
+          url: `users/googlelogin`,
+          method: 'POST',
+          body: code,
+        };
+      },
+      invalidatesTags: ['Users'],
+    }),
     logOutUser: builder.mutation({
       query() {
         return {
@@ -59,7 +69,7 @@ export const testsApi = createApi({
           url: `tests/`,
         };
       },
-      providesTags: ['Tests'],
+      providesTags: ['Users'],
     }),
     getResult: builder.mutation({
       query(result) {
@@ -96,6 +106,7 @@ export const testsApi = createApi({
 
 export const {
   useAuthorizeUserMutation,
+  useAuthorizeUserByGoogleMutation,
   useRegisterUserMutation,
   useLogOutUserMutation,
   useGetUserQuery,

@@ -1,66 +1,107 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
-import { questions } from '../TestCard/questions';
 import { useSetAnswersMutation } from 'app/testsApi';
 
 import TestCard from '../TestCard/TestCard';
 import s from './Test.module.css';
+import { useSelector } from 'react-redux';
+import { getStartedTests } from 'app/selectors';
 
-export default function Test({ test }) {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answer, setAnswer] = useState('');
+export default function Test({ testId }) {
+  const tests = useSelector(getStartedTests);
+  const [currentTest, setCurrentTest] = useState('');
+  const [checkedValue, setCheckedValue] = useState('');
   const [setAnswers] = useSetAnswersMutation();
 
-  console.log('test', test);
+  useEffect(() => {
+    const test = tests?.find(test => test.testId === testId);
+    setCurrentTest(test);
+    if (currentTest) {
+      setCheckedValue(currentTest?.answers[currentTest.currentIndex]?.answer);
+    }
+  }, [currentTest, testId, tests]);
 
   const handleChangeDecrement = () => {
-    setCurrentQuestion(currentQuestion - 1);
+    const isCheckedValue = currentTest.tests[
+      currentTest.currentIndex
+    ].answers.find(el => el === checkedValue);
+
+    if (!isCheckedValue) {
+      setAnswers({
+        testId: currentTest.testId,
+        currentIndex: currentTest.currentIndex - 1,
+        questionId: currentTest.tests[currentTest.currentIndex].questionId,
+        answer: 'Nothing was checked',
+      });
+    }
+
     setAnswers({
-      testId: test.testId,
-      currentIndex: currentQuestion,
-      questionId: test[currentQuestion].questionId,
-      answer,
+      testId: currentTest.testId,
+      currentIndex: currentTest.currentIndex - 1,
+      questionId: currentTest.tests[currentTest.currentIndex].questionId,
+      answer: checkedValue,
     });
   };
 
   const handleChangeIncrement = () => {
-    setCurrentQuestion(currentQuestion + 1);
-    setAnswers();
+    if (!checkedValue) {
+      alert('Select one of the answers');
+      return;
+    }
+
+    setAnswers({
+      testId: currentTest.testId,
+      currentIndex: currentTest.currentIndex + 1,
+      questionId: currentTest.tests[currentTest.currentIndex].questionId,
+      answer: checkedValue,
+    });
   };
 
   return (
-    <div className={s.container}>
-      <div className={s.wrapTop}>
-        <div className={s.testNameWrap}>
-          <p className={s.testName}>[ Testing theory_ ]</p>
+    <>
+      {currentTest && (
+        <div className={s.container}>
+          <div className={s.wrapTop}>
+            <div className={s.testNameWrap}>
+              <p className={s.testName}>[ _ ]</p>
+            </div>
+            <button className={s.buttonFinish}>Finish test</button>
+          </div>
+          <TestCard
+            currentIndex={currentTest.currentIndex}
+            test={currentTest.tests}
+            checkedValue={checkedValue}
+            setCheckedValue={setCheckedValue}
+          />
+          <ul className={s.paginationBtnWrap}>
+            <li>
+              <button
+                className={s.paginationButton}
+                type="button"
+                disabled={currentTest.currentIndex === 0}
+                onClick={handleChangeDecrement}
+              >
+                <BsArrowLeft className={s.iconBtn} />
+                <span className={s.questionsNextPrev}>Previous question</span>
+              </button>
+            </li>
+            <li>
+              <button
+                className={s.paginationButton}
+                type="button"
+                disabled={
+                  currentTest.currentIndex === currentTest.tests.length - 1
+                }
+                onClick={handleChangeIncrement}
+              >
+                <span className={s.questionsNextPrev}>Next question</span>{' '}
+                <BsArrowRight className={s.iconBtn} />
+              </button>
+            </li>
+          </ul>
         </div>
-        <button className={s.buttonFinish}>Finish test</button>
-      </div>
-      <TestCard currentQuestion={currentQuestion} setAnswer={setAnswer} />
-      <ul className={s.paginationBtnWrap}>
-        <li>
-          <button
-            className={s.paginationButton}
-            type="button"
-            disabled={currentQuestion === 0}
-            onClick={handleChangeDecrement}
-          >
-            <BsArrowLeft className={s.iconBtn} />
-            Previous question
-          </button>
-        </li>
-        <li>
-          <button
-            className={s.paginationButton}
-            type="button"
-            disabled={currentQuestion === questions.length - 1}
-            onClick={handleChangeIncrement}
-          >
-            Next question <BsArrowRight className={s.iconBtn} />
-          </button>
-        </li>
-      </ul>
-    </div>
+      )}
+    </>
   );
 }
