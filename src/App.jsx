@@ -32,6 +32,7 @@ function App() {
   const dispatch = useDispatch();
   const token = useSelector(getToken);
   const { data } = useGetUserQuery('', { skip: !token });
+
   useEffect(() => {
     if (data) {
       dispatch(setUser(data));

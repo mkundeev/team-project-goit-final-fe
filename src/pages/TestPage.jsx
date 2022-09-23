@@ -1,19 +1,24 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Test from '../components/Test/Test';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useGetTestQuery } from 'app/testsApi';
-import { getStartedTests } from '../app/selectors';
+import { setUser } from 'app/reducer';
+import { getStartedTestsIds } from 'app/selectors';
 
 export default function TestPage() {
   const { testId } = useParams();
-  useGetTestQuery(testId);
-  const tests = useSelector(getStartedTests);
-  const test = tests.find(test => test.testId === testId);
+  const dispatch = useDispatch();
+  const startedTestIds = useSelector(getStartedTestsIds);
+  const { data, isLoading } = useGetTestQuery(testId, {
+    skip: startedTestIds?.includes(testId),
+  });
 
-  return (
-    <>
-      <Test test={test} />
-    </>
-  );
+  useEffect(() => {
+    if (data) {
+      dispatch(setUser({ startedTests: data }));
+    }
+  }, [dispatch, data]);
+
+  return <>{!isLoading && <Test testId={testId} />}</>;
 }

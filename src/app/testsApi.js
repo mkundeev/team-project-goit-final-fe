@@ -59,7 +59,7 @@ export const testsApi = createApi({
           url: `tests/`,
         };
       },
-      providesTags: ['Tests'],
+      providesTags: ['Users'],
     }),
     getResult: builder.mutation({
       query(result) {
