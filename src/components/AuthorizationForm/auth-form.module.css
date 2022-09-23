@@ -11,7 +11,7 @@
 }
 
 .link {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 159px;
@@ -39,6 +39,13 @@
     margin-right: 10px;
 }
 
+.text {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+}
+
 .inputBlock {
     margin-top: 32px;
     margin-bottom: 40px;
@@ -61,7 +68,7 @@ input:hover {
 }
 
 .btn {
-    width: 210px;
+    width: 204px;
     height: 60px;
     font-family: 'Montserrat';
     font-weight: 700;
@@ -80,4 +87,30 @@ input:hover {
 .btn:hover {
     color: #fff;
     background: #FF6B09;
+}
+
+
+@media screen and (max-width: 767px) {
+    .form {
+        width: 280px;
+        padding: 40px 20px;
+        /* height: 463px; */
+    }
+
+    .text {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .input {
+        width: 240px;
+    }
+
+    .btn {
+        width: 109px;
+    }
+    .link {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

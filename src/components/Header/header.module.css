@@ -1,7 +1,5 @@
 .header {
-    display: flex;
-    align-items: center;
-
+    position: relative;
     width: 100vw;
     background: #F5F6FB;
     border-bottom: 1px solid #e2e3e5;
@@ -28,15 +26,11 @@
     align-items: center;
 }
 
-.navListItem:not(:last-of-type) {
-    margin-right: 80px;
-}
+
 
 .navLink {
     text-decoration: none;
     font-family: 'Montserrat';
-    font-size: 14px;
-    line-height: 16px;
     letter-spacing: 0.02em;
     color: #000;
 }
@@ -47,9 +41,8 @@
 
 .activeLink {
     font-family: 'Montserrat';
-    font-size: 14px;
-    line-height: 16px;
     letter-spacing: 0.02em;
+    text-decoration: none;
     border-bottom: 1px solid #FF6B09;
 }
 
@@ -80,8 +73,6 @@
 
 .user {
     font-family: 'Montserrat';
-    font-size: 14px;
-    line-height: 16px;
     letter-spacing: 0.02em;
     margin-right: 20px;
 }
@@ -93,5 +84,83 @@
     height: 68px;
     border-left: 1px solid #e2e3e5;
     padding-left: 20px;
+    padding-right: 20px;
     cursor: pointer;
+}
+
+.mobMenuBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 68px;
+    border-left: 1px solid #e2e3e5;
+    padding-left: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+
+}
+
+@media screen and (max-width: 767px) {
+    .nav {
+        display: none;
+    }
+
+    .user {
+        display: none;
+    }
+
+    .signOutBtn {
+        display: none;
+    }
+ 
+}
+
+@media screen and (min-width: 768px) {
+    .mobMenuBtn {
+        display: none;
+    }
+
+    .navListItem:not(:last-of-type) {
+        margin-right: 60px;
+    }
+
+    .nav {
+        margin-right: 40px;
+    }
+
+    .navLink {
+        font-size: 12px;
+    }
+
+    .activeLink {
+        font-size: 12px;
+    }
+    .user {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .navLink {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .navListItem:not(:last-of-type) {
+        margin-right: 80px;
+    }
+    .user {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .activeLink {
+        font-size: 14px;
+    }
 }

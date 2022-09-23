@@ -2,22 +2,42 @@ import React from 'react';
 import s from './header.module.css'
 import logo from '../../images/header/logo.svg'
 import icon from '../../images/header/sign-out.svg'
+import mobIcon from '../../images/header/burger-menu.svg'
+import crossIcon from '../../images/header/cross-icon.svg'
 import Container from 'components/Container';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { resetUser } from 'app/reducer';
 import { useLogOutUserMutation } from 'app/testsApi';
+import { useSelector, shallowEqual } from 'react-redux';
+import { getEmail } from 'app/selectors';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import MobileMenu from 'components/MobileMenu';
 
 export default function Header() {
+  const userEmail = useSelector(getEmail, shallowEqual)
   const [logOut] = useLogOutUserMutation();
   const dispatch = useDispatch();
+  const [isMenuOpen, setMenu] = useState(false)
+
+useEffect(()=> {
+  if (isMenuOpen) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = 'visible'
+  }
+}, [isMenuOpen])
 
   const handleLogOut = () => {
     logOut()
       .unwrap()
       .then(() => dispatch(resetUser()));
   };
- 
+
+  const toggleMenu = () => {
+    setMenu(!isMenuOpen)
+  }
 
   return (
     <header className={s.header}>
@@ -53,10 +73,17 @@ export default function Header() {
               <span className={s.signOutBtn} onClick={handleLogOut}>
                 <img className={s.signOutIcon} src={icon} alt="" />
               </span>
+              <span onClick={toggleMenu} className={s.mobMenuBtn}>
+                {!isMenuOpen && <img className={s.mobMenuIcon} src={mobIcon} alt="" />}
+                {isMenuOpen && <img className={s.crossIcon} src={crossIcon} alt="" />}
+              </span>
             </div>
           </div>
         </div>
       </Container>
+      {isMenuOpen && <MobileMenu toggleMenu={toggleMenu} handleLogOut={handleLogOut} />}
+
+
     </header>
 
   );

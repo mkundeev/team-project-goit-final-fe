@@ -5,9 +5,6 @@ import AuthorizationForm from 'components/AuthorizationForm';
 
 export default function AuthorizationPage() {
   
- 
-
-
   return (
     <section className={s.section}>
       <Container>

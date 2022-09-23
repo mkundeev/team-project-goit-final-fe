@@ -10,8 +10,10 @@ import {
 import { setUser } from 'app/reducer';
 import { useDispatch } from 'react-redux';
 
+
 export default function AuthorizationForm() {
   const dispatch = useDispatch();
+  
   const [authorizeUser] = useAuthorizeUserMutation();
   const [registerUser] = useRegisterUserMutation();
   const [form, setForm] = useState({
