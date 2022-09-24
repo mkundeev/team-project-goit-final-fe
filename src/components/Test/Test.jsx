@@ -78,7 +78,6 @@ export default function Test({ testId }) {
       answer: checkedValue,
     });
     console.log(data);
-    dispatch(setUser({ result: data }));
     navigate('/result');
   };
 
@@ -88,7 +87,7 @@ export default function Test({ testId }) {
         <div className={s.container}>
           <div className={s.wrapTop}>
             <div className={s.testNameWrap}>
-              <p className={s.testName}>[ _ ]</p>
+              <p className={s.testName}>[ _{currentTest.topic} ]</p>
             </div>
             <button
               type="button"

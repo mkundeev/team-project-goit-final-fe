@@ -1,0 +1,307 @@
+.Chart {
+  position: relative;
+  text-align: center;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.ChartTest {
+  padding: 32px 0 51px 0;
+}
+.Chart > svg {
+  position: relative;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
+  overflow: visible;
+}
+.list {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.item {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.item:first-child::after {
+  content: ' ';
+  border-right: 1px solid var(--diagramWrongBgColor);
+  margin: 0 10px;
+  height: 20px;
+}
+.cat {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.catText {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+.catImg {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+.logosocial {
+  fill: black;
+  transition: fill 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.logosocial:hover {
+  fill: #e96105;
+}
+.materials {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.link {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  text-decoration: none;
+}
+.cartLink {
+  padding: 17px 28px;
+  width: 190px;
+  text-align: center;
+  margin: 0 auto;
+  background: var(--accentColor);
+}
+.anim {
+  animation: reveal 2s normal forwards ease-in-out;
+  animation-iteration-count: 1;
+}
+
+.valuesBlock {
+  position: absolute;
+
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: var(--medium);
+}
+
+.correctBlock,
+.incorrectBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.correctBlock {
+  display: flex;
+  margin-bottom: 14px;
+}
+.correctInnerBlock,
+.incorrectInnerBlock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.line {
+  content: '';
+  display: block;
+  margin: 10px auto 12px;
+  position: absolute;
+  left: -48px;
+  top: -3px;
+  width: 43px;
+  height: 1px;
+  background-color: #000000;
+}
+.line2 {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -66px;
+  top: 7px;
+  width: 18px;
+  height: 1px;
+  background-color: #000000;
+  transform-origin: right;
+  transform: rotateZ(-30deg);
+}
+.line2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -5px;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.correctColor,
+.incorrectColor {
+  margin-left: 4px;
+  margin-right: 6px;
+}
+.correctColor {
+  width: 14px;
+  height: 14px;
+  background-color: #ff6b09;
+}
+.incorrectColor {
+  width: 14px;
+  height: 14px;
+  background-color: #d7d7d7;
+}
+
+.valuesBlock {
+  top: 57px;
+  right: -60px;
+  font-size: 10px;
+  line-height: 12px;
+}
+.correctBlock,
+.incorrectBlock {
+  display: block;
+  margin-bottom: 2px;
+}
+.correctText {
+  text-align: right;
+}
+.title {
+  position: relative;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.titleText {
+  position: relative;
+  text-align: center;
+  margin-bottom: 34px;
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+}
+.titleText::after {
+  content: ' ';
+  position: absolute;
+
+  bottom: -20px;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+
+  background: var(--diagramWrongBgColor);
+  border-radius: 2px;
+}
+@media screen and (min-width: 768px) {
+  .Chart {
+    width: 285px;
+    height: 285px;
+    margin-bottom: 32px;
+  }
+  .ChartTest {
+    padding: 40px 0 100px 0;
+  }
+  .title {
+    font-size: 22px;
+    line-height: 1.22;
+    margin-bottom: 8px;
+  }
+  .titleText {
+    margin-bottom: 72px;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+  .titleText::after {
+    content: ' ';
+    position: absolute;
+    bottom: -37px;
+  }
+  .Chart > svg {
+    width: 285px;
+    height: 285px;
+  }
+  .valuesBlock {
+    top: 110px;
+    right: -162px;
+    font-size: 16px;
+  }
+  .correctBlock {
+    margin-bottom: 15px;
+  }
+
+  .correctBlock,
+  .incorrectBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .correctInnerBlock,
+  .incorrectInnerBlock {
+    margin-right: 5px;
+  }
+  .correctColor {
+    width: 25px;
+    height: 25px;
+  }
+  .incorrectColor {
+    width: 25px;
+    height: 25px;
+  }
+  .list {
+    margin-bottom: 32px;
+  }
+  .item {
+    font-size: 16px;
+    line-height: 1.18;
+  }
+  .item:first-child::after {
+    content: ' ';
+
+    margin: 0 20px;
+  }
+  .cat {
+    margin-bottom: 8px;
+  }
+  .catText {
+    font-size: 22px;
+    line-height: 1.36;
+  }
+  .catImg {
+    width: 176px;
+    height: 176px;
+    margin-bottom: 8px;
+  }
+  .materials {
+    margin-bottom: 40px;
+    font-size: 20px;
+  }
+
+  .cartLink {
+    padding: 16px 24px;
+    width: 182px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .ChartTest {
+    padding-bottom: 65px;
+  }
+  .list {
+    margin-bottom: 28px;
+  }
+}

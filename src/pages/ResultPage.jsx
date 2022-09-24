@@ -9,8 +9,7 @@ export default function ResultPage() {
     <>
       {result && (
         <div>
-          <Chart />
-          {result.rightAnswers}/{result.wrongAnswers}
+          <Chart result={result} />
         </div>
       )}
     </>
