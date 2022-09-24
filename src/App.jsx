@@ -12,7 +12,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import ResultRoute from 'routes/ResultRoute';
 import Header from 'components/Header/Header';
 import Theme from 'components/Theme/Theme';
-import Chart from 'components/Chart/Chart';
+import Loader from 'components/Loader';
 
 const AuthorizationPage = lazy(() =>
   import(
@@ -47,24 +47,24 @@ function App() {
   return (
     <div>
       <Theme />
-      <Chart />
       <Suspense
         fallback={
           <div className="loader">
-            <RingLoader color="#1212dc" size={250} />
+            <Loader />
+            {/* <RingLoader color="#1212dc" size={250} /> */}
           </div>
         }
       >
         <Header />
         <Routes>
-          {/* <Route
+          <Route
             path="/authorization"
             element={
               <PublicRoute>
                 <AuthorizationPage />
               </PublicRoute>
             }
-          /> */}
+          />
           <Route
             path="/home"
             element={
@@ -84,9 +84,9 @@ function App() {
           <Route
             path="/result"
             element={
-              // <ResultRoute>
-              <ResultPage />
-              // </ResultRoute>
+              <ResultRoute>
+                <ResultPage />
+              </ResultRoute>
             }
           />
           <Route
