@@ -59,7 +59,7 @@
 
 }
 
-.input:not(:last-of-type) {
+.inputWrapper {
     margin-bottom: 24px;
 }
 
@@ -89,12 +89,20 @@ input:hover {
     background: #FF6B09;
 }
 
+.message {
+    font-family: "Montserrat";
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.04em;
+    color: #eb5757;
+    margin-top: 4px;
+  }
+
 
 @media screen and (max-width: 767px) {
     .form {
         width: 280px;
         padding: 40px 20px;
-        /* height: 463px; */
     }
 
     .text {

@@ -79,13 +79,16 @@ export default function Header() {
                 </li>
               </ul>
             </nav>
-            {userEmail && (
+           
               <div className={s.userPanel}>
+              {userEmail && ( <div>
                 <span className={s.userIcon}>{userEmail[0].toUpperCase()}</span>
                 <span className={s.user}>{userEmail.split('@')[0]}</span>
                 <span className={s.signOutBtn} onClick={handleLogOut}>
                   <img className={s.signOutIcon} src={icon} alt="" />
                 </span>
+                </div>)}
+              
                 <span onClick={toggleMenu} className={s.mobMenuBtn}>
                   {!isMenuOpen && (
                     <img className={s.mobMenuIcon} src={mobIcon} alt="" />
@@ -95,7 +98,7 @@ export default function Header() {
                   )}
                 </span>
               </div>
-            )}
+          
           </div>
         </div>
       </Container>
