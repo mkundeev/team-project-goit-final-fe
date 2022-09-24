@@ -6,8 +6,9 @@
   --desktop: 1280px;
 
   /* fonts */
-  --mainFont: "Montserrat", sans-serif;
-
+  --mainFont: 'Montserrat', sans-serif;
+}
+html[data-theme='light'] {
   /* text colors */
   --white: #ffffff;
   --black: #000000;
@@ -23,9 +24,31 @@
   --footerBgColor: #02172a;
   --diagramWrongBgColor: #d7d7d7;
   --btnGoogleBgColor: #fafafa;
+  --shadowBtnDN: #81c0d5;
+  --bgGraphite: #fff;
+}
+html[data-theme='dark'] {
+  --white: #000;
+  --black: #fff;
+  --secondaryTextColor: #d1d0d0;
+  --accentColor: #ff6b09;
+  --footerTextColor: rgba(44, 44, 44, 0.4);
+  --headerBorderColor: #474747;
+  --vectorColor: #d0d9e9;
+  --inputBorderColor: #545555;
+  --labelTextColor: #504f4f;
+
+  --primaryBgColor: #1d1d1d;
+  --footerBgColor: #2a3947;
+  --diagramWrongBgColor: #3f3e3e;
+  --btnGoogleBgColor: #111111;
+  --shadowBtnDN: #fff;
+  --bgGraphite: rgb(44, 54, 57);
 }
 
-body {
+body,
+section {
+  background: var(--bgGraphite);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

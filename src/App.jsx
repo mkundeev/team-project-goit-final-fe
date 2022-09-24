@@ -11,6 +11,8 @@ import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import ResultRoute from 'routes/ResultRoute';
 import Header from 'components/Header/Header';
+import Theme from 'components/Theme/Theme';
+import Chart from 'components/Chart/Chart';
 
 const AuthorizationPage = lazy(() =>
   import(
@@ -44,6 +46,8 @@ function App() {
   }, [data, dispatch]);
   return (
     <div>
+      <Theme />
+      <Chart />
       <Suspense
         fallback={
           <div className="loader">
@@ -53,14 +57,14 @@ function App() {
       >
         <Header />
         <Routes>
-          <Route
+          {/* <Route
             path="/authorization"
             element={
               <PublicRoute>
                 <AuthorizationPage />
               </PublicRoute>
             }
-          />
+          /> */}
           <Route
             path="/home"
             element={
@@ -80,9 +84,9 @@ function App() {
           <Route
             path="/result"
             element={
-              <ResultRoute>
-                <ResultPage />
-              </ResultRoute>
+              // <ResultRoute>
+              <ResultPage />
+              // </ResultRoute>
             }
           />
           <Route
