@@ -174,6 +174,17 @@
     }
 }
 
+.userLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.userLink:hover {
+    color: var(--accentColor);
+}
+
 @media screen and (min-width: 1280px) {
     .navLink {
         font-size: 14px;
