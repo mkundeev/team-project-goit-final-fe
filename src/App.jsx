@@ -11,7 +11,6 @@ import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import ResultRoute from 'routes/ResultRoute';
 import Header from 'components/Header/Header';
-import Theme from 'components/Theme/Theme';
 import Loader from 'components/Loader';
 
 const AuthorizationPage = lazy(() =>
@@ -46,7 +45,6 @@ function App() {
   }, [data, dispatch]);
   return (
     <div>
-      <Theme />
       <Suspense
         fallback={
           <div className="loader">

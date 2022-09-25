@@ -216,7 +216,7 @@ export default function AuthorizationForm() {
             id="password"
             value={password}
             className={s.input}
-            type="text"
+            type="password"
             placeholder="Password"
           />
           {passwordDirty && passwordError && (
