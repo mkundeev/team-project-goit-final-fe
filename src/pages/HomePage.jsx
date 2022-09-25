@@ -10,6 +10,7 @@ export default function HomePage() {
   const [tests, setTests] = useState('');
 
   useEffect(() => setTests(data), [data]);
+
   return (
     <section className={s.homeMain}>
       <Container>
@@ -25,16 +26,18 @@ export default function HomePage() {
         </div>
         {tests ? (
           <ul className={s.list}>
-            {tests.map(({ _id, topic }) => (
-              <li className={s.item} key={_id}>
-                <Link to={`/test/${_id}`} className={s.link}>
-                  <span className={s.spanText}>{topic}</span>
-                </Link>
-                <span className={s.span}>
-                  <BsArrowRight className={s.svg} />
-                </span>
-              </li>
-            ))}
+            {tests
+              .map(({ _id, topic }) => (
+                <li className={s.item} key={_id}>
+                  <Link to={`/test/${_id}`} className={s.link}>
+                    <span className={s.spanText}>{topic}</span>
+                  </Link>
+                  <span className={s.span}>
+                    <BsArrowRight className={s.svg} />
+                  </span>
+                </li>
+              ))
+              .reverse()}
           </ul>
         ) : (
           <></>
