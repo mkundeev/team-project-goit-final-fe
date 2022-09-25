@@ -3,7 +3,8 @@ import s from './User.module.css';
 import Container from 'components/Container';
 import UserChart from './UserChart';
 
-export default function User() {
+export default function User({ data }) {
+  console.log(data);
   //   const { data } = useGetTestListQuery();
   //   const [tests, setTests] = useState('');
 
@@ -18,42 +19,41 @@ export default function User() {
   //       resultProcent,
   //     },
   //   ];
-  const data = [
-    {
-      id: 1,
-      data: ' 12.06.2022',
-      title: 'User Test',
-      rightAnswers: 10,
-      wrongAnswers: 2,
-      resultProcent: '86%',
-    },
-    {
-      id: 2,
-      data: ' 12.06.2022',
-      title: 'User Test',
-      rightAnswers: 10,
-      wrongAnswers: 2,
-      resultProcent: '100%',
-    },
-    {
-      id: 3,
-      data: ' 12.06.2022',
-      title: 'User Test',
-      rightAnswers: 10,
-      wrongAnswers: 2,
-      resultProcent: '50%',
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: 1,
+  //     data: ' 12.06.2022',
+  //     title: 'User Test',
+  //     rightAnswers: 10,
+  //     wrongAnswers: 2,
+  //     resultProcent: '86%',
+  //   },
+  //   {
+  //     id: 2,
+  //     data: ' 12.06.2022',
+  //     title: 'User Test',
+  //     rightAnswers: 10,
+  //     wrongAnswers: 2,
+  //     resultProcent: '100%',
+  //   },
+  //   {
+  //     id: 3,
+  //     data: ' 12.06.2022',
+  //     title: 'User Test',
+  //     rightAnswers: 10,
+  //     wrongAnswers: 2,
+  //     resultProcent: '50%',
+  //   },
+  // ];
   const key = data.map(el => Object.keys(el));
-  const numProcent = data.map(el => {
-    if (el.resultProcent.split('').length === 4) {
-      return el.resultProcent.split('').splice(0, 3).join('');
-    }
-    return el.resultProcent.split('').splice(0, 2).join('');
-  });
+  // const numProcent = data.map(el => {
+  //   if (el.resultProcent.split('').length === 4) {
+  //     return el.resultProcent.split('').splice(0, 3).join('');
+  //   }
+  //   return el.resultProcent.split('').splice(0, 2).join('');
+  // });
 
-  console.log(numProcent);
-  const totalProcent = numProcent.reduce((acc, el) => acc + Number(el), 0);
+  const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
 
   console.log(totalProcent);
   return (
@@ -61,32 +61,37 @@ export default function User() {
       {
         <Container>
           <table>
-            <tr>
-              {key[0].slice(1).map(el => {
-                return <th key={el.id}>{el}</th>;
-              })}
-            </tr>
-
-            {data.map(
-              ({
-                id,
-                data,
-                title,
-                rightAnswers,
-                wrongAnswers,
-                resultProcent,
-              }) => {
-                return (
-                  <tr key={id}>
-                    <td>{data}</td>
-                    <td>{title}</td>
-                    <td>{rightAnswers}</td>
-                    <td>{wrongAnswers}</td>
-                    <td>{resultProcent}</td>
-                  </tr>
-                );
-              }
-            )}
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Topic</th>
+                <th>Right answers</th>
+                <th>Wrong answers</th>
+                <th>Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map(
+                ({
+                  _id,
+                  createAt,
+                  topic,
+                  rightAnswers,
+                  wrongAnswers,
+                  percent,
+                }) => {
+                  return (
+                    <tr key={_id}>
+                      <td>{createAt}</td>
+                      <td>{topic}</td>
+                      <td>{rightAnswers}</td>
+                      <td>{wrongAnswers}</td>
+                      <td>{percent} %</td>
+                    </tr>
+                  );
+                }
+              )}
+            </tbody>
           </table>
           <div className={s.userContainer}>
             <div className={s.UserChart}>

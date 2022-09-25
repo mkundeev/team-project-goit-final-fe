@@ -25,6 +25,9 @@ const HomePage = lazy(() =>
 const ResultPage = lazy(() =>
   import('pages/ResultPage' /* webpackChunkName: "result" */)
 );
+const UserPage = lazy(() =>
+  import('pages/UserPage' /* webpackChunkName: "userpage" */)
+);
 const MaterialsPage = lazy(() =>
   import('pages/MaterialsPage' /* webpackChunkName: "material" */)
 );
@@ -86,6 +89,14 @@ function App() {
               <ResultRoute>
                 <ResultPage />
               </ResultRoute>
+            }
+          />
+          <Route
+            path="/user"
+            element={
+              <PrivateRoute>
+                <UserPage />
+              </PrivateRoute>
             }
           />
           <Route
