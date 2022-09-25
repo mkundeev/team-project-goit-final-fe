@@ -13,6 +13,8 @@ import ResultRoute from 'routes/ResultRoute';
 import Header from 'components/Header/Header';
 
 import Loader from 'components/Loader';
+import Footer from 'components/Footer';
+import Theme from 'components/Theme';
 
 const AuthorizationPage = lazy(() =>
   import(
@@ -45,7 +47,8 @@ function App() {
     }
   }, [data, dispatch]);
   return (
-    <div>
+    <div className="wrapper">
+      <Theme />
       <Suspense
         fallback={
           <div className="loader">
@@ -107,6 +110,7 @@ function App() {
           />
         </Routes>
       </Suspense>
+      <Footer />
       <ToastContainer
         autoClose={4000}
         closeButton={false}
