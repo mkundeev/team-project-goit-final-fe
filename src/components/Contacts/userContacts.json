@@ -1,18 +1,18 @@
 [
   {
     "id": "1",
-    "image": "https://i.postimg.cc/sfQRXHWk/image-6483441.jpg",
+    "image": "https://i.postimg.cc/DzqMrh3R/max.jpg",
 
-    "name": "Iuliia",
-    "position": "Scrum Master",
+    "name": "Maksym Kundieiev",
+    "position": "Team Leader",
     "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
-    "github": "https://github.com/AiiLuI19",
-    "text": "You underestimate my power!"
+    "github": "https://github.com/mkundeev",
+    "text": "May the Force be with you."
   },
   {
     "id": "2",
     "image": "https://i.postimg.cc/sfQRXHWk/image-6483441.jpg",
-    "name": "Iuliia",
+    "name": "Iuliia Iavorskaia",
     "position": "Scrum Master",
     "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
     "github": "https://github.com/AiiLuI19",
@@ -20,38 +20,38 @@
   },
   {
     "id": "3",
-    "image": "https://i.postimg.cc/sfQRXHWk/image-6483441.jpg",
-    "name": "Iuliia",
-    "position": "Scrum Master",
+    "image": "https://i.postimg.cc/zX7tX7FY/alina.jpg",
+    "name": "Alina Lemishko",
+    "position": "Developer",
     "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
-    "github": "https://github.com/AiiLuI19",
+    "github": "https://github.com/Alina-Lemishko",
     "text": "You underestimate my power!"
   },
   {
     "id": "4",
-    "image": "https://i.postimg.cc/sfQRXHWk/image-6483441.jpg",
-    "name": "Iuliia",
-    "position": "Scrum Master",
+    "image": "https://i.postimg.cc/qRQhCNbq/dmitriy.jpg",
+    "name": "Dmytrii Shypilov",
+    "position": "Developer",
     "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
-    "github": "https://github.com/AiiLuI19",
+    "github": "https://github.com/Dmytrii-Shypilov",
     "text": "You underestimate my power!"
   },
   {
     "id": "5",
-    "image": "https://i.postimg.cc/sfQRXHWk/image-6483441.jpg",
-    "name": "Iuliia",
-    "position": "Scrum Master",
+    "image": "https://i.postimg.cc/L6kXqYJp/igor.jpg",
+    "name": "Igor Bulyzhenkov",
+    "position": "Developer",
     "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
-    "github": "https://github.com/AiiLuI19",
+    "github": "https://github.com/IgorBulyzhenkov",
     "text": "You underestimate my power!"
   },
   {
     "id": "6",
-    "image": "https://i.postimg.cc/sfQRXHWk/image-6483441.jpg",
-    "name": "Iuliia",
-    "position": "Scrum Master",
+    "image": "https://i.postimg.cc/Qxq882zN/vlad.jpg",
+    "name": "Vlad Kozak",
+    "position": "Developer",
     "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
-    "github": "https://github.com/AiiLuI19",
+    "github": "https://github.com/Vlad-Kozak",
     "text": "You underestimate my power!"
   }
 ]
