@@ -1,7 +1,7 @@
 .section {
     width: 100vw;
     /* height: 726px; */
-    background-color: #F5F6FB;
+    background-color: var(--primaryBgColor);
     padding: 100px 0;
 }
 
@@ -18,18 +18,20 @@
 .text {
     width: 420px;
     height: 187px;
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     font-size: 18px;
     line-height: 36px;
     letter-spacing: 0.02em;
+    color: var(--black);
 }
 
 .word {
     font-weight: 700;
+    color: var(--black)
 }
 
 .title {
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     font-weight: 800;
     font-size: 34px;
     line-height: 41px;

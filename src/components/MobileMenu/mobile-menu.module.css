@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 100%;
-    background: #F5F6FB;
+    background: var(--primaryBgColor);
 }
 
 .navlist {
@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     height: 74px;
-    border-bottom: 1px solid #e2e3e5;
+    border-bottom: 1px solid var(--headerBorderColor);
 }
 
 .signOutBtn {
@@ -30,22 +30,27 @@
 
 .navLink {
     text-decoration: none;
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.02em;
-    color: #000;
+    color: var(--black);
 }
 
 .navLink:hover {
-    color: #FF6B09;
+    color: var(--accentColor);
 }
 
 .activeLink {
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.02em;
     text-decoration: none;
-    border-bottom: 1px solid #FF6B09;
+    border-bottom: 1px solid var(--accentColor);
+    color: var(--black);
+}
+
+.signOutIcon {
+    fill: var(--black);
 }

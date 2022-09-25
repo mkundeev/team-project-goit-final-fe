@@ -1,9 +1,9 @@
 
 .header {
     position: relative;
-    width: 100%;
-    background: #F5F6FB;
-    border-bottom: 1px solid #e2e3e5;
+    width: 100vw;
+    background: var(--primaryBgColor);
+    border-bottom: 1px solid var(--headerBorderColor);
     height: 68px;
    
 }
@@ -13,6 +13,11 @@
     align-items: center;
     justify-content: space-between;
     height: 68px;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
 }
 
 .navBlock {
@@ -33,20 +38,25 @@
 
 .navLink {
     text-decoration: none;
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     letter-spacing: 0.02em;
-    color: #000;
+    color: var(--black);
 }
 
 .navLink:hover {
-    color: #FF6B09;
+    color: var(--accentColor);
 }
 
 .activeLink {
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     letter-spacing: 0.02em;
     text-decoration: none;
-    border-bottom: 1px solid #FF6B09;
+    border-bottom: 1px solid var(--accentColor);
+    color: var(--black)
+}
+
+.activeLink:hover {
+    color: var(--accentColor)
 }
 
 .userPanel {
@@ -61,13 +71,13 @@
     align-items: center;
     height: 30px;
     width: 30px;
-    font-family: 'Montserrat SemiBold';
+    font-family: var(--mainFont);
     font-size: 14px;
     line-height: 14px;
     letter-spacing: 0.02em;
 
-    color: #555555;
-    background-color: #FFF;
+    color: var(--secondaryTextColor);
+    background-color: var(--white);
     border-radius: 50%;
     box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
 
@@ -75,9 +85,10 @@
 }
 
 .user {
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     letter-spacing: 0.02em;
     margin-right: 20px;
+    color: var(--black);
 }
 
 .signOutBtn {
@@ -85,7 +96,7 @@
     justify-content: center;
     align-items: center;
     height: 68px;
-    border-left: 1px solid #e2e3e5;
+    border-left: 1px solid var(--headerBorderColor);
     padding-left: 20px;
     padding-right: 20px;
     cursor: pointer;
@@ -96,7 +107,7 @@
     justify-content: center;
     align-items: center;
     height: 68px;
-    border-left: 1px solid #e2e3e5;
+    border-left: 1px solid var(--headerBorderColor);
     padding-left: 20px;
     padding: 20px;
     cursor: pointer;
@@ -109,6 +120,18 @@
     right: 0;
     height: 100vh;
 
+}
+
+.blackFillColor {
+    fill: var(--black);
+}
+
+.whiteFillColor {
+    fill: var(--white);
+}
+
+.strokeLine {
+    stroke: var(--black);
 }
 
 @media screen and (max-width: 767px) {

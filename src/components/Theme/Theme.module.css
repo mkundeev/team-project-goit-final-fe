@@ -1,5 +1,8 @@
 .wrapperDayNight {
-  padding: 30px;
+  /* padding: 30px; */
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
 }
 /* // =====кнопка день==== */
 .toggle {
@@ -114,6 +117,11 @@
   transform: scale(0.7);
 }
 
+@media screen and (max-width: 320px) {
+  .wrapperDayNight {
+    margin-left: 20px;
+  }
+}
 /* // =========стили для темной темы =========
 .nightTheme {
   background: rgb(140, 24, 44);

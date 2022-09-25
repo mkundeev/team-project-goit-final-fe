@@ -6,7 +6,7 @@
     padding-right: 32px;
     padding-top: 60px;
     padding-bottom: 48px;
-    background-color: #fff;
+    background-color: var(--white);
 
 }
 
@@ -17,15 +17,16 @@
     width: 159px;
     height: 51px;
     text-decoration: none;
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.02em;
-    color: #000;
-    background-color: #fafafa;
+    color: var(--black);
+    background-color: var(--btnGoogleBgColor);
     filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
     margin: 32px 0;
+    cursor: pointer;
 }
 
 .link:hover {
@@ -40,10 +41,11 @@
 }
 
 .text {
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.02em;
+    color: var(--black);
 }
 
 .inputBlock {
@@ -54,7 +56,7 @@
 .input {
     width: 425px;
     height: 56px;
-    border: 1px solid #CED2D1;
+    border: 1px solid var(--inputBorderColor);
     padding: 20px 25px;
 
 }
@@ -64,19 +66,19 @@
 }
 
 input:hover {
-    border-color: #FF6B09;
+    border-color: var(--accentColor);
 }
 
 .btn {
     width: 204px;
     height: 60px;
-    font-family: 'Montserrat';
+    font-family: var(--mainFont);
     font-weight: 700;
     font-size: 12px;
     line-height: 15px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    border: 1px solid #CED2D1;
+    border: 1px solid var(--inputBorderColor);
     cursor: pointer;
 }
 
@@ -85,16 +87,16 @@ input:hover {
 }
 
 .btn:hover {
-    color: #fff;
-    background: #FF6B09;
+    color: var(--white);
+    background: var(--accentColor);
 }
 
 .message {
-    font-family: "Montserrat";
+    font-family: var(--mainFont);
     font-size: 12px;
     line-height: 12px;
     letter-spacing: 0.04em;
-    color: #eb5757;
+    color: var(--accentColor);
     margin-top: 4px;
   }
 
@@ -117,6 +119,7 @@ input:hover {
     .btn {
         width: 109px;
     }
+
     .link {
         margin-left: auto;
         margin-right: auto;

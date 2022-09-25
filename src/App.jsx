@@ -47,6 +47,7 @@ function App() {
     }
   }, [data, dispatch]);
   return (
+
     <div className="wrapper">
       <Theme />
       <Suspense
