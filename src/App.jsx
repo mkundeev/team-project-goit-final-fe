@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify';
 import { getToken } from 'app/selectors';
 import { setUser } from 'app/reducer';
 import { useGetUserQuery } from 'app/testsApi';
-import RingLoader from 'react-spinners/RingLoader';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import ResultRoute from 'routes/ResultRoute';
@@ -14,7 +13,6 @@ import Header from 'components/Header/Header';
 
 import Loader from 'components/Loader';
 import Footer from 'components/Footer';
-import Theme from 'components/Theme';
 
 const AuthorizationPage = lazy(() =>
   import(
@@ -47,9 +45,7 @@ function App() {
     }
   }, [data, dispatch]);
   return (
-
     <div className="wrapper">
-      <Theme />
       <Suspense
         fallback={
           <div className="loader">
