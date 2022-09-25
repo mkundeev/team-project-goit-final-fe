@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './auth-form.module.css';
-import { useState } from 'react';
-import icon from '../../images/AuthForm/google-icon.svg';
+import { useState, useEffect } from 'react';
+import icon from '../../images/auth-form/google-icon.svg';
 import { toast } from 'react-toastify';
 import {
   useAuthorizeUserMutation,
@@ -12,10 +12,19 @@ import { setUser } from 'app/reducer';
 import { useDispatch } from 'react-redux';
 import { useGoogleLogin } from '@react-oauth/google';
 
+const dirtyState = {
+  emailDirty: false,
+  passwordDirty: false,
+};
+
+const errorState = {
+  emailError: 'This is a required field',
+  passwordError: 'This is a required field',
+};
 
 export default function AuthorizationForm() {
   const dispatch = useDispatch();
-  
+
   const [authorizeUser] = useAuthorizeUserMutation();
   const [registerUser] = useRegisterUserMutation();
   const [googleLogin] = useAuthorizeUserByGoogleMutation();
@@ -24,7 +33,22 @@ export default function AuthorizationForm() {
     password: '',
   });
 
+  // form validation state
+  const [error, setError] = useState(errorState);
+  const [dirty, setDirty] = useState(dirtyState);
+  const [formValidity, setFormValidity] = useState('true');
+
   const { email, password } = form;
+  const { emailError, passwordError } = error;
+  const { emailDirty, passwordDirty } = dirty;
+
+  useEffect(() => {
+    if (emailError || passwordError) {
+      setFormValidity(false);
+    } else {
+      setFormValidity(true);
+    }
+  }, [emailError, passwordError]);
 
   const onInput = e => {
     setForm(prevState => {
@@ -33,6 +57,85 @@ export default function AuthorizationForm() {
         [e.target.id]: e.target.value,
       };
     });
+
+    if (e.target.id === 'password') {
+      if (e.target.value.length !== 0 && e.target.value.length < 8) {
+        setError(prevState => {
+          return {
+            ...prevState,
+            passwordError: 'Password must be not less than 8 symbols',
+          };
+        });
+      } else if (!e.target.value) {
+        setError(prevState => {
+          return {
+            ...prevState,
+            passwordError: 'This is a required field',
+          };
+        });
+      } else {
+        setError(prevState => {
+          return {
+            ...prevState,
+            passwordError: '',
+          };
+        });
+      }
+    }
+
+    if (e.target.id === 'email') {
+      const pattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+      if (e.target.value) {
+        if (!pattern.test(String(e.target.value).toLowerCase())) {
+          setError(prevState => {
+            return {
+              ...prevState,
+              emailError: 'Incorrect email format',
+            };
+          });
+        } else {
+          setError(prevState => {
+            return {
+              ...prevState,
+              emailError: '',
+            };
+          });
+        }
+      } else {
+        setError(prevState => {
+          return {
+            ...prevState,
+            emailError: 'This is a required field',
+          };
+        });
+      }
+    }
+  };
+
+  const onBlur = e => {
+    switch (e.target.id) {
+      case 'email':
+        setDirty(prevState => {
+          return {
+            ...prevState,
+            emailDirty: true,
+          };
+        });
+        break;
+
+      case 'password':
+        setDirty(prevState => {
+          return {
+            ...prevState,
+            passwordDirty: true,
+          };
+        });
+        break;
+
+      default:
+        return;
+    }
   };
 
   const logInUser = e => {
@@ -48,6 +151,7 @@ export default function AuthorizationForm() {
         })
       );
   };
+
   const signUpUser = e => {
     e.preventDefault();
     registerUser(form)
@@ -92,28 +196,38 @@ export default function AuthorizationForm() {
         </div>
         <p className={s.text}>Or login to our app using e-mail and password:</p>
         <div className={s.inputBlock}>
+          <div className={s.inputWrapper}>
+            <input
+              onChange={onInput}
+              onBlur={onBlur}
+              id="email"
+              value={email}
+              className={s.input}
+              type="text"
+              placeholder="E-mail"
+            />
+            {emailDirty && emailError && (
+              <p className={s.message}>{emailError}</p>
+            )}
+          </div>
           <input
             onChange={onInput}
-            id="email"
-            value={email}
-            className={s.input}
-            type="text"
-            placeholder="E-mail"
-          />
-          <input
-            onChange={onInput}
+            onBlur={onBlur}
             id="password"
             value={password}
             className={s.input}
             type="text"
             placeholder="Password"
           />
+          {passwordDirty && passwordError && (
+            <p className={s.message}>{passwordError}</p>
+          )}
         </div>
         <div>
-          <button onClick={logInUser} className={s.btn}>
+          <button onClick={logInUser} className={s.btn}  disabled={!formValidity}>
             Sign in
           </button>
-          <button onClick={signUpUser} className={s.btn}>
+          <button onClick={signUpUser} className={s.btn}  disabled={!formValidity}>
             Sign up
           </button>
         </div>

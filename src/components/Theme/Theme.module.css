@@ -1,0 +1,126 @@
+.wrapperDayNight {
+  padding: 30px;
+}
+/* // =====кнопка день==== */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 25px;
+
+  padding: 4px;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0px 0px 26px -7px #fff;
+}
+
+.toggle:hover,
+.toggle:focus {
+  box-shadow: 0px 0px 54px 4px var(--shadowBtnDN);
+}
+.toggleBg {
+  position: absolute;
+  top: -0.8px;
+  left: -0.8px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 40px;
+  border: 1px solid var(--shadowBtnDN);
+  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.toggleInput {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  z-index: 2;
+  opacity: 0;
+}
+.toggleSwitch {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin-left: 36px;
+  background-color: #f5eb42;
+  border: 1px solid #e4c74d;
+  border-radius: 50%;
+  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0px 0px 7px 3px #f5eb42;
+}
+.toggleSwitchFigure {
+  position: absolute;
+  bottom: -25px;
+  left: -57px;
+  display: block;
+  width: 73px;
+  height: 52px;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+  transform: scale(0.4);
+  transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.toggleSwitchFigureAlt {
+  box-shadow: 42px -7px 0 -3px #fcfcfc, 75px -10px 0 -3px #fcfcfc,
+    54px 4px 0 -4px #fcfcfc, 83px 7px 0 -2px #fcfcfc, 63px 18px 0 -4px #fcfcfc,
+    44px 28px 0 -2px #fcfcfc, 78px 23px 0 -3px #fcfcfc;
+
+  transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0);
+}
+/* //========= кнопка ночь =========== */
+
+.toggleInput:checked ~ .toggleSwitch {
+  margin-left: 0;
+  border-color: transparent;
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  margin: -2px 0 20px 0;
+  border-radius: 50%;
+  box-shadow: 4px 0px 0 0 #fff;
+}
+.toggleInput:checked ~ .toggleInput {
+  box-shadow: inset 1em 1em rgb(255, 255, 255);
+}
+.toggleInput:checked ~ .toggleSwitch::before {
+  content: ' ';
+  position: absolute;
+  top: -9px;
+  left: 7px;
+  background-size: contain;
+  width: 38px;
+  height: 50px;
+  background-repeat: no-repeat;
+
+  background-image: url(https://i.postimg.cc/L66xDnPt/sleep.webp);
+}
+.toggleInput:checked ~ .toggleBg {
+  background-color: rgb(63, 78, 79);
+  border-color: #2c2c2c;
+}
+
+.toggleInput:checked ~ .toggleSwitch .toggleSwitchFigure {
+  margin-left: 0px;
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+.toggleInput:checked ~ .toggleSwitch .toggleSwitchFigureAlt {
+  transform: scale(0.7);
+}
+
+/* // =========стили для темной темы =========
+.nightTheme {
+  background: rgb(140, 24, 44);
+  background: radial-gradient(
+    circle,
+    rgba(140, 24, 44, 1) 0%,
+    rgba(40, 46, 53, 1) 75%
+  );
+  color: #fff;
+} */

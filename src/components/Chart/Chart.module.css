@@ -29,7 +29,7 @@
 }
 .item:first-child::after {
   content: ' ';
-  border-right: 1px solid var(--diagramWrongBgColor);
+  border-right: 1px solid var(--vectorColor);
   margin: 0 10px;
   height: 20px;
 }
@@ -69,10 +69,17 @@
   font-weight: 400;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  color: var(--white);
+  color: #fff;
   text-decoration: none;
 }
+
+.link::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+}
 .cartLink {
+  position: relative;
   padding: 17px 28px;
   width: 190px;
   text-align: center;
@@ -200,11 +207,11 @@
   position: absolute;
 
   bottom: -20px;
-  left: 25%;
-  width: 50%;
+  left: 26%;
+  width: 47%;
   height: 1px;
 
-  background: var(--diagramWrongBgColor);
+  background: var(--vectorColor);
   border-radius: 2px;
 }
 @media screen and (min-width: 768px) {
@@ -303,5 +310,12 @@
   }
   .list {
     margin-bottom: 28px;
+  }
+  .titleText::after {
+    content: ' ';
+    position: absolute;
+
+    left: 36%;
+    width: 27%;
   }
 }

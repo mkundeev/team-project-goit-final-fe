@@ -11,6 +11,8 @@ import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import ResultRoute from 'routes/ResultRoute';
 import Header from 'components/Header/Header';
+import Theme from 'components/Theme/Theme';
+import Loader from 'components/Loader';
 
 const AuthorizationPage = lazy(() =>
   import(
@@ -44,10 +46,12 @@ function App() {
   }, [data, dispatch]);
   return (
     <div>
+      <Theme />
       <Suspense
         fallback={
           <div className="loader">
-            <RingLoader color="#1212dc" size={250} />
+            <Loader />
+            {/* <RingLoader color="#1212dc" size={250} /> */}
           </div>
         }
       >
