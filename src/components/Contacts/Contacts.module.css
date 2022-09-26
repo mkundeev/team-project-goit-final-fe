@@ -1,7 +1,10 @@
 main {
   text-align: center;
+  flex: 1 1 auto;
 }
-
+.contactContainer {
+  padding: 40px 0 58px 0;
+}
 .team {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -10,6 +13,13 @@ main {
   text-align: center;
   letter-spacing: 0.03em;
 }
+
+@media screen and (min-width: 768px) {
+  .contactContainer {
+    padding: 40px 0 60px 0;
+  }
+}
+
 @media screen and (min-width: 1280px) {
   .team {
     padding-top: 94px;
@@ -22,6 +32,7 @@ main {
   position: relative;
   font-size: 28px;
   margin-bottom: 60px;
+  margin-top: 25px;
 }
 .title::after {
   content: ' ';

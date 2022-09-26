@@ -1,5 +1,8 @@
 .wrapperDayNight {
-  padding: 30px;
+  /* padding: 30px; */
+  display: flex;
+  align-items: center;
+  /* margin-left: 40px; */
 }
 /* // =====кнопка день==== */
 .toggle {
@@ -113,6 +116,20 @@
 .toggleInput:checked ~ .toggleSwitch .toggleSwitchFigureAlt {
   transform: scale(0.7);
 }
+@media screen and (min-width: 320px) {
+    .wrapperDayNight {
+      position: absolute;
+      top: 80px;
+      left: 0px;
+    }
+} 
+
+@media screen and (min-width: 768px)  {
+    .wrapperDayNight {
+      top: 90px;
+    }
+}
+
 
 /* // =========стили для темной темы =========
 .nightTheme {

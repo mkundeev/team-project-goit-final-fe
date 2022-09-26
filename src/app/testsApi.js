@@ -12,7 +12,7 @@ export const testsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Users'],
+  tagTypes: ['Users', 'Statistic'],
   endpoints: builder => ({
     registerUser: builder.mutation({
       query(user) {
@@ -66,10 +66,18 @@ export const testsApi = createApi({
     getTestList: builder.query({
       query() {
         return {
-          url: `tests/`,
+          url: `tests`,
         };
       },
       providesTags: ['Users'],
+    }),
+    getUsetSatistic: builder.query({
+      query() {
+        return {
+          url: `statistic`,
+        };
+      },
+      providesTags: ['Statistic'],
     }),
     getResult: builder.mutation({
       query(result) {
@@ -79,7 +87,7 @@ export const testsApi = createApi({
           body: result,
         };
       },
-      invalidatesTags: ['Users'],
+      invalidatesTags: ['Users', 'Statistic'],
     }),
     setAnswers: builder.mutation({
       query(answers) {
@@ -89,16 +97,6 @@ export const testsApi = createApi({
           body: answers,
         };
       },
-    }),
-    result: builder.mutation({
-      query(result) {
-        return {
-          url: `tests/result`,
-          method: 'PATCH',
-          body: result,
-        };
-      },
-      invalidatesTags: ['Users'],
     }),
   }),
 });
@@ -113,5 +111,5 @@ export const {
   useGetTestListQuery,
   useSetAnswersMutation,
   useGetTestQuery,
-  useResultMutation,
+  useGetUsetSatisticQuery,
 } = testsApi;

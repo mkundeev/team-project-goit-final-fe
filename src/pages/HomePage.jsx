@@ -50,7 +50,7 @@ export default function HomePage() {
   };
 
   return (
-    <section className={s.homeMain}>
+    <main className={s.homeMain}>
       <Container>
         <h1 className={s.hidden}>Home</h1>
         <div className={s.textContainer}>
@@ -95,6 +95,6 @@ export default function HomePage() {
           onCloseModal={onCloseModal}
         />
       )}
-    </section>
+    </main>
   );
 }
