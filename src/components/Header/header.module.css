@@ -1,6 +1,5 @@
 
 .header {
-    position: relative;
     width: 100vw;
     background: var(--primaryBgColor);
     border-bottom: 1px solid var(--headerBorderColor);
@@ -9,6 +8,7 @@
 }
 
 .headerWrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,9 +25,6 @@
     align-items: center;
 }
 
-.nav {
-    margin-right: 80px;
-}
 
 .navList {
     display: flex;
@@ -76,7 +73,6 @@
     line-height: 14px;
     letter-spacing: 0.02em;
 
-    color: var(--secondaryTextColor);
     background-color: var(--white);
     border-radius: 50%;
     box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
@@ -84,11 +80,20 @@
     margin-right: 20px;
 }
 
+.userLink {
+    color: var(--black);
+}
+
+.user:hover {
+    color: var(--accentColor);
+}
+
+
 .user {
     font-family: var(--mainFont);
     letter-spacing: 0.02em;
     margin-right: 20px;
-    color: var(--black);
+    
 }
 
 .signOutBtn {
@@ -134,6 +139,10 @@
     stroke: var(--black);
 }
 
+.signOutBtn:hover .blackFillColor {
+    fill: var(--accentColor);
+}
+
 @media screen and (max-width: 767px) {
     .nav {
         display: none;
@@ -158,8 +167,8 @@
         margin-right: 60px;
     }
 
-    .nav {
-        margin-right: 40px;
+    .userPanel {
+        margin-left: 40px;
     }
 
     .navLink {
@@ -186,6 +195,9 @@
 }
 
 @media screen and (min-width: 1280px) {
+    .userPanel {
+        margin-left: 80px;
+    }
     .navLink {
         font-size: 14px;
         line-height: 16px;
