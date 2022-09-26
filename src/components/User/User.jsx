@@ -1,61 +1,63 @@
-import React from 'react';
+import { useState } from 'react';
 import s from './User.module.css';
 import Container from 'components/Container';
 import UserChart from './UserChart';
 
 export default function User({ data }) {
-  console.log(data);
-  //   const { data } = useGetTestListQuery();
-  //   const [tests, setTests] = useState('');
+  const [amountSort, setAmountSort] = useState({});
+  const [topicSort, setTopicSort] = useState(true);
+  const [dateSort, setDateSort] = useState(true);
+  const [filteredData, setFilteredData] = useState(data);
+  const sortByAmount = property => {
+    let filteredData = [];
+    if (!amountSort.hasOwnProperty(property)) {
+      setAmountSort({ [property]: false });
+    }
+    if (amountSort[property]) {
+      filteredData = [...data].sort((a, b) => a[property] - b[property]);
+      setAmountSort({ [property]: false });
+    } else {
+      filteredData = [...data].sort((a, b) => b[property] - a[property]);
+      setAmountSort({ [property]: true });
+    }
 
-  //   useEffect(() => setTests(data), [data]);
-  //   const dataUser = [
-  //     {
-  //       id: testId,
-  //       data: createTest,
-  //       title: topic,
-  //       rightAnswers,
-  //       wrongAnswers,
-  //       resultProcent,
-  //     },
-  //   ];
-  // const data = [
-  //   {
-  //     id: 1,
-  //     data: ' 12.06.2022',
-  //     title: 'User Test',
-  //     rightAnswers: 10,
-  //     wrongAnswers: 2,
-  //     resultProcent: '86%',
-  //   },
-  //   {
-  //     id: 2,
-  //     data: ' 12.06.2022',
-  //     title: 'User Test',
-  //     rightAnswers: 10,
-  //     wrongAnswers: 2,
-  //     resultProcent: '100%',
-  //   },
-  //   {
-  //     id: 3,
-  //     data: ' 12.06.2022',
-  //     title: 'User Test',
-  //     rightAnswers: 10,
-  //     wrongAnswers: 2,
-  //     resultProcent: '50%',
-  //   },
-  // ];
-  const key = data.map(el => Object.keys(el));
-  // const numProcent = data.map(el => {
-  //   if (el.resultProcent.split('').length === 4) {
-  //     return el.resultProcent.split('').splice(0, 3).join('');
-  //   }
-  //   return el.resultProcent.split('').splice(0, 2).join('');
-  // });
+    setFilteredData(filteredData);
+  };
+  const sortByDate = () => {
+    let filteredData = [];
+    if (dateSort) {
+      filteredData = [...data].sort((a, b) => {
+        const newDateA = new Date(a.createAt);
+        const newDateB = new Date(b.createAt);
+        return newDateB - newDateA;
+      });
+      setDateSort(!dateSort);
+    } else {
+      filteredData = [...data].sort((a, b) => {
+        const newDateA = new Date(a.createAt);
+        const newDateB = new Date(b.createAt);
+        return newDateA - newDateB;
+      });
+      setDateSort(!dateSort);
+    }
+
+    setFilteredData(filteredData);
+  };
+  const sortByTopic = () => {
+    let filteredData = [];
+    if (topicSort) {
+      filteredData = [...data].sort((a, b) => a.topic.localeCompare(b.topic));
+      setTopicSort(!topicSort);
+    } else {
+      filteredData = [...data].sort((a, b) => b.topic.localeCompare(a.topic));
+      setTopicSort(!topicSort);
+    }
+
+    setFilteredData(filteredData);
+  };
 
   const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
 
-  console.log(totalProcent);
   return (
     <div className={s.user}>
       {
@@ -63,15 +65,19 @@ export default function User({ data }) {
           <table>
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Topic</th>
-                <th>Right answers</th>
-                <th>Wrong answers</th>
-                <th>Percentage</th>
+                <th onClick={sortByDate}>Date</th>
+                <th onClick={sortByTopic}>Topic</th>
+                <th onClick={() => sortByAmount('rightAnswers')}>
+                  Right answers
+                </th>
+                <th onClick={() => sortByAmount('wrongAnswers')}>
+                  Wrong answers
+                </th>
+                <th onClick={() => sortByAmount('percent')}>Percentage</th>
               </tr>
             </thead>
             <tbody>
-              {data.map(
+              {filteredData.map(
                 ({
                   _id,
                   createAt,
@@ -81,7 +87,13 @@ export default function User({ data }) {
                   percent,
                 }) => {
                   return (
-                    <tr key={_id}>
+                    <tr
+                      key={_id}
+                      style={{
+                        backgroundColor:
+                          topic === 'Testing theory' ? '#C13C37' : '#E38627',
+                      }}
+                    >
                       <td>{createAt}</td>
                       <td>{topic}</td>
                       <td>{rightAnswers}</td>
@@ -98,7 +110,7 @@ export default function User({ data }) {
               <p className={s.text}>
                 {Math.round(totalProcent / data.length)}%
               </p>
-              <UserChart />
+              <UserChart data={data} />
             </div>
 
             <div className={s.mult}>

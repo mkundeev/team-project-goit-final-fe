@@ -57,13 +57,13 @@ table {
   }
   th {
     text-align: center;
-
+    cursor:pointer;
     padding: 8px;
     text-transform: uppercase;
   }
   td {
     text-align: center;
-    background: #fc9856;
+   
     padding: 10px;
     color: #fff;
   }

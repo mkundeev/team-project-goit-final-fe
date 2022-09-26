@@ -3,20 +3,29 @@ import React from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 
 import s from './User.module.css';
-export default function UserChart() {
-  const dataMock = [
-    { title: 'One', value: 10, color: '#E38627', colorText: '#fff' },
-    { title: 'Two', value: 15, color: '#C13C37', colorText: '#fff' },
-    { title: 'Three', value: 20, color: '#6A2135', colorText: '#fff' },
-  ];
+export default function UserChart({ data }) {
+  const topics = [...new Set(data.map(el => el.topic))];
+
+  const newData = topics.map((topic, index) => {
+    const oneTopic = data.filter(item => item.topic === topic);
+    const value = Math.round(
+      oneTopic.reduce((acc, item) => (acc += item.percent), 0) / oneTopic.length
+    );
+    return {
+      title: topic,
+      value,
+      color: topic === 'Testing theory' ? '#C13C37' : '#E38627',
+    };
+  });
+
   return (
     <>
       <PieChart
-        label={({ dataEntry }) => `${dataEntry.value}%`}
-        data={dataMock}
+        label={({ dataEntry }) => `${dataEntry.value} %`}
+        data={newData}
         lineWidth={30}
         labelStyle={index => ({
-          fill: dataMock[index].colorText,
+          fill: '#fff',
 
           fontSize: '5px',
           fontFamily: 'Montserrat',
