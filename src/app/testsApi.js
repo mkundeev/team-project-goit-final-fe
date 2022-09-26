@@ -63,6 +63,15 @@ export const testsApi = createApi({
     getTest: builder.query({
       query: testId => ({ url: `tests/random/${testId}` }),
     }),
+    resetTest: builder.mutation({
+      query(testId) {
+        return {
+          url: `tests/reset`,
+          method: 'PATCH',
+          body: { testId },
+        };
+      },
+    }),
     getTestList: builder.query({
       query() {
         return {
@@ -112,4 +121,5 @@ export const {
   useSetAnswersMutation,
   useGetTestQuery,
   useGetUsetSatisticQuery,
+  useResetTestMutation,
 } = testsApi;

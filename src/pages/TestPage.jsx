@@ -10,6 +10,7 @@ export default function TestPage() {
   const { testId } = useParams();
   const dispatch = useDispatch();
   const startedTestIds = useSelector(getStartedTestsIds);
+  console.log(startedTestIds);
   const { data, isLoading } = useGetTestQuery(testId, {
     skip: startedTestIds?.includes(testId),
   });
