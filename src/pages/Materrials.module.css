@@ -1,5 +1,5 @@
 .materialsMain {
-    background-image: url("../images/mob2x.png");
+    background-image: url("../images/mob1x.png");
     background-repeat: no-repeat;
     background-position: right top -3px;
     border-top: 1px solid var(--black);
@@ -22,7 +22,7 @@
 
 @media screen and (min-width:768px) {
     .materialsMain {
-        background-image: url("../images/table2x.png");
+        background-image: url("../images/table1x.png");
         background-size: contain;
         padding-top: 180px;
         padding-bottom: 356px;
@@ -43,7 +43,7 @@
 
 @media screen and (min-width:1280px) {
     .materialsMain {
-        background-image: url("../images/desktop2x.png");
+        background-image: url("../images/desktop1x.png");
         background-size: contain;
         padding-top: 100px;
         padding-bottom: 272px;
