@@ -6,12 +6,13 @@ import { ToastContainer } from 'react-toastify';
 import { getToken } from 'app/selectors';
 import { setUser } from 'app/reducer';
 import { useGetUserQuery } from 'app/testsApi';
-import RingLoader from 'react-spinners/RingLoader';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import ResultRoute from 'routes/ResultRoute';
 import Header from 'components/Header/Header';
+
 import Loader from 'components/Loader';
+import Footer from 'components/Footer';
 
 const AuthorizationPage = lazy(() =>
   import(
@@ -23,6 +24,9 @@ const HomePage = lazy(() =>
 );
 const ResultPage = lazy(() =>
   import('pages/ResultPage' /* webpackChunkName: "result" */)
+);
+const UserPage = lazy(() =>
+  import('pages/UserPage' /* webpackChunkName: "userpage" */)
 );
 const MaterialsPage = lazy(() =>
   import('pages/MaterialsPage' /* webpackChunkName: "material" */)
@@ -44,7 +48,7 @@ function App() {
     }
   }, [data, dispatch]);
   return (
-    <div>
+    <div className="wrapper">
       <Suspense
         fallback={
           <div className="loader">
@@ -88,6 +92,14 @@ function App() {
             }
           />
           <Route
+            path="/user"
+            element={
+              <PrivateRoute>
+                <UserPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="/material"
             element={
               <PrivateRoute>
@@ -106,6 +118,7 @@ function App() {
           />
         </Routes>
       </Suspense>
+      <Footer />
       <ToastContainer
         autoClose={4000}
         closeButton={false}
