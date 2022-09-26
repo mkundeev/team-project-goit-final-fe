@@ -72,12 +72,11 @@ export default function Test({ testId }) {
       alert('Select one of the answers');
       return;
     }
-    const { data } = await getResult({
+    await getResult({
       testId: currentTest.testId,
       questionId: currentTest.tests[currentTest.currentIndex].questionId,
       answer: checkedValue,
     });
-    console.log(data);
     navigate('/result');
   };
 
