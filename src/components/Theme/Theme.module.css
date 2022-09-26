@@ -120,7 +120,7 @@
     .wrapperDayNight {
       position: absolute;
       top: 80px;
-      right: 0px;
+      left: 0px;
     }
 } 
 
