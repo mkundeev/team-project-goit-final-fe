@@ -86,7 +86,7 @@ export default function Test({ testId }) {
         <div className={s.container}>
           <div className={s.wrapTop}>
             <div className={s.testNameWrap}>
-              <p className={s.testName}>[ _{currentTest.topic} ]</p>
+              <p className={s.testName}>[ {currentTest.topic}_ ]</p>
             </div>
             <button
               type="button"
