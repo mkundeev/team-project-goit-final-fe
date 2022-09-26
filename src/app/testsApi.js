@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const testsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4000/',
+    baseUrl: 'https://nodejs-project-goit.herokuapp.com/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().currentUser.token;
       if (token) {
