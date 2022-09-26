@@ -46,10 +46,10 @@
     color: var(--white);
     cursor: pointer;
   }
-    .buttonFinish:disabled{
-      background-color: #ccc;
-      cursor: auto;
-    }
+  .buttonFinish:disabled {
+    background-color: #ccc;
+    cursor: auto;
+  }
 
   .questionCounter {
     width: 240px;
@@ -149,6 +149,7 @@
     width: 55px;
     height: 34px;
     background-color: var(--white);
+    color: var(--black);
     border: none;
     font-family: var(--mainFont);
     font-size: 12px;
@@ -186,7 +187,7 @@
   }
 
   .testName {
-    width: 117px;
+    width: 120px;
     font-family: var(--mainFont);
     font-weight: 400;
     font-size: 22px;
@@ -200,7 +201,6 @@
     font-weight: 500;
     font-size: 14px;
   }
-
 
   .testWrap {
     width: 704px;

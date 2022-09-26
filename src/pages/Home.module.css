@@ -17,7 +17,7 @@
 }
 
 .text {
-  width: 280px;
+  /* width: 280px; */
   height: 60px;
   margin-bottom: 32px;
   font-weight: 700;
@@ -92,7 +92,14 @@
   text-decoration: none;
 }
 
-.link::before {
+.buttonModal {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.buttonModal::before {
   position: absolute;
   content: '';
   inset: 0;
@@ -138,7 +145,8 @@
     width: 400px;
   }
 
-  .item:last-child > .link {
+  .item:last-child > .buttonModal,
+  .item:last-child > .buttonModal > .link {
     width: 132px;
     margin: 0 auto;
   }
