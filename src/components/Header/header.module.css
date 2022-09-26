@@ -1,6 +1,5 @@
 
 .header {
-    position: relative;
     width: 100vw;
     background: var(--primaryBgColor);
     border-bottom: 1px solid var(--headerBorderColor);
@@ -9,6 +8,7 @@
 }
 
 .headerWrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;

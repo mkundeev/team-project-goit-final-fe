@@ -116,12 +116,12 @@ export default function Header() {
             </nav>
 
             <div className={s.userPanel}>
-              {userEmail && (
+              {/* {userEmail && ( */}
                 <NavLink to="" className={s.userLink}>
                   <span className={s.userIcon}>
-                    {userEmail[0].toUpperCase()}
+                    D
                   </span>
-                  <span className={s.user}>{userEmail.split('@')[0]}</span>
+                  <span className={s.user}>dmytriishyp</span>
                   <span className={s.signOutBtn} onClick={handleLogOut}>
                     <svg
                       className={s.blackFillColor}
@@ -143,7 +143,7 @@ export default function Header() {
                     </svg>
                   </span>
                 </NavLink>
-              )}
+              {/* )} */}
               <span onClick={toggleMenu} className={s.mobMenuBtn}>
                 {!isMenuOpen && (
                   <svg
