@@ -1,12 +1,11 @@
 .materialsMain {
-    background-image: url("../images/userInfoMobile-1x.jpg");
+    background-image: url("../images/mob2x.png");
     background-repeat: no-repeat;
     background-position: right top -3px;
     border-top: 1px solid var(--black);
     padding-top: 40px;
     padding-bottom: 117px;
-    background-color: #FCFCFE;
-
+    background-color: var(--bgColorMaterials);
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -17,13 +16,13 @@
         background-position: right top -3px;
         background-size: contain;
         background-repeat: no-repeat;
-        background-image: url("../images/userInfoMobile-2x.jpg");
+        background-image: url("../images/mob2x.png");
     }
 }
 
 @media screen and (min-width:768px) {
     .materialsMain {
-        background-image: url("../images/userInfoTablet-1x.jpg");
+        background-image: url("../images/table2x.png");
         background-size: contain;
         padding-top: 180px;
         padding-bottom: 356px;
@@ -37,14 +36,14 @@
             background-position: right top -3px;
             background-size: contain;
             background-repeat: no-repeat;
-            background-image: url("../images/userInfoTablet-2x.jpg");
+            background-image: url("../images/table2x.png");
         }
     }
 }
 
 @media screen and (min-width:1280px) {
     .materialsMain {
-        background-image: url("../images/userInfoDes-1x.jpg");
+        background-image: url("../images/desktop2x.png");
         background-size: contain;
         padding-top: 100px;
         padding-bottom: 272px;
@@ -58,7 +57,7 @@
             background-position: right top -3px;
             background-size: contain;
             background-repeat: no-repeat;
-            background-image: url("../images/userInfoDes-2x.jpg");
+            background-image: url("../images/desktop2x.png");
         }
     }
 }
