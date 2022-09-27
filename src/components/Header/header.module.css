@@ -117,6 +117,9 @@
     padding: 20px;
     cursor: pointer;
 }
+.blackFillColor:hover{
+    fill: var(--accentColor);
+}
 
 .overlay {
     position: fixed;
@@ -143,7 +146,7 @@
     fill: var(--accentColor);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
     .nav {
         display: none;
     }

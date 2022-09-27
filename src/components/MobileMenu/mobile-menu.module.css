@@ -28,6 +28,7 @@
     cursor: pointer;
 }
 
+
 .navLink {
     text-decoration: none;
     font-family: var(--mainFont);
@@ -53,4 +54,7 @@
 
 .signOutIcon {
     fill: var(--black);
+}
+.signOutIcon:hover {
+    fill: var(--accentColor)
 }
