@@ -1,15 +1,15 @@
-import Container from 'components/Container';
 import { useState, useEffect } from 'react';
-import s from './Home.module.css';
-import { BsArrowRight } from 'react-icons/bs';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom/dist';
+import { toast } from 'react-toastify';
+import { BsArrowRight } from 'react-icons/bs';
 import { useGetTestListQuery, useResetTestMutation } from 'app/testsApi';
 import ModalTestConfirm from 'components/ModalTestConfirm/ModalTestConfirm';
-import { useNavigate } from 'react-router-dom/dist';
-import { useSelector, useDispatch } from 'react-redux';
 import { getStartedTests } from 'app/selectors';
 import { setUser } from 'app/reducer';
-import { toast } from 'react-toastify';
+import Container from 'components/Container';
+import s from './Home.module.css';
 
 export default function HomePage() {
   const { data } = useGetTestListQuery();

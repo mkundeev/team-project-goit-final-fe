@@ -36,6 +36,7 @@
 .btnCloseIcon {
   width: 10px;
   height: 10px;
+  fill: var(--black);
 }
 
 .buttonsWrap {
