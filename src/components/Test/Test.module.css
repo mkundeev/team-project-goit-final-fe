@@ -1,5 +1,5 @@
 .container {
-  min-width: 280px;
+  width: 280px;
   margin: 0 auto;
   padding-top: 44px;
   padding-bottom: 20px;
@@ -46,8 +46,7 @@
 
 .questionCounter {
   width: 240px;
-  margin-bottom: 20px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   font-family: var(--mainFont);
   font-weight: 400;
   font-size: 10px;
@@ -74,6 +73,8 @@
   letter-spacing: 0.02em;
   text-transform: capitalize;
   color: var(--black);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .question::after {
@@ -101,8 +102,9 @@
   place-content: center;
   margin: 0 auto;
   margin-top: 32px;
-  padding-right: 20px;
   padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 .formLabel {
@@ -209,12 +211,14 @@
   }
 
   .questionCounter {
+    margin: 0 auto 8px;
     font-size: 14px;
-    margin-bottom: 8px;
     width: 650px;
   }
 
   .question {
+    padding-left: 73px;
+    padding-right: 73px;
     font-weight: 700;
     font-size: 22px;
     line-height: 1.36;
@@ -228,6 +232,8 @@
 
   .formTest {
     width: 558px;
+    padding-left: 73px;
+    padding-right: 73px;
   }
 
   .formLabel {
@@ -268,12 +274,19 @@
     font-size: 14px;
   }
 
+  .question {
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+
   .question::after {
     width: 321px;
   }
 
   .formTest {
     width: 648px;
+    padding-left: 85px;
+    padding-right: 85px;
   }
 
   .paginationBtnWrap {
