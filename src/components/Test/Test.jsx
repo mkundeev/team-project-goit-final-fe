@@ -10,14 +10,14 @@ import TestCard from '../TestCard/TestCard';
 import s from './Test.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStartedTests } from 'app/selectors';
-import { setUser } from 'app/reducer';
+import { setUser, resetUser } from 'app/reducer';
 
 export default function Test({ testId }) {
   const tests = useSelector(getStartedTests);
   const [currentTest, setCurrentTest] = useState('');
   const [checkedValue, setCheckedValue] = useState('');
-  const [setAnswers] = useSetAnswersMutation();
-  const [getResult] = useGetResultMutation();
+  const [setAnswers, { error: answerError }] = useSetAnswersMutation();
+  const [getResult, { error: resultError }] = useGetResultMutation();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,7 +28,17 @@ export default function Test({ testId }) {
     if (currentTest) {
       setCheckedValue(currentTest?.answers[currentTest.currentIndex]?.answer);
     }
-  }, [currentTest, testId, tests]);
+    if (answerError?.status === 401 || resultError?.status === 401) {
+      dispatch(resetUser());
+    }
+  }, [
+    answerError?.status,
+    currentTest,
+    dispatch,
+    resultError?.status,
+    testId,
+    tests,
+  ]);
 
   const handleChangeDecrement = async () => {
     const isCheckedValue = currentTest.tests[

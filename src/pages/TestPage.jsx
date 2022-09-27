@@ -3,14 +3,14 @@ import Test from '../components/Test/Test';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetTestQuery } from 'app/testsApi';
-import { setUser } from 'app/reducer';
+import { setUser, resetUser } from 'app/reducer';
 import { getStartedTestsIds } from 'app/selectors';
 
 export default function TestPage() {
   const { testId } = useParams();
   const dispatch = useDispatch();
   const startedTestIds = useSelector(getStartedTestsIds);
-  const { data, isLoading } = useGetTestQuery(testId, {
+  const { data, isLoading, error } = useGetTestQuery(testId, {
     skip: startedTestIds?.includes(testId),
   });
 
@@ -18,7 +18,10 @@ export default function TestPage() {
     if (data) {
       dispatch(setUser({ startedTests: data }));
     }
-  }, [dispatch, data]);
+    if (error?.status === 401) {
+      dispatch(resetUser());
+    }
+  }, [dispatch, data, error?.status]);
 
   return <>{!isLoading && <Test testId={testId} />}</>;
 }
