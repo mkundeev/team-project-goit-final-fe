@@ -30,6 +30,8 @@ html[data-theme='light'] {
   --textShadow: 1px 1px 2px #eecebe, 0 0 1em rgb(219, 219, 245),
     0 0 0.2em rgb(142, 142, 143);
   --textCharUser: #681f1f;
+  --bgTestContainer: #fff;
+  --colorShadow: rgba(2, 23, 42, 0.1);
 }
 html[data-theme='dark'] {
   --white: #000;
@@ -51,6 +53,8 @@ html[data-theme='dark'] {
   --textTabl: rgb(230, 232, 233);
   --textShadow: 1px 1px 0px red, 0 0 1em #dadae3, 0 0 0.2em #85858f;
   --textCharUser: rgb(230, 232, 233);
+  --bgTestContainer: #1d1d1d;
+  --colorShadow: rgba(238, 240, 241, 0.1);
 }
 body {
   height: 100%;
@@ -59,9 +63,7 @@ main {
   flex: 1 1 auto;
 }
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  min-height: calc(100vh - 56px);
 }
 body,
 section {

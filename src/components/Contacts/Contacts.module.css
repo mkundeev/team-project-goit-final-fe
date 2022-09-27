@@ -72,19 +72,30 @@ main {
   line-height: 1.19;
   margin-bottom: 30px;
 }
+.teamItem img {
+  height: 278px;
+  width: 100%;
+}
 @media screen and (min-width: 768px) {
   .teamItem {
     width: calc(100% / 2 - 30px);
     margin-right: 30px;
     background-color: var(--primaryBgColor);
   }
+  .teamItem img {
+    height: 347px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .teamItem {
     width: calc(100% / 3 - 30px);
   }
+  .teamItem img {
+    height: 391px;
+  }
 }
 .teamItem img {
+  height: auto;
   width: 100%;
 }
 .teamDesc {

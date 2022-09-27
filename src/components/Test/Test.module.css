@@ -46,10 +46,10 @@
     color: var(--white);
     cursor: pointer;
   }
-    .buttonFinish:disabled{
-      background-color: #ccc;
-      cursor: auto;
-    }
+  .buttonFinish:disabled {
+    background-color: #ccc;
+    cursor: auto;
+  }
 
   .questionCounter {
     width: 240px;
@@ -97,8 +97,8 @@
     padding-top: 40px;
     width: 280px;
     min-height: 456px;
-    background: var(--white);
-    box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+    background: var(--bgTestContainer);
+    box-shadow: 0px 4px 15px var(--colorShadow);
     margin-bottom: 20px;
   }
 
@@ -148,8 +148,9 @@
   .paginationButton {
     width: 55px;
     height: 34px;
-    background-color: var(--white);
+    background-color: var(--bgTestContainer);
     border: none;
+    color: var(--black);
     font-family: var(--mainFont);
     font-size: 12px;
     line-height: 1.17;
@@ -161,7 +162,7 @@
   }
   .paginationButton:not([disabled]):hover {
     background-color: var(--accentColor);
-    color: var(--white);
+    color: #fff;
   }
 }
 
@@ -200,7 +201,6 @@
     font-weight: 500;
     font-size: 14px;
   }
-
 
   .testWrap {
     width: 704px;

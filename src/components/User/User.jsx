@@ -57,10 +57,11 @@ export default function User({ data }) {
   };
 
   const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
+  console.log(data);
 
   return (
     <div className={s.user}>
-      {
+      {data ? (
         <Container>
           <table>
             <thead>
@@ -94,7 +95,7 @@ export default function User({ data }) {
                           topic === 'Testing theory' ? '#C13C37' : '#E38627',
                       }}
                     >
-                      <td>{createAt}</td>
+                      <td>{new Date(createAt).toLocaleString()}</td>
                       <td>{topic}</td>
                       <td>{rightAnswers}</td>
                       <td>{wrongAnswers}</td>
@@ -122,7 +123,15 @@ export default function User({ data }) {
             </div>
           </div>
         </Container>
-      }
+      ) : (
+        <div className={s.mult}>
+          <img
+            src="https://i.postimg.cc/NFsqCbbH/mult.gif"
+            border="0"
+            alt="mult"
+          />
+        </div>
+      )}
     </div>
   );
 }
