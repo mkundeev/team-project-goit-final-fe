@@ -115,62 +115,63 @@ export default function Header() {
               </ul>
             </nav>
 
-            <div className={s.userPanel}>
-              {userEmail && (
+            {userEmail && (
+              <div className={s.userPanel}>
                 <NavLink to="/user" className={s.userLink}>
                   <span className={s.userIcon}>
                     {userEmail[0].toUpperCase()}
                   </span>
                   <span className={s.user}>{userEmail.split('@')[0]}</span>
-                  <span className={s.signOutBtn} onClick={handleLogOut}>
-                    <svg
-                      className={s.blackFillColor}
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fillRule="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clipPath="url(#clip0_7785_16)">
-                        <path d="M12.6465 4.64645L11.9395 5.35348L14.086 7.49997H7V8.49998H14.086L11.9395 10.6465L12.6465 11.3535L16 7.99997L12.6465 4.64645Z" />
-                        <path d="M11 15H1.00001V1.00001H11V2.00002H12V0.500005C12 0.223628 11.7764 0 11.5 0H0.500005C0.223628 0 0 0.223628 0 0.500005V15.5C0 15.7764 0.223628 16 0.500005 16H11.5C11.7764 16 12 15.7764 12 15.5V14H11V15Z" />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_7785_16">
-                          <rect width="16" height="16" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </span>
                 </NavLink>
-              )}
-              <span onClick={toggleMenu} className={s.mobMenuBtn}>
-                {!isMenuOpen && (
-                  <svg
-                    className={s.blackFillColor}
-                    width="16"
-                    height="10"
-                    viewBox="0 0 16 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0.5 10H15.5V8.33333H0.5V10ZM0.5 5.83333H15.5V4.16667H0.5V5.83333ZM0.5 0V1.66667H15.5V0H0.5Z" />
-                  </svg>
-                )}
-                {isMenuOpen && (
+                <span className={s.signOutBtn} onClick={handleLogOut}>
                   <svg
                     className={s.blackFillColor}
                     width="16"
                     height="16"
                     viewBox="0 0 16 16"
-                    fill="none"
+                    fillRule="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M15.5832 1.94417L14.0557 0.416672L7.99984 6.47251L1.944 0.416672L0.416504 1.94417L6.47234 8.00001L0.416504 14.0558L1.944 15.5833L7.99984 9.52751L14.0557 15.5833L15.5832 14.0558L9.52733 8.00001L15.5832 1.94417Z" />
+                    <g clipPath="url(#clip0_7785_16)">
+                      <path d="M12.6465 4.64645L11.9395 5.35348L14.086 7.49997H7V8.49998H14.086L11.9395 10.6465L12.6465 11.3535L16 7.99997L12.6465 4.64645Z" />
+                      <path d="M11 15H1.00001V1.00001H11V2.00002H12V0.500005C12 0.223628 11.7764 0 11.5 0H0.500005C0.223628 0 0 0.223628 0 0.500005V15.5C0 15.7764 0.223628 16 0.500005 16H11.5C11.7764 16 12 15.7764 12 15.5V14H11V15Z" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_7785_16">
+                        <rect width="16" height="16" fill="white" />
+                      </clipPath>
+                    </defs>
                   </svg>
-                )}
-              </span>
-            </div>
+                </span>
+              </div>
+            )}
+
+            <span onClick={toggleMenu} className={s.mobMenuBtn}>
+              {!isMenuOpen && (
+                <svg
+                  className={s.blackFillColor}
+                  width="16"
+                  height="10"
+                  viewBox="0 0 16 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 10H15.5V8.33333H0.5V10ZM0.5 5.83333H15.5V4.16667H0.5V5.83333ZM0.5 0V1.66667H15.5V0H0.5Z" />
+                </svg>
+              )}
+              {isMenuOpen && (
+                <svg
+                  className={s.blackFillColor}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M15.5832 1.94417L14.0557 0.416672L7.99984 6.47251L1.944 0.416672L0.416504 1.94417L6.47234 8.00001L0.416504 14.0558L1.944 15.5833L7.99984 9.52751L14.0557 15.5833L15.5832 14.0558L9.52733 8.00001L15.5832 1.94417Z" />
+                </svg>
+              )}
+            </span>
           </div>
         </div>
       </Container>

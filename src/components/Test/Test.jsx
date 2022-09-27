@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
 import { useSetAnswersMutation, useGetResultMutation } from 'app/testsApi';
@@ -54,7 +55,9 @@ export default function Test({ testId }) {
 
   const handleChangeIncrement = async () => {
     if (!checkedValue) {
-      alert('Select one of the answers');
+      toast.warn('Select one of the answers', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return;
     }
 
@@ -69,7 +72,9 @@ export default function Test({ testId }) {
 
   const finishTest = async () => {
     if (!checkedValue) {
-      alert('Select one of the answers');
+      toast.warn('Select one of the answers', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return;
     }
     await getResult({
@@ -86,7 +91,7 @@ export default function Test({ testId }) {
         <div className={s.container}>
           <div className={s.wrapTop}>
             <div className={s.testNameWrap}>
-              <p className={s.testName}>[ _{currentTest.topic} ]</p>
+              <p className={s.testName}>[ {currentTest.topic}_ ]</p>
             </div>
             <button
               type="button"
