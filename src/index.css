@@ -58,6 +58,7 @@ html[data-theme='dark'] {
 }
 body {
   height: 100%;
+  background: var(--bgGraphite);
 }
 main {
   flex: 1 1 auto;
