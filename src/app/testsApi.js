@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const testsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4000/',
+    baseUrl: 'https://nodejs-project-goit.herokuapp.com/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().currentUser.token;
       if (token) {
@@ -12,7 +12,7 @@ export const testsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Users'],
+  tagTypes: ['Users', 'Statistic'],
   endpoints: builder => ({
     registerUser: builder.mutation({
       query(user) {
@@ -63,13 +63,30 @@ export const testsApi = createApi({
     getTest: builder.query({
       query: testId => ({ url: `tests/random/${testId}` }),
     }),
+    resetTest: builder.mutation({
+      query(testId) {
+        return {
+          url: `tests/reset`,
+          method: 'PATCH',
+          body: { testId },
+        };
+      },
+    }),
     getTestList: builder.query({
       query() {
         return {
-          url: `tests/`,
+          url: `tests`,
         };
       },
       providesTags: ['Users'],
+    }),
+    getUsetSatistic: builder.query({
+      query() {
+        return {
+          url: `statistic`,
+        };
+      },
+      providesTags: ['Statistic'],
     }),
     getResult: builder.mutation({
       query(result) {
@@ -79,7 +96,7 @@ export const testsApi = createApi({
           body: result,
         };
       },
-      invalidatesTags: ['Users'],
+      invalidatesTags: ['Users', 'Statistic'],
     }),
     setAnswers: builder.mutation({
       query(answers) {
@@ -89,16 +106,6 @@ export const testsApi = createApi({
           body: answers,
         };
       },
-    }),
-    result: builder.mutation({
-      query(result) {
-        return {
-          url: `tests/result`,
-          method: 'PATCH',
-          body: result,
-        };
-      },
-      invalidatesTags: ['Users'],
     }),
   }),
 });
@@ -113,5 +120,6 @@ export const {
   useGetTestListQuery,
   useSetAnswersMutation,
   useGetTestQuery,
-  useResultMutation,
+  useGetUsetSatisticQuery,
+  useResetTestMutation,
 } = testsApi;

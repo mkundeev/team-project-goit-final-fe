@@ -171,7 +171,6 @@ export default function AuthorizationForm() {
   };
   const login = useGoogleLogin({
     onSuccess: async ({ code }) => {
-      console.log(code);
       googleLogin({ code })
         .unwrap()
         .then(data => {

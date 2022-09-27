@@ -17,8 +17,9 @@
 }
 
 .text {
-  width: 280px;
+  /* width: 280px; */
   height: 60px;
+  margin: 0 auto;
   margin-bottom: 32px;
   font-weight: 700;
   font-size: 12px;
@@ -59,7 +60,7 @@
 
 .item {
   position: relative;
-
+  margin: 0 auto;
   width: 280px;
   height: 212px;
   padding-top: 60px;
@@ -80,6 +81,12 @@
   background-color: #ff6b09;
 }
 
+.item:nth-child(0n + 2) .spanText {
+  width: 105px;
+  margin: 0 auto;
+  margin-bottom: 28px;
+}
+
 .link {
   display: flex;
   flex-direction: column;
@@ -92,7 +99,14 @@
   text-decoration: none;
 }
 
-.link::before {
+.buttonModal {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.buttonModal::before {
   position: absolute;
   content: '';
   inset: 0;
@@ -106,10 +120,10 @@
   width: 24px;
   height: 24px;
   margin: 0 auto;
-  fill: #fff;
 }
 
 .svg {
+  fill: #fff;
   font-size: 24px;
 }
 
@@ -138,13 +152,19 @@
     width: 400px;
   }
 
-  .item:last-child > .link {
+  .item:last-child > .buttonModal,
+  .item:last-child > .buttonModal > .link {
     width: 132px;
     margin: 0 auto;
   }
 
   .item:not(:last-child) {
     margin-bottom: 30px;
+  }
+
+  .item:nth-child(0n + 2) .spanText {
+    width: 132px;
+    margin-bottom: 12px;
   }
 
   .line {
@@ -194,5 +214,10 @@
 
   .item:not(:last-child) {
     margin-right: 32px;
+  }
+
+  .item:nth-child(0n + 2) .spanText {
+    width: 140px;
+    margin-bottom: 8px;
   }
 }

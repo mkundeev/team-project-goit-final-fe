@@ -118,6 +118,7 @@
     cursor: pointer;
 }
 
+
 .overlay {
     position: fixed;
     top: 0;
@@ -142,6 +143,7 @@
 .signOutBtn:hover .blackFillColor {
     fill: var(--accentColor);
 }
+
 
 .mobMenuBtn:hover .blackFillColor {
     fill: var(--accentColor);

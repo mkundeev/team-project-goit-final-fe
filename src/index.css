@@ -25,27 +25,45 @@ html[data-theme='light'] {
   --diagramWrongBgColor: #d7d7d7;
   --btnGoogleBgColor: #fafafa;
   --shadowBtnDN: #81c0d5;
-  --bgGraphite: #fff;
+  --bgGraphite: #f5f6fb;
+  --textTabl: #070707;
+  --textShadow: 1px 1px 2px #eecebe, 0 0 1em rgb(219, 219, 245),
+    0 0 0.2em rgb(142, 142, 143);
+  --textCharUser: #681f1f;
+  --bgColorMaterials: #FCFCFE;
 }
 html[data-theme='dark'] {
   --white: #000;
   --black: #fff;
   --secondaryTextColor: #d1d0d0;
   --accentColor: #ff6b09;
-  --footerTextColor: rgba(44, 44, 44, 0.4);
+  --footerTextColor: rgba(255, 255, 255, 0.4);
   --headerBorderColor: #474747;
   --vectorColor: #d0d9e9;
   --inputBorderColor: #545555;
   --labelTextColor: #504f4f;
 
   --primaryBgColor: #1d1d1d;
-  --footerBgColor: #2a3947;
+  --footerBgColor: #1d1d1d;
   --diagramWrongBgColor: #3f3e3e;
   --btnGoogleBgColor: #111111;
   --shadowBtnDN: #fff;
   --bgGraphite: rgb(44, 54, 57);
+  --textTabl: rgb(230, 232, 233);
+  --textShadow: 1px 1px 0px red, 0 0 1em #dadae3, 0 0 0.2em #85858f;
+  --textCharUser: rgb(230, 232, 233);
 }
-
+body {
+  height: 100%;
+}
+main {
+  flex: 1 1 auto;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
 body,
 section {
   background: var(--bgGraphite);
