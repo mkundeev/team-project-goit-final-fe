@@ -144,6 +144,11 @@
     fill: var(--accentColor);
 }
 
+
+.mobMenuBtn:hover .blackFillColor {
+    fill: var(--accentColor);
+}
+
 @media screen and (max-width: 767.9px) {
     .nav {
         display: none;
@@ -160,6 +165,10 @@
 }
 
 @media screen and (min-width: 768px) {
+   .overlay {
+    display: none;
+   }
+
     .mobMenuBtn {
         display: none;
     }

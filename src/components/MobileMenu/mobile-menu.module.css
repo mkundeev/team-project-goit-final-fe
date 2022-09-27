@@ -1,60 +1,75 @@
 .menu {
-    position: fixed;
-    top: 69px;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: var(--primaryBgColor);
+  position: fixed;
+  top: 69px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: var(--primaryBgColor);
 }
 
 .navlist {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .navListItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 74px;
-    border-bottom: 1px solid var(--headerBorderColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 74px;
+  border-bottom: 1px solid var(--headerBorderColor);
 }
 
 .signOutBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 74px;
-    cursor: pointer;
+  display: flex;
+  width: 60px;
+  height: 74px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
 }
 
 
 .navLink {
-    text-decoration: none;
-    font-family: var(--mainFont);
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0.02em;
-    color: var(--black);
+  text-decoration: none;
+  font-family: var(--mainFont);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: var(--black);
 }
 
 .navLink:hover {
-    color: var(--accentColor);
+  color: var(--accentColor);
 }
 
 .activeLink {
-    font-family: var(--mainFont);
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    border-bottom: 1px solid var(--accentColor);
-    color: var(--black);
+  font-family: var(--mainFont);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accentColor);
+  color: var(--black);
+}
+
+.activeLink:hover {
+  color: var(--accentColor);
 }
 
 .signOutIcon {
-    fill: var(--black);
+
+  fill: var(--black);
 }
-.signOutIcon:hover {
-    fill: var(--accentColor)
+
+.signOutBtn:hover .signOutIcon {
+  fill: var(--accentColor);
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    display: none;
+  }
 }
