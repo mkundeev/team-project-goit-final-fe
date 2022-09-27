@@ -1,9 +1,5 @@
-// import { useState } from 'react';
-import s from './User.module.css';
-import { v4 as uuidv4 } from 'uuid';
 import Cart from './Cart';
 export default function MobileCartREsult({ data }) {
-  //   console.log(data);
   const testing = [];
   const QAtesting = [];
   data.map(el =>
