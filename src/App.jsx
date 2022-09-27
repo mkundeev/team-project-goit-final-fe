@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getToken } from 'app/selectors';
-import { setUser } from 'app/reducer';
+import { setUser, resetUser } from 'app/reducer';
 import { useGetUserQuery } from 'app/testsApi';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
@@ -40,20 +40,22 @@ const ContactsPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const token = useSelector(getToken);
-  const { data } = useGetUserQuery('', { skip: !token });
+  const { data, error } = useGetUserQuery('', { skip: !token });
 
   useEffect(() => {
     if (data) {
       dispatch(setUser(data));
     }
-  }, [data, dispatch]);
+    if (error?.status === 401) {
+      dispatch(resetUser());
+    }
+  }, [data, dispatch, error?.status]);
   return (
     <div className="wrapper">
       <Suspense
         fallback={
           <div className="loader">
             <Loader />
-            {/* <RingLoader color="#1212dc" size={250} /> */}
           </div>
         }
       >

@@ -7,12 +7,12 @@ import { BsArrowRight } from 'react-icons/bs';
 import { useGetTestListQuery, useResetTestMutation } from 'app/testsApi';
 import ModalTestConfirm from 'components/ModalTestConfirm/ModalTestConfirm';
 import { getStartedTests } from 'app/selectors';
-import { setUser } from 'app/reducer';
+import { setUser, resetUser } from 'app/reducer';
 import Container from 'components/Container';
 import s from './Home.module.css';
 
 export default function HomePage() {
-  const { data } = useGetTestListQuery();
+  const { data, error } = useGetTestListQuery();
   const [resetTest] = useResetTestMutation();
   const startedTests = useSelector(getStartedTests);
   const [tests, setTests] = useState('');
@@ -22,7 +22,12 @@ export default function HomePage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() => setTests(data), [data]);
+  useEffect(() => {
+    setTests(data);
+    if (error?.status === 401) {
+      dispatch(resetUser());
+    }
+  }, [data, dispatch, error?.status]);
 
   const handleOpenModal = e => {
     const path = e.target.id;
