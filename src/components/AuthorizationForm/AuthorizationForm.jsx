@@ -190,7 +190,7 @@ export default function AuthorizationForm() {
     <div>
       <form className={s.form}>
         <p className={s.text}>You can use your Google Account to authorize:</p>
-        <div className={s.link} onClick={login}>
+        <div className={s.googleBtn} onClick={login}>
           <img className={s.googleIcon} src={icon} alt="" />
           <span className={s.googleTxt}>Google</span>
         </div>
