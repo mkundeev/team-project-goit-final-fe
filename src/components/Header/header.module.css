@@ -117,9 +117,7 @@
     padding: 20px;
     cursor: pointer;
 }
-.blackFillColor:hover{
-    fill: var(--accentColor);
-}
+
 
 .overlay {
     position: fixed;
