@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom/dist';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStartedTests } from 'app/selectors';
 import { setUser } from 'app/reducer';
+import { toast } from 'react-toastify';
 
 export default function HomePage() {
   const { data } = useGetTestListQuery();
@@ -53,9 +54,13 @@ export default function HomePage() {
       .then(data => {
         dispatch(setUser({ startedTests: data }));
         setIsOpenModal(false);
+        navigate(`/test/${pathToTest}`);
       })
-      .catch(err => console.log(err.message));
-    navigate(`/test/${pathToTest}`);
+      .catch(data =>
+        toast.error(data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        })
+      );
   };
 
   return (
