@@ -1,175 +1,175 @@
+.container {
+  min-width: 280px;
+  margin: 0 auto;
+  padding-top: 44px;
+  padding-bottom: 20px;
+}
+
+.wrapTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.testNameWrap {
+  width: 130px;
+}
+
+.testName {
+  width: 75px;
+  font-family: var(--mainFont);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: var(--black);
+}
+
+.buttonFinish {
+  display: block;
+  min-width: 130px;
+  height: 48px;
+  background-color: var(--accentColor);
+  border: none;
+  font-family: var(--mainFont);
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  cursor: pointer;
+}
+.buttonFinish:disabled {
+  background-color: #ccc;
+  cursor: auto;
+}
+
+.questionCounter {
+  width: 240px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  font-family: var(--mainFont);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--secondaryTextColor);
+}
+
+.currentQuestion {
+  color: var(--accentColor);
+  font-weight: 700;
+}
+
+.question {
+  margin: 0 auto;
+  min-width: 240px;
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--black);
+}
+
+.question::after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  margin-top: 32px;
+  width: 130px;
+  border-bottom: 1px solid var(--vectorColor);
+  opacity: 0.15;
+}
+
+.testWrap {
+  padding-top: 40px;
+  min-width: 280px;
+  min-height: 456px;
+  background: var(--white);
+  box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+  margin-bottom: 20px;
+}
+
+.formTest {
+  width: 280px;
+  display: grid;
+  place-content: center;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.formLabel {
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 20px;
+  font-family: var(--mainFont);
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--black);
+  position: relative;
+  cursor: pointer;
+}
+
+.formInput {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  display: grid;
+}
+
+.formInput:checked {
+  opacity: 1;
+  transform: scale(1);
+  accent-color: #ef680d;
+}
+
+.formLabel:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.paginationBtnWrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paginationButton {
+  width: 55px;
+  height: 34px;
+  background-color: var(--white);
+  color: var(--black);
+  border: none;
+  font-family: var(--mainFont);
+  font-size: 12px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.paginationButton:not([disabled]):hover {
+  background-color: var(--accentColor);
+  color: var(--white);
+}
+
 @media screen and (max-width: 767px) {
   .questionsNextPrev {
     display: none;
   }
 }
 
-@media screen and (min-width: 320px) {
-  .container {
-    width: 280px;
-    margin: 0 auto;
-    padding-top: 34px;
-    padding-bottom: 20px;
-  }
-
-  .wrapTop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-  }
-
-  .testNameWrap {
-    width: 130px;
-  }
-
-  .testName {
-    width: 75px;
-    font-family: var(--mainFont);
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0.02em;
-    color: var(--black);
-  }
-
-  .buttonFinish {
-    display: block;
-    min-width: 130px;
-    height: 48px;
-    background-color: var(--accentColor);
-    border: none;
-    font-family: var(--mainFont);
-    font-size: 10px;
-    line-height: 1.2;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    cursor: pointer;
-  }
-  .buttonFinish:disabled {
-    background-color: #ccc;
-    cursor: auto;
-  }
-
-  .questionCounter {
-    width: 240px;
-    margin-bottom: 20px;
-    margin: 0 auto;
-    font-family: var(--mainFont);
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 1.2;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: var(--secondaryTextColor);
-  }
-
-  .currentQuestion {
-    color: var(--accentColor);
-    font-weight: 700;
-  }
-
-  .question {
-    margin: 0 auto;
-    width: 240px;
-    font-family: var(--mainFont);
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 1.5;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: capitalize;
-    color: var(--black);
-  }
-
-  .question::after {
-    content: '';
-    display: block;
-    margin: 0 auto;
-    margin-top: 32px;
-    width: 130px;
-    border-bottom: 1px solid var(--vectorColor);
-    opacity: 0.15;
-  }
-
-  .testWrap {
-    padding-top: 40px;
-    width: 280px;
-    min-height: 456px;
-    background: var(--white);
-    box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
-    margin-bottom: 20px;
-  }
-
-  .formTest {
-    width: 240px;
-    display: grid;
-    place-content: center;
-    margin: 0 auto;
-    margin-top: 32px;
-  }
-
-  .formLabel {
-    display: grid;
-    grid-template-columns: 1em auto;
-    gap: 20px;
-    font-family: var(--mainFont);
-    font-size: 10px;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-    color: var(--black);
-    position: relative;
-    cursor: pointer;
-  }
-
-  .formInput {
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
-    display: grid;
-  }
-
-  .formInput:checked {
-    opacity: 1;
-    transform: scale(1);
-    accent-color: #ef680d;
-  }
-
-  .formLabel:not(:last-child) {
-    margin-bottom: 14px;
-  }
-
-  .paginationBtnWrap {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .paginationButton {
-    width: 55px;
-    height: 34px;
-    background-color: var(--white);
-    color: var(--black);
-    border: none;
-    font-family: var(--mainFont);
-    font-size: 12px;
-    line-height: 1.17;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-  }
-  .paginationButton:not([disabled]):hover {
-    background-color: var(--accentColor);
-    color: var(--white);
-  }
-}
-
 @media screen and (min-width: 768px) {
   .container {
     width: 704px;
-    padding-top: 42px;
+    padding-top: 62px;
     padding-bottom: 273px;
   }
 
