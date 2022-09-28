@@ -1,8 +1,8 @@
-import { element } from 'prop-types';
+// import { element } from 'prop-types';
 import React from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 
-import s from './User.module.css';
+// import s from './User.module.css';
 export default function UserChart({ data }) {
   const topics = [...new Set(data.map(el => el.topic))];
 

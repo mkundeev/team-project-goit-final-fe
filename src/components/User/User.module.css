@@ -2,22 +2,26 @@
   padding-top: 70px;
   padding-bottom: 40px;
 }
+
 table {
   display: none;
 }
+
 .mult {
   width: 250px;
   height: 150px;
 
   margin: 0 auto;
 }
-.mult > img {
+
+.mult>img {
   width: 250px;
   height: 150px;
   box-shadow: 0px 0px 25px 10px rgb(199, 196, 196);
   border-radius: 10px;
   border: 1px solid var(--inputBorderColor);
 }
+
 .UserChart {
   position: relative;
   width: 280px;
@@ -25,6 +29,7 @@ table {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
 .text {
   position: absolute;
   font-size: 70px;
@@ -36,6 +41,7 @@ table {
   transform: translate(-50%, -50%);
   text-shadow: var(--textShadow);
 }
+
 .Cart {
   width: 280px;
   display: block;
@@ -64,23 +70,24 @@ table {
   color: #fff;
   background: #e38627;
 }
+
 @media screen and (min-width: 768px) {
   .Cart {
     display: none;
   }
+
   .wrapTable {
     position: relative;
   }
-  table {
-    width: 728px;
-    height: 300px;
-    overflow: scroll;
 
+  table {
+    width: 713px;
+    max-height: 300px;
+    overflow-x: hidden;
     display: block;
     position: relative;
     margin: 0 auto;
     margin-bottom: 45px;
-
     font-family: var(--mainFont), Sans-Serif;
     font-size: 12px;
     text-align: left;
@@ -89,8 +96,19 @@ table {
     background: var(--bgGraphite);
     color: var(--textTabl);
     border: 16px solid var(--headerBorderColor) !important;
-
     border-radius: 20px;
+  }
+
+  table::-webkit-scrollbar {
+    width: 7px;
+    background-color: #3f3f405c;
+    border-radius: 9em;
+  }
+
+  /* ползунок скроллбара */
+  table::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(114 103 103) 37%, rgb(108 99 99) 61%);
+    border-radius: 9em;
   }
 
   th {
@@ -104,24 +122,29 @@ table {
     padding: 5px;
     text-transform: uppercase;
   }
+
   td {
     text-align: center;
     padding: 5px;
     color: #fff;
     max-height: 280px;
   }
+
   tbody {
     height: 100px;
     overflow: scroll;
   }
+
   .mult {
     width: 366px;
     height: 200px;
   }
-  .mult > img {
+
+  .mult>img {
     width: 366px;
     height: 200px;
   }
+
   .UserChart {
     width: 366px;
     height: 366px;
@@ -129,23 +152,33 @@ table {
     margin-bottom: 40px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   table {
     width: 1020px;
+    font-size: 15px;
   }
+
   th {
-    font-size: 14px;
-    padding: 5px;
-    width: 100%;
+    padding: 10px;
+    width: 200px;
   }
+
+  td {
+    font-size: 15px;
+    padding: 10px;
+  }
+
   .userContainer {
     display: flex;
     align-items: center;
   }
+
   table th:first-child {
     width: 200px;
     padding: 0 25px;
   }
+
   .UserChart {
     margin-bottom: 0;
   }

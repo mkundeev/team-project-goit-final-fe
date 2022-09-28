@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import imeges from "../../images/ukr.jpg";
+import images from "../../images/ukr.jpg";
 import s from "./Footer.module.css";
 
 export default function Footer() {
@@ -10,7 +10,7 @@ export default function Footer() {
         <span className={s.text}>2022</span>
         <span className={s.footerText}>All Rights Reserved</span>
         <span className={s.footerText}> Developed with</span>
-        <img className={s.footer_logo} src={imeges} alt="ukraine" />
+        <img className={s.footer_logo} src={images} alt="ukraine" />
         <span>
           by
           <Link to="/contacts" className={s.link}>
@@ -21,3 +21,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+// export default Footer;
