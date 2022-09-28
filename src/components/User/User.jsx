@@ -58,7 +58,6 @@ export default function User({ data }) {
   };
 
   const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
-  console.log(data);
 
   return (
     <div className={s.user}>

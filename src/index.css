@@ -8,6 +8,7 @@
   /* fonts */
   --mainFont: 'Montserrat', sans-serif;
 }
+
 html[data-theme='light'] {
   /* text colors */
   --white: #ffffff;
@@ -33,6 +34,7 @@ html[data-theme='light'] {
   --bgTestContainer: #fff;
   --colorShadow: rgba(2, 23, 42, 0.1);
 }
+
 html[data-theme='dark'] {
   --white: #000;
   --black: #fff;
@@ -56,16 +58,20 @@ html[data-theme='dark'] {
   --bgTestContainer: #1d1d1d;
   --colorShadow: rgba(238, 240, 241, 0.1);
 }
+
 body {
   height: 100%;
   background: var(--bgGraphite);
 }
+
 main {
   flex: 1 1 auto;
 }
+
 .wrapper {
   min-height: calc(100vh - 56px);
 }
+
 body,
 section {
   background: var(--bgGraphite);

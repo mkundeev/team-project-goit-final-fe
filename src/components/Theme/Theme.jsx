@@ -15,7 +15,7 @@ export default function Theme() {
   return (
     <>
       <div className={s.wrapperDayNight}>
-        <a href="#" className={s.toggle}>
+        <div className={s.toggle}>
           <input
             className={s.toggleInput}
             type="checkbox"
@@ -39,7 +39,7 @@ export default function Theme() {
 
             <div className={s.toggleSwitchFigureAlt}></div>
           </div>
-        </a>
+        </div>
       </div>
     </>
   );
