@@ -78,7 +78,7 @@ table {
 
 .buttonT {
   cursor: pointer;
-  background-color: #ff6b09;
+  background-color: #C13C37;
   margin: 0 auto;
   width: 150px;
   height: 60px;
@@ -93,6 +93,7 @@ table {
   width: 150px;
   height: 60px;
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .linkT {
@@ -112,9 +113,9 @@ table {
 
 .buttonQ {
   cursor: pointer;
-  background-color: #02172a;
+  background-color: rgb(227, 134, 39);
+  ;
   margin: 0 auto;
-  margin-bottom: 15px;
   width: 150px;
   height: 60px;
   padding: 10px;
@@ -145,6 +146,11 @@ table {
 }
 
 @media screen and (min-width: 768px) {
+
+  .user {
+    padding-top: 120px;
+  }
+
   .Cart {
     display: none;
   }
@@ -188,6 +194,7 @@ table {
   th {
     text-align: center;
     position: sticky;
+    z-index: 3;
     position: -webkit-sticky;
     top: 0;
     background: var(--bgGraphite);
@@ -198,6 +205,7 @@ table {
   }
 
   td {
+    position: relative;
     text-align: center;
     padding: 5px;
     color: #fff;
@@ -227,46 +235,15 @@ table {
   }
 
   .list {
-    display: flex;
+    display: none;
   }
 
-  .itemT {
-    width: 200px;
-    height: 100px;
-  }
 
-  .buttonT {
-    width: 200px;
-    height: 100px;
-  }
-
-  .linkT {
-    font-size: 20px;
-    font-weight: 500;
-    padding: 0;
-  }
-
-  .itemQ {
-    width: 200px;
-    height: 100px;
-  }
-
-  .buttonQ {
-    width: 200px;
-    height: 100px;
-  }
-
-  .linkQ {
-    font-size: 20px;
-    font-weight: 500;
-    padding: 0;
-  }
-
-  .delete{
+  .delete {
     cursor: pointer;
   }
 
-  .th{
+  .th {
     cursor: context-menu;
   }
 }
@@ -301,28 +278,18 @@ table {
     margin-bottom: 0;
   }
 
-  .list {
-    width: 800px;
+  .multNull {
+    width: 550px;
+    height: 350px;
     margin: 0 auto;
-    justify-content: space-around;
-    margin-bottom: 50px;
   }
 
-  .itemT {
-    margin: 0;
+  .multNull>img {
+    width: 550px;
+    height: 350px;
+    box-shadow: 0px 0px 25px 10px rgb(199, 196, 196);
+    border-radius: 10px;
+    border: 1px solid var(--inputBorderColor);
   }
 
-  .itemQ {
-    margin: 0;
-  }
-
-  .buttonQ {
-    width: 200px;
-    height: 100px;
-  }
-
-  .buttonT {
-    width: 200px;
-    height: 100px;
-  }
 }

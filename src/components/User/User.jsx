@@ -79,25 +79,24 @@ arr(testing,"Testing theory")
   
   const newTest = [ ...new Set(testing) ];
 
-  console.log(data);
   return (
     <div className={s.user}>
       {data.length ? (
         <Container>
           <ul className={s.list}>
-            <li className={s.itemQ}>
-              <button type='button' className={s.buttonQ}>
-               <Link to={`/test/${newQa[1]}`} className={s.linkQ}>
-                 {newQa[0]}
-                </Link>
-                </button>
-            </li>
             <li className={s.itemT}>
               <button type='button' className={s.buttonT}>
                <Link to={`/test/${newTest[1]}`} className={s.linkT}>
                  {newTest[0]}
                 </Link>
             </button>
+            </li>
+            <li className={s.itemQ}>
+              <button type='button' className={s.buttonQ}>
+               <Link to={`/test/${newQa[1]}`} className={s.linkQ}>
+                 {newQa[0]}
+                </Link>
+                </button>
             </li>
           </ul>
           <MobileCartREsult data={data} />
@@ -115,18 +114,21 @@ arr(testing,"Testing theory")
                   </th>
                   <th onClick={() => sortByAmount('percent')}>Percentage</th>
                   <th className={s.th}>Delete</th>
+                   <th>New Test</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredData.map(
                   ({
                     _id,
+                    testId,
                     createAt,
                     topic,
                     rightAnswers,
                     wrongAnswers,
                     percent,
-                  }) => {
+                  }) =>
+                  {
                     return (
                       <tr
                         key={_id}
@@ -140,7 +142,10 @@ arr(testing,"Testing theory")
                         <td>{rightAnswers}</td>
                         <td>{wrongAnswers}</td>
                         <td>{percent} %</td>
-                        <td onClick={handleClick} className={s.delete} id={_id}><FaTrashAlt/></td>
+                        <td onClick={handleClick} className={s.delete} id={_id}><FaTrashAlt /></td>
+                        <td id={testId}><Link to={`/test/${testId}`} className={s.linkQ}>
+                 +
+                </Link></td>
                       </tr>
                     );
                   }
@@ -166,11 +171,11 @@ arr(testing,"Testing theory")
           </div>
         </Container>
       ) : (
-        <div className={s.mult}>
+        <div className={s.multNull}>
           <img
             src="https://i.postimg.cc/NFsqCbbH/mult.gif"
             border="0"
-            alt="mult"
+              alt="mult"
           />
         </div>
       )}
