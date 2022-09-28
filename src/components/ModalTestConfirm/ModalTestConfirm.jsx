@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ImCross } from 'react-icons/im';
 import s from './ModalTestConfirm.module.css';
@@ -8,8 +9,27 @@ export default function ModalTestConfirm({
   onClickNo,
   onCloseModal,
 }) {
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        onCloseModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onCloseModal]);
+
+  const handleBackdropClick = e => {
+    if (e.target === e.currentTarget) {
+      onCloseModal();
+    }
+  };
+
   return createPortal(
-    <div className={s.backdrop}>
+    <div className={s.backdrop} onClick={handleBackdropClick}>
       <div className={s.modal}>
         <button className={s.btnClose} type="button" onClick={onCloseModal}>
           <ImCross className={s.btnCloseIcon} />

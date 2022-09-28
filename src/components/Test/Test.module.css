@@ -157,6 +157,13 @@
   letter-spacing: 0.02em;
   cursor: pointer;
 }
+
+.paginationButton:disabled {
+  background-color: #ccc;
+  cursor: auto;
+  color: var(--white);
+}
+
 .paginationButton:not([disabled]):hover {
   background-color: var(--accentColor);
   color: var(--white);
