@@ -88,6 +88,15 @@ export const testsApi = createApi({
       },
       providesTags: ['Statistic'],
     }),
+    deleteTestFromSatistic: builder.mutation({
+      query(testId) {
+        return {
+          url: `statistic/${testId}`,
+          method: 'DELETE',
+        };
+      },
+      invalidatesTags: ['Statistic'],
+    }),
     getResult: builder.mutation({
       query(result) {
         return {
@@ -122,4 +131,5 @@ export const {
   useGetTestQuery,
   useGetUsetSatisticQuery,
   useResetTestMutation,
+  useDeleteTestFromSatisticMutation,
 } = testsApi;

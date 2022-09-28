@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import s from './User.module.css';
 import Container from 'components/Container';
 import UserChart from './UserChart';
 import MobileCartREsult from './MobileCartResult';
 import { Link } from 'react-router-dom';
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt } from 'react-icons/fa';
+import { useDeleteTestFromSatisticMutation } from 'app/testsApi';
 
 export default function User({ data }) {
   const [amountSort, setAmountSort] = useState({});
   const [topicSort, setTopicSort] = useState(true);
   const [dateSort, setDateSort] = useState(true);
   const [filteredData, setFilteredData] = useState(data);
+  const [deleteTest] = useDeleteTestFromSatisticMutation();
+
+  useEffect(() => setFilteredData(data), [data]);
   const sortByAmount = property => {
     let filteredData = [];
     if (!amountSort.hasOwnProperty(property)) {
@@ -61,23 +65,24 @@ export default function User({ data }) {
 
   const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
 
-  const arr = (test,string) =>{ data.map((el) =>{
+  const arr = (test, string) => {
+    data.map(el => {
       return el.topic === string ? test.push(el.topic, el.testId) : null;
     });
-  }
-  
-  const handleClick = (e) =>{
-    console.log(e.currentTarget.id);
-  }
-  
-const QaTesting = [];
-const testing = [];
-arr(QaTesting,'QA technical training');
-arr(testing,"Testing theory")
-  
-  const newQa = [ ...new Set(QaTesting) ];
-  
-  const newTest = [ ...new Set(testing) ];
+  };
+
+  const handleClick = e => {
+    deleteTest(e.currentTarget.id);
+  };
+
+  const QaTesting = [];
+  const testing = [];
+  arr(QaTesting, 'QA technical training');
+  arr(testing, 'Testing theory');
+
+  const newQa = [...new Set(QaTesting)];
+
+  const newTest = [...new Set(testing)];
 
   return (
     <div className={s.user}>
@@ -85,18 +90,18 @@ arr(testing,"Testing theory")
         <Container>
           <ul className={s.list}>
             <li className={s.itemT}>
-              <button type='button' className={s.buttonT}>
-               <Link to={`/test/${newTest[1]}`} className={s.linkT}>
-                 {newTest[0]}
+              <button type="button" className={s.buttonT}>
+                <Link to={`/test/${newTest[1]}`} className={s.linkT}>
+                  {newTest[0]}
                 </Link>
-            </button>
+              </button>
             </li>
             <li className={s.itemQ}>
-              <button type='button' className={s.buttonQ}>
-               <Link to={`/test/${newQa[1]}`} className={s.linkQ}>
-                 {newQa[0]}
+              <button type="button" className={s.buttonQ}>
+                <Link to={`/test/${newQa[1]}`} className={s.linkQ}>
+                  {newQa[0]}
                 </Link>
-                </button>
+              </button>
             </li>
           </ul>
           <MobileCartREsult data={data} />
@@ -114,7 +119,7 @@ arr(testing,"Testing theory")
                   </th>
                   <th onClick={() => sortByAmount('percent')}>Percentage</th>
                   <th className={s.th}>Delete</th>
-                   <th>New Test</th>
+                  <th>New Test</th>
                 </tr>
               </thead>
               <tbody>
@@ -127,8 +132,7 @@ arr(testing,"Testing theory")
                     rightAnswers,
                     wrongAnswers,
                     percent,
-                  }) =>
-                  {
+                  }) => {
                     return (
                       <tr
                         key={_id}
@@ -142,10 +146,14 @@ arr(testing,"Testing theory")
                         <td>{rightAnswers}</td>
                         <td>{wrongAnswers}</td>
                         <td>{percent} %</td>
-                        <td onClick={handleClick} className={s.delete} id={_id}><FaTrashAlt /></td>
-                        <td id={testId}><Link to={`/test/${testId}`} className={s.linkQ}>
-                 +
-                </Link></td>
+                        <td onClick={handleClick} className={s.delete} id={_id}>
+                          <FaTrashAlt />
+                        </td>
+                        <td id={testId}>
+                          <Link to={`/test/${testId}`} className={s.linkQ}>
+                            +
+                          </Link>
+                        </td>
                       </tr>
                     );
                   }
@@ -175,7 +183,7 @@ arr(testing,"Testing theory")
           <img
             src="https://i.postimg.cc/NFsqCbbH/mult.gif"
             border="0"
-              alt="mult"
+            alt="mult"
           />
         </div>
       )}
