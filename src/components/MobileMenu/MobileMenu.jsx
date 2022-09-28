@@ -4,33 +4,37 @@ import { NavLink } from 'react-router-dom';
 
 const modalRoot = document.querySelector('#modalRoot');
 
-export default function MobileMenu({ handleLogOut, toggleMenu }) {
+export default function MobileMenu({ handleLogOut, toggleMenu, token }) {
   return createPortal(
     <div className={s.menu}>
       <nav className={s.nav}>
         <ul className={s.navList}>
-          <li className={s.navListItem}>
-            <NavLink
-              onClick={toggleMenu}
-              to="home"
-              className={({ isActive }) =>
-                isActive ? s.activeLink : s.navLink
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className={s.navListItem}>
-            <NavLink
-              onClick={toggleMenu}
-              to="material"
-              className={({ isActive }) =>
-                isActive ? s.activeLink : s.navLink
-              }
-            >
-              Materials
-            </NavLink>
-          </li>
+          {token && (
+            <>
+              <li className={s.navListItem}>
+                <NavLink
+                  onClick={toggleMenu}
+                  to="home"
+                  className={({ isActive }) =>
+                    isActive ? s.activeLink : s.navLink
+                  }
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className={s.navListItem}>
+                <NavLink
+                  onClick={toggleMenu}
+                  to="material"
+                  className={({ isActive }) =>
+                    isActive ? s.activeLink : s.navLink
+                  }
+                >
+                  Materials
+                </NavLink>
+              </li>
+            </>
+          )}
           <li className={s.navListItem}>
             <NavLink
               onClick={toggleMenu}
@@ -44,7 +48,7 @@ export default function MobileMenu({ handleLogOut, toggleMenu }) {
           </li>
         </ul>
       </nav>
-      <span className={s.signOutBtn} onClick={handleLogOut}>
+     {token && <span className={s.signOutBtn} onClick={handleLogOut}>
         <svg
           className={s.signOutIcon}
           width="16"
@@ -63,7 +67,7 @@ export default function MobileMenu({ handleLogOut, toggleMenu }) {
             </clipPath>
           </defs>
         </svg>
-      </span>
+      </span>}
     </div>,
     modalRoot
   );
