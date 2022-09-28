@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getToken } from 'app/selectors';
-import { setUser, resetUser } from 'app/reducer';
+import { setUser } from 'app/reducer';
 import { useGetUserQuery } from 'app/testsApi';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
@@ -40,93 +40,94 @@ const ContactsPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const token = useSelector(getToken);
-  const { data, error } = useGetUserQuery('', { skip: !token });
+  const { data } = useGetUserQuery('', { skip: !token });
 
   useEffect(() => {
     if (data) {
       dispatch(setUser(data));
     }
-    if (error?.status === 401) {
-      dispatch(resetUser());
-    }
-  }, [data, dispatch, error?.status]);
+  }, [data, dispatch]);
   return (
-    <div className="wrapper">
-      <Suspense
-        fallback={
-          <div className="loader">
-            <Loader />
-          </div>
-        }
-      >
-        <Header />
-        <Routes>
-          <Route
-            path="/authorization"
-            element={
-              <PublicRoute>
-                <AuthorizationPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute>
-                <HomePage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/test/:testId"
-            element={
-              <PrivateRoute>
-                <TestPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/result"
-            element={
-              <ResultRoute>
-                <ResultPage />
-              </ResultRoute>
-            }
-          />
-          <Route
-            path="/user"
-            element={
-              <PrivateRoute>
-                <UserPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/material"
-            element={
-              <PrivateRoute>
-                <MaterialsPage />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route
-            path="*"
-            element={
-              <PublicRoute>
-                <AuthorizationPage />
-              </PublicRoute>
-            }
-          />
-        </Routes>
-      </Suspense>
+    <>
+      <div className="wrapper">
+        <Suspense
+          fallback={
+            <div className="loader">
+              <Loader />
+              {/* <RingLoader color="#1212dc" size={250} /> */}
+            </div>
+          }
+        >
+          <Header />
+          <Routes>
+            <Route
+              path="/authorization"
+              element={
+                <PublicRoute>
+                  <AuthorizationPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <HomePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/test/:testId"
+              element={
+                <PrivateRoute>
+                  <TestPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/result"
+              element={
+                <ResultRoute>
+                  <ResultPage />
+                </ResultRoute>
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                <PrivateRoute>
+                  <UserPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/material"
+              element={
+                <PrivateRoute>
+                  <MaterialsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/contacts" element={<ContactsPage />} />
+            <Route
+              path="*"
+              element={
+                <PublicRoute>
+                  <AuthorizationPage />
+                </PublicRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
+
+        <ToastContainer
+          autoClose={4000}
+          closeButton={false}
+          hideProgressBar={true}
+        />
+      </div>
       <Footer />
-      <ToastContainer
-        autoClose={4000}
-        closeButton={false}
-        hideProgressBar={true}
-      />
-    </div>
+    </>
   );
 }
 

@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   letter-spacing: 0.03em;
+  height: 56px;
 
   color: var(--footerTextColor);
   background-color: var(--footerBgColor);
@@ -20,15 +21,16 @@
   align-items: baseline;
 }
 .text::before {
-  content: "\00A9";
+  content: '\00A9';
   margin-right: 8px;
   font-size: 18px;
 }
 .footerText::before {
-  content: "\007C";
+  content: '\007C';
   margin-right: 8px;
   margin-left: 8px;
 }
+
 .link {
   color: var(--footerTextColor);
   margin-left: 5px;

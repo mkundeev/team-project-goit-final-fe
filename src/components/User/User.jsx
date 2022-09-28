@@ -2,6 +2,7 @@ import { useState } from 'react';
 import s from './User.module.css';
 import Container from 'components/Container';
 import UserChart from './UserChart';
+import MobileCartREsult from './MobileCartResult';
 
 export default function User({ data }) {
   const [amountSort, setAmountSort] = useState({});
@@ -57,54 +58,58 @@ export default function User({ data }) {
   };
 
   const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
+  console.log(data);
 
   return (
     <div className={s.user}>
-      {
+      {data.length ? (
         <Container>
-          <table>
-            <thead>
-              <tr>
-                <th onClick={sortByDate}>Date</th>
-                <th onClick={sortByTopic}>Topic</th>
-                <th onClick={() => sortByAmount('rightAnswers')}>
-                  Right answers
-                </th>
-                <th onClick={() => sortByAmount('wrongAnswers')}>
-                  Wrong answers
-                </th>
-                <th onClick={() => sortByAmount('percent')}>Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredData.map(
-                ({
-                  _id,
-                  createAt,
-                  topic,
-                  rightAnswers,
-                  wrongAnswers,
-                  percent,
-                }) => {
-                  return (
-                    <tr
-                      key={_id}
-                      style={{
-                        backgroundColor:
-                          topic === 'Testing theory' ? '#C13C37' : '#E38627',
-                      }}
-                    >
-                      <td>{createAt}</td>
-                      <td>{topic}</td>
-                      <td>{rightAnswers}</td>
-                      <td>{wrongAnswers}</td>
-                      <td>{percent} %</td>
-                    </tr>
-                  );
-                }
-              )}
-            </tbody>
-          </table>
+          <MobileCartREsult data={data} />
+          <div className={s.wrapTable}>
+            <table>
+              <thead>
+                <tr>
+                  <th onClick={sortByDate}>Date</th>
+                  <th onClick={sortByTopic}>Topic</th>
+                  <th onClick={() => sortByAmount('rightAnswers')}>
+                    Right answers
+                  </th>
+                  <th onClick={() => sortByAmount('wrongAnswers')}>
+                    Wrong answers
+                  </th>
+                  <th onClick={() => sortByAmount('percent')}>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredData.map(
+                  ({
+                    _id,
+                    createAt,
+                    topic,
+                    rightAnswers,
+                    wrongAnswers,
+                    percent,
+                  }) => {
+                    return (
+                      <tr
+                        key={_id}
+                        style={{
+                          backgroundColor:
+                            topic === 'Testing theory' ? '#C13C37' : '#E38627',
+                        }}
+                      >
+                        <td>{new Date(createAt).toLocaleString()}</td>
+                        <td>{topic}</td>
+                        <td>{rightAnswers}</td>
+                        <td>{wrongAnswers}</td>
+                        <td>{percent} %</td>
+                      </tr>
+                    );
+                  }
+                )}
+              </tbody>
+            </table>
+          </div>
           <div className={s.userContainer}>
             <div className={s.UserChart}>
               <p className={s.text}>
@@ -122,7 +127,15 @@ export default function User({ data }) {
             </div>
           </div>
         </Container>
-      }
+      ) : (
+        <div className={s.mult}>
+          <img
+            src="https://i.postimg.cc/NFsqCbbH/mult.gif"
+            border="0"
+            alt="mult"
+          />
+        </div>
+      )}
     </div>
   );
 }
