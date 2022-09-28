@@ -3,6 +3,8 @@ import s from './User.module.css';
 import Container from 'components/Container';
 import UserChart from './UserChart';
 import MobileCartREsult from './MobileCartResult';
+import { Link } from 'react-router-dom';
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function User({ data }) {
   const [amountSort, setAmountSort] = useState({});
@@ -58,12 +60,50 @@ export default function User({ data }) {
   };
 
   const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
-  console.log(data);
+  
+  const arr = (test,string) =>
+  {
+    data.map((el) =>
+    {
+      return el.topic === string ? test.push(el.topic, el.testId) : null;
+    });
+  }
+  
+  const handleClick = (e) =>
+  {
+    console.log(e.currentTarget.id);
+  }
+  
+const QaTesting = [];
+const testing = [];
+arr(QaTesting,'QA technical training');
+arr(testing,"Testing theory")
+  
+  const newQa = [ ...new Set(QaTesting) ];
+  
+  const newTest = [ ...new Set(testing) ];
 
+  console.log(data);
   return (
     <div className={s.user}>
       {data.length ? (
         <Container>
+          <ul className={s.list}>
+            <li className={s.itemQ}>
+              <button type='button' className={s.buttonQ}>
+               <Link to={`/test/${newQa[1]}`} className={s.linkQ}>
+                 {newQa[0]}
+                </Link>
+                </button>
+            </li>
+            <li className={s.itemT}>
+              <button type='button' className={s.buttonT}>
+               <Link to={`/test/${newTest[1]}`} className={s.linkT}>
+                 {newTest[0]}
+                </Link>
+            </button>
+            </li>
+          </ul>
           <MobileCartREsult data={data} />
           <div className={s.wrapTable}>
             <table>
@@ -78,6 +118,7 @@ export default function User({ data }) {
                     Wrong answers
                   </th>
                   <th onClick={() => sortByAmount('percent')}>Percentage</th>
+                  <th className={s.th}>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -103,6 +144,7 @@ export default function User({ data }) {
                         <td>{rightAnswers}</td>
                         <td>{wrongAnswers}</td>
                         <td>{percent} %</td>
+                        <td onClick={handleClick} className={s.delete} id={_id}><FaTrashAlt/></td>
                       </tr>
                     );
                   }

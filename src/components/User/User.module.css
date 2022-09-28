@@ -2,22 +2,26 @@
   padding-top: 70px;
   padding-bottom: 40px;
 }
+
 table {
   display: none;
 }
+
 .mult {
   width: 250px;
   height: 150px;
 
   margin: 0 auto;
 }
-.mult > img {
+
+.mult>img {
   width: 250px;
   height: 150px;
   box-shadow: 0px 0px 25px 10px rgb(199, 196, 196);
   border-radius: 10px;
   border: 1px solid var(--inputBorderColor);
 }
+
 .UserChart {
   position: relative;
   width: 280px;
@@ -25,6 +29,7 @@ table {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
 .text {
   position: absolute;
   font-size: 70px;
@@ -36,6 +41,7 @@ table {
   transform: translate(-50%, -50%);
   text-shadow: var(--textShadow);
 }
+
 .Cart {
   width: 280px;
   display: block;
@@ -64,13 +70,88 @@ table {
   color: #fff;
   background: #e38627;
 }
+
+.list {
+  margin-bottom: 25px;
+}
+
+.buttonT {
+  cursor: pointer;
+  background-color: #ff6b09;
+  margin: 0 auto;
+  width: 150px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.itemT {
+  position: relative;
+  margin: 0 auto;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+}
+
+.linkT {
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+  width: 150px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.linkT::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+}
+
+.buttonQ {
+  cursor: pointer;
+  background-color: #02172a;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.itemQ {
+  position: relative;
+  margin: 0 auto;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.linkQ {
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.linkQ::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+}
+
 @media screen and (min-width: 768px) {
   .Cart {
     display: none;
   }
+
   .wrapTable {
     position: relative;
   }
+
   table {
     width: 728px;
     height: 300px;
@@ -104,49 +185,128 @@ table {
     padding: 5px;
     text-transform: uppercase;
   }
+
   td {
     text-align: center;
     padding: 5px;
     color: #fff;
     max-height: 280px;
   }
+
   tbody {
     height: 100px;
     overflow: scroll;
   }
+
   .mult {
     width: 366px;
     height: 200px;
   }
-  .mult > img {
+
+  .mult>img {
     width: 366px;
     height: 200px;
   }
+
   .UserChart {
     width: 366px;
     height: 366px;
 
     margin-bottom: 40px;
   }
+
+  .list {
+    display: flex;
+  }
+
+  .itemT {
+    width: 200px;
+    height: 100px;
+  }
+
+  .buttonT {
+    width: 200px;
+    height: 100px;
+  }
+
+  .linkT {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0;
+  }
+
+  .itemQ {
+    width: 200px;
+    height: 100px;
+  }
+
+  .buttonQ {
+    width: 200px;
+    height: 100px;
+  }
+
+  .linkQ {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0;
+  }
+
+  .delete{
+    cursor: pointer;
+  }
+
+  .th{
+    cursor: context-menu;
+  }
 }
+
 @media screen and (min-width: 1280px) {
   table {
     width: 1020px;
   }
+
   th {
     font-size: 14px;
     padding: 5px;
     width: 100%;
   }
+
   .userContainer {
     display: flex;
     align-items: center;
   }
+
   table th:first-child {
     width: 200px;
     padding: 0 25px;
   }
+
   .UserChart {
     margin-bottom: 0;
+  }
+
+  .list {
+    width: 800px;
+    margin: 0 auto;
+    justify-content: space-around;
+    margin-bottom: 50px;
+  }
+
+  .itemT {
+    margin: 0;
+  }
+
+  .itemQ {
+    margin: 0;
+  }
+
+  .buttonQ {
+    width: 200px;
+    height: 100px;
+  }
+
+  .buttonT {
+    width: 200px;
+    height: 100px;
   }
 }
