@@ -71,6 +71,7 @@ table {
   background: #e38627;
 }
 
+
 .list {
   margin-bottom: 25px;
 }
@@ -152,16 +153,15 @@ table {
     position: relative;
   }
 
-  table {
-    width: 728px;
-    height: 300px;
-    overflow: scroll;
 
+  table {
+    width: 713px;
+    max-height: 300px;
+    overflow-x: hidden;
     display: block;
     position: relative;
     margin: 0 auto;
     margin-bottom: 45px;
-
     font-family: var(--mainFont), Sans-Serif;
     font-size: 12px;
     text-align: left;
@@ -170,8 +170,19 @@ table {
     background: var(--bgGraphite);
     color: var(--textTabl);
     border: 16px solid var(--headerBorderColor) !important;
-
     border-radius: 20px;
+  }
+
+  table::-webkit-scrollbar {
+    width: 7px;
+    background-color: #3f3f405c;
+    border-radius: 9em;
+  }
+
+  /* ползунок скроллбара */
+  table::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(114 103 103) 37%, rgb(108 99 99) 61%);
+    border-radius: 9em;
   }
 
   th {
@@ -263,12 +274,17 @@ table {
 @media screen and (min-width: 1280px) {
   table {
     width: 1020px;
+    font-size: 15px;
   }
 
   th {
-    font-size: 14px;
-    padding: 5px;
-    width: 100%;
+    padding: 10px;
+    width: 200px;
+  }
+
+  td {
+    font-size: 15px;
+    padding: 10px;
   }
 
   .userContainer {

@@ -112,7 +112,7 @@ main {
   .list {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -30px;
+    /* margin-right: -30px; */
   }
   .teamItem {
     width: calc(100% / 2 - 30px);

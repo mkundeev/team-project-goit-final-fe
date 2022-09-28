@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { resetUser } from 'app/reducer';
 import { useLogOutUserMutation } from 'app/testsApi';
 import { useSelector } from 'react-redux';
-import { getEmail } from 'app/selectors';
+import { getEmail, getToken } from 'app/selectors';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import MobileMenu from 'components/MobileMenu';
@@ -14,6 +14,7 @@ import Theme from 'components/Theme';
 
 export default function Header() {
   const userEmail = useSelector(getEmail);
+  const token = useSelector(getToken);
   const [logOut] = useLogOutUserMutation();
   const dispatch = useDispatch();
   const [isMenuOpen, setMenu] = useState(false);
@@ -87,26 +88,30 @@ export default function Header() {
           <div className={s.navBlock}>
             <nav className={s.nav}>
               <ul className={s.navList}>
-                <li className={s.navListItem}>
-                  <NavLink
-                    to="home"
-                    className={({ isActive }) =>
-                      isActive ? s.activeLink : s.navLink
-                    }
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li className={s.navListItem}>
-                  <NavLink
-                    to="material"
-                    className={({ isActive }) =>
-                      isActive ? s.activeLink : s.navLink
-                    }
-                  >
-                    Materials
-                  </NavLink>
-                </li>
+                {token && (
+                  <>
+                    <li className={s.navListItem}>
+                      <NavLink
+                        to="home"
+                        className={({ isActive }) =>
+                          isActive ? s.activeLink : s.navLink
+                        }
+                      >
+                        Home
+                      </NavLink>
+                    </li>
+                    <li className={s.navListItem}>
+                      <NavLink
+                        to="material"
+                        className={({ isActive }) =>
+                          isActive ? s.activeLink : s.navLink
+                        }
+                      >
+                        Materials
+                      </NavLink>
+                    </li>
+                  </>
+                )}
                 <li className={s.navListItem}>
                   <NavLink
                     to="contacts"
@@ -186,7 +191,7 @@ export default function Header() {
         </div>
       </Container>
       {isMenuOpen && (
-        <MobileMenu toggleMenu={toggleMenu} handleLogOut={handleLogOut} />
+        <MobileMenu token={token} toggleMenu={toggleMenu} handleLogOut={handleLogOut} />
       )}
     </header>
   );

@@ -60,17 +60,13 @@ export default function User({ data }) {
   };
 
   const totalProcent = data.reduce((acc, el) => acc + Number(el.percent), 0);
-  
-  const arr = (test,string) =>
-  {
-    data.map((el) =>
-    {
+
+  const arr = (test,string) =>{ data.map((el) =>{
       return el.topic === string ? test.push(el.topic, el.testId) : null;
     });
   }
   
-  const handleClick = (e) =>
-  {
+  const handleClick = (e) =>{
     console.log(e.currentTarget.id);
   }
   
