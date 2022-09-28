@@ -3,7 +3,7 @@ import { useGetUsetSatisticQuery } from 'app/testsApi';
 import User from 'components/User';
 
 export default function UserPage() {
-  const { data } = useGetUsetSatisticQuery();
+  const { data, isError } = useGetUsetSatisticQuery();
 
   return <div>{data && <User data={data} />}</div>;
 }

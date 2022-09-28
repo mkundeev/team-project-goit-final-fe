@@ -48,83 +48,86 @@ function App() {
     }
   }, [data, dispatch]);
   return (
-    <div className="wrapper">
-      <Suspense
-        fallback={
-          <div className="loader">
-            <Loader />
-            {/* <RingLoader color="#1212dc" size={250} /> */}
-          </div>
-        }
-      >
-        <Header />
-        <Routes>
-          <Route
-            path="/authorization"
-            element={
-              <PublicRoute>
-                <AuthorizationPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute>
-                <HomePage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/test/:testId"
-            element={
-              <PrivateRoute>
-                <TestPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/result"
-            element={
-              <ResultRoute>
-                <ResultPage />
-              </ResultRoute>
-            }
-          />
-          <Route
-            path="/user"
-            element={
-              <PrivateRoute>
-                <UserPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/material"
-            element={
-              <PrivateRoute>
-                <MaterialsPage />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route
-            path="*"
-            element={
-              <PublicRoute>
-                <AuthorizationPage />
-              </PublicRoute>
-            }
-          />
-        </Routes>
-      </Suspense>
+    <>
+      <div className="wrapper">
+        <Suspense
+          fallback={
+            <div className="loader">
+              <Loader />
+              {/* <RingLoader color="#1212dc" size={250} /> */}
+            </div>
+          }
+        >
+          <Header />
+          <Routes>
+            <Route
+              path="/authorization"
+              element={
+                <PublicRoute>
+                  <AuthorizationPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <HomePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/test/:testId"
+              element={
+                <PrivateRoute>
+                  <TestPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/result"
+              element={
+                <ResultRoute>
+                  <ResultPage />
+                </ResultRoute>
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                <PrivateRoute>
+                  <UserPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/material"
+              element={
+                <PrivateRoute>
+                  <MaterialsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/contacts" element={<ContactsPage />} />
+            <Route
+              path="*"
+              element={
+                <PublicRoute>
+                  <AuthorizationPage />
+                </PublicRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
+
+        <ToastContainer
+          autoClose={4000}
+          closeButton={false}
+          hideProgressBar={true}
+        />
+      </div>
       <Footer />
-      <ToastContainer
-        autoClose={4000}
-        closeButton={false}
-        hideProgressBar={true}
-      />
-    </div>
+    </>
   );
 }
 

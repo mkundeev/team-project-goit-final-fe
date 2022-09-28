@@ -29,11 +29,16 @@ export default function Header() {
   const handleLogOut = () => {
     logOut()
       .unwrap()
-      .then(() => dispatch(resetUser()));
+      .then(() => dispatch(resetUser()))
+      .then(() => setMenu(false));
   };
 
-  const toggleMenu = () => {
-    setMenu(!isMenuOpen);
+  const toggleMenu = e => {
+    if (e.currentTarget.id === 'userLink') {
+      setMenu(false);
+    } else {
+      setMenu(!isMenuOpen);
+    }
   };
 
   return (
@@ -117,7 +122,12 @@ export default function Header() {
 
             {userEmail && (
               <div className={s.userPanel}>
-                <NavLink to="/user" className={s.userLink}>
+                <NavLink
+                  id="userLink"
+                  to="/user"
+                  className={s.userLink}
+                  onClick={toggleMenu}
+                >
                   <span className={s.userIcon}>
                     {userEmail[0].toUpperCase()}
                   </span>
