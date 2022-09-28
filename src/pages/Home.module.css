@@ -1,5 +1,5 @@
 .homeMain {
-  padding-top: 32px;
+  padding-top: 60px;
   padding-bottom: 39px;
 }
 
@@ -122,7 +122,7 @@
 
 @media screen and (min-width: 768px) {
   .homeMain {
-    padding-top: 80px;
+    padding-top: 120px;
     padding-bottom: 125px;
   }
 
