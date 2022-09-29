@@ -30,6 +30,7 @@ export default function HomePage() {
   }, [data, dispatch, error?.status]);
 
   const handleOpenModal = e => {
+    document.body.style.overflow = 'hidden';
     const path = e.target.id;
     setPathToTest(path);
     const testWasStarted = startedTests.find(
@@ -46,11 +47,13 @@ export default function HomePage() {
 
   const onCloseModal = () => {
     setIsOpenModal(false);
+    document.body.style.overflow = 'scroll';
   };
 
   const handleClickYes = () => {
     setIsOpenModal(false);
     navigate(`/test/${pathToTest}`);
+    document.body.style.overflow = 'scroll';
   };
 
   const handleClickNo = () => {
@@ -66,6 +69,7 @@ export default function HomePage() {
           position: toast.POSITION.TOP_RIGHT,
         })
       );
+    document.body.style.overflow = 'scroll';
   };
 
   return (
