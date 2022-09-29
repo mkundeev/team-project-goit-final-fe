@@ -101,6 +101,9 @@ main {
 .mediaIcon {
   fill: currentColor;
 }
+.teamItem img {
+  height: auto;
+}
 
 .mediaItem {
   margin-right: 10px;
