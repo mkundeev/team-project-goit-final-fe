@@ -16,7 +16,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <GoogleOAuthProvider clientId="63531934347-heik9rt0cisj5ie5rinkuik2q868b7kt">
+        <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
