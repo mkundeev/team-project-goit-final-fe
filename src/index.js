@@ -11,12 +11,13 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+console.log(process.env.GOOGLE_CLIENT_ID);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
