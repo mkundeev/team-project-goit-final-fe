@@ -11,6 +11,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import MobileMenu from 'components/MobileMenu';
 import Theme from 'components/Theme';
+import { testsApi } from 'app/testsApi';
+import { store } from 'app/store';
 
 export default function Header() {
   const userEmail = useSelector(getEmail);
@@ -30,7 +32,10 @@ export default function Header() {
   const handleLogOut = () => {
     logOut()
       .unwrap()
-      .then(() => dispatch(resetUser()))
+      .then(() => {
+        dispatch(resetUser());
+        store.dispatch(testsApi.util.resetApiState());
+      })
       .then(() => setMenu(false));
   };
 
@@ -191,7 +196,11 @@ export default function Header() {
         </div>
       </Container>
       {isMenuOpen && (
-        <MobileMenu token={token} toggleMenu={toggleMenu} handleLogOut={handleLogOut} />
+        <MobileMenu
+          token={token}
+          toggleMenu={toggleMenu}
+          handleLogOut={handleLogOut}
+        />
       )}
     </header>
   );
