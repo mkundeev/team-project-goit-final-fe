@@ -5,7 +5,7 @@
 
     "name": "Maksym Kundieiev",
     "position": "Team Leader",
-    "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
+    "linkedin": "https://www.linkedin.com/in/maksym-kundieiev/",
     "github": "https://github.com/mkundeev",
     "text": "May the Force be with you."
   },
@@ -23,7 +23,7 @@
     "image": "https://i.postimg.cc/zX7tX7FY/alina.jpg",
     "name": "Alina Lemishko",
     "position": "Developer",
-    "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
+    "linkedin": "https://www.linkedin.com/in/alina-lemishko-363475243/",
     "github": "https://github.com/Alina-Lemishko",
     "text": " Use the Force!"
   },
@@ -32,26 +32,26 @@
     "image": "https://i.postimg.cc/qRQhCNbq/dmitriy.jpg",
     "name": "Dmytrii Shypilov",
     "position": "Developer",
-    "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
+    "linkedin": "https://www.linkedin.com/in/dmytrii-shypilov-06821572/",
     "github": "https://github.com/Dmytrii-Shypilov",
-    "text": "You underestimate my power!"
+    "text": "Success is the child of audacity."
   },
   {
     "id": "5",
     "image": "https://i.postimg.cc/L6kXqYJp/igor.jpg",
     "name": "Igor Bulyzhenkov",
     "position": "Developer",
-    "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
+    "linkedin": "https://www.linkedin.com/in/igor-bulyzhenkov-abb94a231/",
     "github": "https://github.com/IgorBulyzhenkov",
-    "text": "You underestimate my power!"
+    "text": "Remember who you are."
   },
   {
     "id": "6",
     "image": "https://i.postimg.cc/139Bn8vV/vlad.jpg",
     "name": "Vlad Kozak",
     "position": "Developer",
-    "linkedin": "https://www.linkedin.com/in/iuliia-iavorskaia/",
+    "linkedin": "https://www.linkedin.com/in/kozak-vladyslav",
     "github": "https://github.com/Vlad-Kozak",
-    "text": "You underestimate my power!"
+    "text": "Do. Or do not. There is no try."
   }
 ]
