@@ -79,6 +79,7 @@ main {
 }
 
 .mediaLink {
+  margin-top: 10px;
   display: block;
   padding: 12px 12px;
   width: 44px;

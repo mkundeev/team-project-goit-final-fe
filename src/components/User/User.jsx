@@ -151,7 +151,7 @@ export default function User({ data }) {
                         </td>
                         <td id={testId}>
                           <Link to={`/test/${testId}`} className={s.linkQ}>
-                            +
+                            &#10226;
                           </Link>
                         </td>
                       </tr>
