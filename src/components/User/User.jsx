@@ -1,18 +1,32 @@
 import { useState, useEffect } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom/dist';
 import s from './User.module.css';
 import Container from 'components/Container';
 import UserChart from './UserChart';
 import MobileCartREsult from './MobileCartResult';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
-import { useDeleteTestFromSatisticMutation } from 'app/testsApi';
+import { toast } from 'react-toastify';
+import { useDeleteTestFromSatisticMutation,useResetTestMutation } from 'app/testsApi';
+import { getStartedTests } from 'app/selectors';
+import ModalTestConfirm from 'components/ModalTestConfirm/ModalTestConfirm';
+import { setUser } from 'app/reducer';
+
 
 export default function User({ data }) {
-  const [amountSort, setAmountSort] = useState({});
+  const [ amountSort, setAmountSort ] = useState({});
+  const [resetTest] = useResetTestMutation();
   const [topicSort, setTopicSort] = useState(true);
   const [dateSort, setDateSort] = useState(true);
   const [filteredData, setFilteredData] = useState(data);
-  const [deleteTest] = useDeleteTestFromSatisticMutation();
+  const [ deleteTest ] = useDeleteTestFromSatisticMutation();
+  const [ pathToTest, setPathToTest ] = useState('');
+   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [nameTest, setNameTest] = useState('');
+  const startedTests = useSelector(getStartedTests);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => setFilteredData(data), [data]);
   const sortByAmount = property => {
@@ -75,6 +89,51 @@ export default function User({ data }) {
     deleteTest(e.currentTarget.id);
   };
 
+   const handleClickNo = () => {
+    resetTest(pathToTest)
+      .unwrap()
+      .then(data => {
+        dispatch(setUser({ startedTests: data }));
+        setIsOpenModal(false);
+        navigate(`/test/${pathToTest}`);
+      })
+      .catch(data =>
+        toast.error(data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        })
+      );
+    document.body.style.overflow = 'scroll';
+  };
+
+   const handleOpenModal = e => {
+    document.body.style.overflow = 'hidden';
+     const path = e.currentTarget.id;
+     setPathToTest(path);
+    const testWasStarted = startedTests.find(
+      test => test.topic === e.target.dataset.topic
+    );
+    
+    if (!testWasStarted) {
+      navigate(`/test/${path}`);
+      return;
+    }
+    
+    setIsOpenModal(true);
+    setNameTest(testWasStarted.topic);
+    };
+    
+   const onCloseModal = () => {
+    setIsOpenModal(false);
+    document.body.style.overflow = 'scroll';
+  };
+
+  const handleClickYes = () => {
+    setIsOpenModal(false);
+    navigate(`/test/${pathToTest}`);
+    document.body.style.overflow = 'scroll';
+  };
+
+
   const QaTesting = [];
   const testing = [];
   arr(QaTesting, 'QA technical training');
@@ -82,23 +141,24 @@ export default function User({ data }) {
 
   const newQa = [...new Set(QaTesting)];
 
-  const newTest = [...new Set(testing)];
+  const newTest = [ ...new Set(testing) ];
+
 
   return (
     <div className={s.user}>
       {data.length ? (
         <Container>
           <ul className={s.list}>
-            <li className={s.itemT}>
-              <button type="button" className={s.buttonT}>
-                <Link to={`/test/${newTest[1]}`} className={s.linkT}>
+            <li className={s.itemT} id={newQa[1]}>
+              <button type="button" className={s.buttonT} id={newTest[1]} onClick={handleOpenModal} data-topic={newTest[ 0 ]}>
+                <Link className={s.linkT} data-topic={newTest[ 0 ]}>
                   {newTest[0]}
                 </Link>
               </button>
             </li>
-            <li className={s.itemQ}>
-              <button type="button" className={s.buttonQ}>
-                <Link to={`/test/${newQa[1]}`} className={s.linkQ}>
+            <li className={s.itemQ} id={newTest[1]}>
+              <button type="button" className={s.buttonQ} id={newQa[1]} onClick={handleOpenModal} data-topic={newQa[ 0 ]}>
+                <Link  className={s.linkQ} data-topic={newQa[ 0 ]}>
                   {newQa[0]}
                 </Link>
               </button>
@@ -149,8 +209,8 @@ export default function User({ data }) {
                         <td onClick={handleClick} className={s.delete} id={_id}>
                           <FaTrashAlt />
                         </td>
-                        <td id={testId}>
-                          <Link to={`/test/${testId}`} className={s.linkQ}>
+                        <td id={testId} onClick={handleOpenModal} data-topic={[topic]}>
+                          <Link className={s.linkQ} data-topic={[topic]}>
                             &#10226;
                           </Link>
                         </td>
@@ -160,6 +220,14 @@ export default function User({ data }) {
                 )}
               </tbody>
             </table>
+              {isOpenModal && (
+           <ModalTestConfirm
+             titleTest={nameTest}
+             onClickYes={handleClickYes}
+             onClickNo={handleClickNo}
+             onCloseModal={onCloseModal}
+           />
+         )}
           </div>
           <div className={s.userContainer}>
             <div className={s.UserChart}>
@@ -178,6 +246,7 @@ export default function User({ data }) {
             </div>
           </div>
         </Container>
+        
       ) : (
         <div className={s.multNull}>
           <img
