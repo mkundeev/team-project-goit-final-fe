@@ -39,6 +39,7 @@ export default function HomePage() {
 
     if (!testWasStarted) {
       navigate(`/test/${path}`);
+      document.body.style.overflow = 'scroll';
       return;
     }
     setIsOpenModal(true);

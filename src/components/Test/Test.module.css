@@ -292,6 +292,13 @@
     color: var(--black);
     position: relative;
     cursor: pointer;
+    overflow: scroll;
+  }
+
+  .formLabel::-webkit-scrollbar {
+    background: transparent;
+    width: 0px;
+    height: 0px;
   }
 
   .formInput {
