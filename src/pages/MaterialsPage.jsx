@@ -24,9 +24,9 @@ export default function MaterialsPage()
 
   return (
     <section className={s.materialsMain}>
-    <Container>
+      <Container>
         <UserLiterature title="Useful literature" array={arrLiterature} />
         <UserResources title="Useful resources" array={arrResources} />
-    </Container>
+      </Container>
     </section>);
 }
