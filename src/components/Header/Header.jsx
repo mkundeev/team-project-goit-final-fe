@@ -52,6 +52,7 @@ export default function Header() {
       <Container>
         <div className={s.headerWrapper}>
           <div className={s.logoWrapper}>
+            <NavLink to="home">
             <svg
               className={s.logoIcon}
               width="129"
@@ -87,6 +88,7 @@ export default function Header() {
                 </clipPath>
               </defs>
             </svg>
+            </NavLink>
             <Theme />
           </div>
 
@@ -117,6 +119,16 @@ export default function Header() {
                     </li>
                   </>
                 )}
+               {!token && <li className={s.navListItem}>
+                  <NavLink
+                    to="authorization"
+                    className={({ isActive }) =>
+                      isActive ? s.activeLink : s.navLink
+                    }
+                  >
+                    Authorization
+                  </NavLink>
+                </li>}
                 <li className={s.navListItem}>
                   <NavLink
                     to="contacts"
