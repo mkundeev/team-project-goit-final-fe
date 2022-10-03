@@ -1,6 +1,5 @@
 import React from "react";
 import CanvasJSReact from "canvasjs-react-charts";
-// const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default function CanvasCart() {
@@ -33,9 +32,7 @@ export default function CanvasCart() {
     <div>
       <CanvasJSChart
         options={options}
-        /* onRef={ref => this.chart = ref} */
       />
-      {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
     </div>
   );
 }

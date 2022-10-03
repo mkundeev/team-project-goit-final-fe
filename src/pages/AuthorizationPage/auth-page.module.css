@@ -1,7 +1,7 @@
 .section {
     width: 100vw;
     /* height: 726px; */
-    background-color: var(--primaryBgColor);
+    background-color: var(--bgGraphite);
     padding: 100px 0;
 }
 
