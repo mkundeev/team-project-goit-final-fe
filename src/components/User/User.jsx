@@ -12,6 +12,7 @@ import { useDeleteTestFromSatisticMutation,useResetTestMutation } from 'app/test
 import { getStartedTests } from 'app/selectors';
 import ModalTestConfirm from 'components/ModalTestConfirm/ModalTestConfirm';
 import { setUser } from 'app/reducer';
+import ModalDelete from './ModalDelete';
 
 
 export default function User({ data }) {
@@ -27,6 +28,9 @@ export default function User({ data }) {
   const startedTests = useSelector(getStartedTests);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [ openDeleteModal, setOpenDeleteModal ] = useState(false);
+  const [ deleteNo, setDeleteNo ] = useState(false);
+  const [ dataId, setDataId ] = useState('');
 
   useEffect(() => setFilteredData(data), [data]);
   const sortByAmount = property => {
@@ -85,9 +89,7 @@ export default function User({ data }) {
     });
   };
 
-  const handleClick = e => {
-    deleteTest(e.currentTarget.id);
-  };
+  
 
    const handleClickNo = () => {
     resetTest(pathToTest)
@@ -132,6 +134,34 @@ export default function User({ data }) {
     navigate(`/test/${pathToTest}`);
     document.body.style.overflow = 'scroll';
   };
+
+  const handleClick = e =>
+  {
+    setOpenDeleteModal(true);
+    document.body.style.overflow = 'hidden';
+    setDataId(e.currentTarget.id)
+  };
+
+   const handleClickNoDelete = () => {
+   setOpenDeleteModal(false);
+    document.body.style.overflow = 'scroll';
+  };
+    
+
+  const handleClickDeleteYes = (e) => {
+    setDeleteNo(true);
+    if (!deleteNo) return;
+    deleteTest(dataId);
+    document.body.style.overflow = 'scroll';
+    setOpenDeleteModal(false);
+    setDeleteNo(false);
+  };
+
+  const onCloseModalDelete = () =>
+  {
+    document.body.style.overflow = 'scroll';
+    setOpenDeleteModal(false);
+  }
 
 
   const QaTesting = [];
@@ -220,12 +250,18 @@ export default function User({ data }) {
                 )}
               </tbody>
             </table>
-              {isOpenModal && (
-           <ModalTestConfirm
-             titleTest={nameTest}
-             onClickYes={handleClickYes}
-             onClickNo={handleClickNo}
-             onCloseModal={onCloseModal}
+            {isOpenModal && (
+              <ModalTestConfirm
+                titleTest={nameTest}
+                onClickYes={handleClickYes}
+                onClickNo={handleClickNo}
+                onCloseModal={onCloseModal}
+              />)}
+               {openDeleteModal && (
+           <ModalDelete
+             onClickYes={handleClickDeleteYes}
+             onClickNo={handleClickNoDelete}
+                onCloseModal={onCloseModalDelete}
            />
          )}
           </div>
