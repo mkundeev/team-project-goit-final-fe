@@ -1,70 +1,71 @@
 .materialsMain {
-    background: url("../images/mob1xtop.png") top right,
-        url("../images/mob1xbottom.png") bottom -55px right;
-    background-repeat: no-repeat;
-    background-size: 340px;
-    border-top: 1px solid var(--black);
-    padding-top: 60px;
-    padding-bottom: 117px;
-    height: calc(100vh - 56px - 68px);
-    background-color: var(--bgColorMaterials);
+  background: url('../images/mob1xtop.png') top right,
+    url('../images/mob1xbottom.png') bottom -55px right;
+  background-repeat: no-repeat;
+  background-size: 340px;
+  border-top: 1px solid var(--black);
+  padding-top: 60px;
+  padding-bottom: 117px;
+  height: calc(100vh - 56px - 68px);
+  background-color: var(--bgColorMaterials);
 }
 
 @media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
-    .materialsMain {
-        background: url("../images/mob2xtop.png") top right,
-            url("../images/mob2xbottom.png") bottom -55px right;
-        background-repeat: no-repeat;
-        background-size: 340px;
-        height: calc(100vh - 56px - 68px);
-    }
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .materialsMain {
+    background: url('../images/mob2xtop.png') top right,
+      url('../images/mob2xbottom.png') bottom -55px right;
+    background-repeat: no-repeat;
+    background-size: 340px;
+    height: calc(100vh - 56px - 68px);
+  }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
+  .materialsMain {
+    background: url('../images/table1xtop.png') top -60px right,
+      url('../images/table1xbottom.png') bottom -60px right;
+    background-size: 720px;
+    padding-top: 180px;
+    padding-bottom: 356px;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
 
-    .materialsMain {
-        background: url("../images/table1xtop.png") top -60px right,
-            url("../images/table1xbottom.png") bottom -60px right;
-        background-size: 720px;
-        padding-top: 180px;
-        padding-bottom: 356px;
-        height: 100%;
-    }
-
-    @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        .materialsMain {
-            background: url("../images/table2xtop.png") top -60px right,
-                url("../images/table2xbottom.png") bottom -60px right;
-            background-repeat: no-repeat;
-            background-size: 720px;
-        }
+    .materialsMain {
+      background: url('../images/table2xtop.png') top -60px right,
+        url('../images/table2xbottom.png') bottom -60px right;
+      background-repeat: no-repeat;
+      background-size: 720px;
     }
+  }
 }
 
-@media screen and (min-width:1280px) {
-    .materialsMain {
-        background-image: url("../images/desktop1x.png");
-        background-size: contain;
-        padding-top: 100px;
-        background-repeat: no-repeat;
-        padding-bottom: 272px;
-    }
+@media screen and (min-width: 1280px) {
+  .materialsMain {
+    background-image: url('../images/desktop1x.png');
+    background-size: contain;
+    padding-top: 100px;
+    background-repeat: no-repeat;
+    padding-bottom: 272px;
+    background-position: right -10px top;
+  }
 
-    @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        .materialsMain {
-            background-position: right top;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-image: url("../images/desktop2x.png");
-        }
+    .materialsMain {
+      background-position: right top;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('../images/desktop2x.png');
     }
+  }
 }
