@@ -49,7 +49,7 @@
 @media screen and (min-width: 1280px) {
   .materialsMain {
     background-image: url('../images/desktop1x.png');
-    background-size: contain;
+    background-size: cover;
     padding-top: 100px;
     background-repeat: no-repeat;
     padding-bottom: 272px;
@@ -62,7 +62,7 @@
     (min-resolution: 2dppx) {
     .materialsMain {
       background-position: right top;
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
       background-image: url('../images/desktop2x.png');
     }

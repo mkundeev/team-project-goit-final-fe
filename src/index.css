@@ -23,6 +23,7 @@ html[data-theme='light'] {
 
   --primaryBgColor: #f5f6fb;
   --footerBgColor: #02172a;
+  --formBgColor: #ffffff;
   --diagramWrongBgColor: #d7d7d7;
   --btnGoogleBgColor: #fafafa;
   --shadowBtnDN: #81c0d5;
@@ -33,6 +34,7 @@ html[data-theme='light'] {
   --textCharUser: #681f1f;
   --bgTestContainer: #fff;
   --colorShadow: rgba(2, 23, 42, 0.1);
+
 }
 
 html[data-theme='dark'] {
@@ -48,6 +50,7 @@ html[data-theme='dark'] {
 
   --primaryBgColor: #1d1d1d;
   --footerBgColor: #1d1d1d;
+  --formBgColor: #1d1d1d;
   --diagramWrongBgColor: #3f3e3e;
   --btnGoogleBgColor: #111111;
   --shadowBtnDN: #fff;
