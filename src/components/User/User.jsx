@@ -23,7 +23,7 @@ export default function User({ data }) {
   const [filteredData, setFilteredData] = useState(data);
   const [ deleteTest ] = useDeleteTestFromSatisticMutation();
   const [ pathToTest, setPathToTest ] = useState('');
-   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [nameTest, setNameTest] = useState('');
   const startedTests = useSelector(getStartedTests);
   const navigate = useNavigate();
@@ -108,18 +108,18 @@ export default function User({ data }) {
   };
 
    const handleOpenModal = e => {
-    document.body.style.overflow = 'hidden';
      const path = e.currentTarget.id;
      setPathToTest(path);
-    const testWasStarted = startedTests.find(
-      test => test.topic === e.target.dataset.topic
-    );
-    
-    if (!testWasStarted) {
-      navigate(`/test/${path}`);
-      return;
-    }
-    
+     const testWasStarted = startedTests.find(
+       test => test.topic === e.target.dataset.topic
+       );
+       
+       if (!testWasStarted) {
+         navigate(`/test/${path}`);
+         return;
+        }
+        
+    document.body.style.overflow = 'hidden';
     setIsOpenModal(true);
     setNameTest(testWasStarted.topic);
     };
