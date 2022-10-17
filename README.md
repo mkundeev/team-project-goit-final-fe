@@ -21,9 +21,9 @@ HTML5, CSS(modules), JS, React, Redux, React Router, Node.js, Express, MongoDB
 
 ## Contibutors
 
-- Maksym Kundieiev (Team-lead)\
+- Maksym Kundieiev (Team Leader)\
 Authorization and login through Google(@react-oauth/google and google-auth-library), setting the global state of the application and sending requests (Redux Toolkit). Back-end documentation (swagger)
-- Yuliia Yavorska (Scram-master)\
+- Yuliia Yavorska (Scrum Master)\
 Completed the Contacts page and the user's own account. Application footer and implemented a dark theme in the application with a custom button.
 - Vlad Kozak (Developer)\
 Create back-end part of application. Сonfigured user authorization and registration. Set up all the application logic related to the selection of 12 random questions, the calculation of the results of the passed test and saving user data on passed tests using MongoDB. 
