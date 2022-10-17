@@ -5,7 +5,7 @@ take tests in QA technical training and test theory. The results of all passed t
 Aplication has dark and light mode.
 
 ## Links
-[Pro-test](https://pro-test-goit.netlify.app)
+[Pro Test](https://pro-test-goit.netlify.app)
 
 [Back-end](https://nodejs-project-goit.herokuapp.com/)
 
@@ -22,7 +22,7 @@ HTML5, CSS(modules), JS, React, Redux, React Router, Node.js, Express, MongoDB
 ## Contibutors
 
 - Maksym Kundieiev (Team Leader)\
-Authorization and login through Google(@react-oauth/google and google-auth-library), setting the global state of the application and sending requests (Redux Toolkit). Back-end documentation (swagger)
+Authorization through Google(@react-oauth/google and google-auth-library), setting the global state of the application and sending requests (Redux Toolkit). Back-end documentation (swagger)
 - Yuliia Yavorska (Scrum Master)\
 Completed the Contacts page and the user's own account. Application footer and implemented a dark theme in the application with a custom button.
 - Vlad Kozak (Developer)\
