@@ -1,4 +1,4 @@
-# Pro-Test
+# Pro Test
 
 Pro Test is adaptive SPA to test your knowledge in QA. This application allows you to
 take tests in QA technical training and test theory. The results of all passed tests will be saved in your personal account and will be available on any device. 
