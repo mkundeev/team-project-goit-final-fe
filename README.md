@@ -16,7 +16,7 @@ HTML5, CSS(modules), JS, React, Redux, React Router, Node.js, Express, MongoDB
 
 - This project was created with Create-react-app. For dating and setting additional features
 [refer to documentation](https://create-react-app.dev/);
-- For user registration and authorization was created own back-end with possibility to use google authorization; 
+- For user registration and authorization was created back-end with possibility to use google authorization; 
 - For data storage was used MongoDB;
 
 ## Contibutors
