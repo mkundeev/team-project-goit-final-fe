@@ -34,3 +34,7 @@ Create home, materials, result and user page
 - Dmytrii Shypilov (Developer)\
 Create stateful Header component including a mobile version of the navigation panel in the form of a separate modal window realized through the createPortal mechanism. Worked on the development of the Authorization page with its form component intended for  "sign in" and sign up" processes. Realized the validation procedure and ability to send the corresponding request to our server. All the elaborated components conform to the principles of adaptive styles where the styles of components are changed depending on the corresponding media queries.
 
+## Presentation
+
+Presentation of the project
+[link to presentation](https://drive.google.com/file/d/1d1Cr0tULvXGYDiVjQfUUj5yqKVAjQGTZ/view?usp=sharing)
