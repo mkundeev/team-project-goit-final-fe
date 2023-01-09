@@ -3,8 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const testsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl:
-      'http://goittestqa-env.eba-s53mqkqf.us-east-1.elasticbeanstalk.com/',
+    baseUrl: 'https://team-project-goit-final-backend.mkundeev.repl.co/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().currentUser.token;
       if (token) {
