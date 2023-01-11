@@ -7,7 +7,7 @@ Aplication has dark and light mode.
 ## Links
 [Pro Test](https://pro-test-goit.netlify.app)
 
-[Back-end](https://nodejs-project-goit.herokuapp.com/)
+[Back-end](https://team-project-goit-final-backend.mkundeev.repl.co/)
 
 
 ## Used technologies
